@@ -20,7 +20,7 @@ export function Services() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-12">
           {/* Exames: lista editorial */}
-          <Reveal className="flex flex-col rounded-[2.5rem] bg-white p-6 shadow-[0_30px_60px_-40px_rgba(20,45,41,0.35)] ring-1 ring-pine-600/5 sm:p-10 lg:col-span-7">
+          <Reveal className="flex flex-col rounded-[2.5rem] bg-white p-6 shadow-card ring-1 ring-pine-600/5 sm:p-10 lg:col-span-7">
             <div className="flex items-baseline justify-between">
               <h3 className="font-display text-3xl font-medium text-pine-700">Exames na própria clínica</h3>
               <span className="text-sm font-semibold text-rose-500">{EXAMS.length} serviços</span>
@@ -62,7 +62,7 @@ export function Services() {
 
           <div className="grid gap-6 lg:col-span-5">
             {/* Cuidado multiprofissional */}
-            <Reveal delay={0.1} className="relative overflow-hidden rounded-[2.5rem] bg-pine-700 p-8 text-cream-50 sm:p-10">
+            <Reveal delay={0.1} className="relative overflow-hidden rounded-[2.5rem] bg-pine-700 p-8 shadow-pine text-cream-50 sm:p-10">
               <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-pine-500/40 blur-2xl" />
               <h3 className="font-display relative text-3xl font-medium">
                 Cuidado <span className="italic text-rose-200">multiprofissional</span>
@@ -84,7 +84,7 @@ export function Services() {
             </Reveal>
 
             {/* Cursos */}
-            <Reveal delay={0.2} className="group relative overflow-hidden rounded-[2.5rem] bg-rose-100">
+            <Reveal delay={0.2} className="group relative overflow-hidden rounded-[2.5rem] bg-rose-100 shadow-card transition-shadow duration-500 hover:shadow-lift">
               <div className="relative h-56 overflow-hidden">
                 <ParallaxImage src={assetUrl("images/curso-culinaria.webp")} alt="Crianças com as mãos sujas de massa no curso de culinária" amount={10} position="50% 40%" className="h-full w-full" />
                 <span className="absolute left-5 top-5 rounded-full bg-cream-50/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-pine-700">Cursos para famílias</span>

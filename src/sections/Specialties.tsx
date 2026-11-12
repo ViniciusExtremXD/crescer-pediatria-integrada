@@ -110,7 +110,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
   const docs = doctorsOf(s);
   return (
     <div className={compact ? "pb-7" : ""}>
-      <div className={`relative overflow-hidden rounded-[2rem] bg-pine-700 ${compact ? "aspect-[16/11]" : "aspect-[5/4]"}`}>
+      <div className={`relative overflow-hidden rounded-[2rem] bg-pine-700 shadow-glass ring-1 ring-white/10 ${compact ? "aspect-[16/11]" : "aspect-[5/4]"}`}>
         <motion.img
           key={s.photo}
           src={assetUrl(s.photo)}

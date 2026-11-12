@@ -114,7 +114,7 @@ export function Nav() {
       >
         <nav
           className={`mx-auto flex h-[68px] max-w-7xl items-center justify-between rounded-[22px] border border-white/70 px-2.5 pl-4 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-500 sm:px-3 sm:pl-5 ${
-            solid ? "bg-cream-50/90 shadow-[0_14px_40px_-16px_rgba(20,45,41,0.35)]" : "bg-cream-50/70 shadow-[0_10px_30px_-18px_rgba(20,45,41,0.3)]"
+            solid ? "bg-cream-50/90 shadow-lift" : "bg-cream-50/70 shadow-soft"
           }`}
           aria-label="Principal"
         >
@@ -140,9 +140,20 @@ export function Nav() {
               <Phone weight="fill" className="h-4 w-4 text-rose-400" />
               {COMPANY.phoneDisplay}
             </PhoneLink>
+            <a
+              href={COMPANY.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => pushEvent("instagram_click", { link_location: "nav" })}
+              aria-label={`Instagram @${COMPANY.instagramHandle}`}
+              className="group relative grid h-11 w-11 place-items-center overflow-hidden rounded-full border border-pine-600/15 bg-white text-pine-700 shadow-soft transition-colors hover:border-transparent hover:text-white"
+            >
+              <span className="absolute inset-0 scale-0 rounded-full bg-[linear-gradient(135deg,#F58529,#DD2A7B_50%,#8134AF)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-100" />
+              <InstagramLogo weight="bold" className="relative h-5 w-5 transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110" />
+            </a>
             <WhatsAppLink
               location="nav"
-              className="hidden h-11 items-center gap-2 rounded-full bg-pine-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-pine-800 sm:inline-flex"
+              className="hidden h-11 items-center gap-2 rounded-full bg-pine-600 px-5 text-sm font-semibold text-white shadow-pine transition-colors hover:bg-pine-800 sm:inline-flex"
             >
               <WhatsappLogo weight="fill" className="h-4 w-4" />
               Agendar consulta
@@ -312,7 +323,7 @@ export function CookieNotice() {
         <motion.div
           role="region"
           aria-label="Aviso de cookies"
-          className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-[45] rounded-2xl border border-pine-600/10 bg-cream-50/95 p-4 text-[13px] text-pine-900 shadow-[0_18px_40px_-12px_rgba(20,45,41,0.4)] backdrop-blur-xl md:inset-x-auto md:bottom-6 md:left-6 md:max-w-sm md:text-sm"
+          className="fixed inset-x-2 bottom-[max(0.5rem,env(safe-area-inset-bottom))] z-[45] rounded-2xl border border-pine-600/10 bg-cream-50/95 p-4 text-[13px] text-pine-900 shadow-float backdrop-blur-xl md:inset-x-auto md:bottom-6 md:left-6 md:max-w-sm md:text-sm"
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 24, opacity: 0 }}

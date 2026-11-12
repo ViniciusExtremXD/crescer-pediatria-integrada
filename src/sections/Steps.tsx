@@ -52,7 +52,7 @@ export function Steps() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px 0px -10% 0px" }}
                 transition={{ duration: 0.9, ease: EASE_OUT, delay: i * 0.15 }}
-                className="group relative rounded-[2rem] bg-white p-8 shadow-[0_30px_60px_-45px_rgba(20,45,41,0.45)] ring-1 ring-pine-600/5"
+                className="group relative rounded-[2rem] bg-white p-8 shadow-card transition-shadow duration-500 hover:shadow-lift ring-1 ring-pine-600/5"
               >
                 <div className="flex items-center justify-between">
                   <span className="grid h-16 w-16 place-items-center rounded-full bg-rose-100 text-rose-500 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110">

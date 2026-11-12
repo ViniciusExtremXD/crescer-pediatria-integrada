@@ -79,7 +79,7 @@ export function ContactForm() {
           key="form"
           onSubmit={onSubmit}
           noValidate
-          className="rounded-[2rem] bg-white p-6 shadow-[0_40px_80px_-50px_rgba(0,0,0,0.6)] sm:p-9"
+          className="rounded-[2rem] bg-white p-6 shadow-float sm:p-9"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}

@@ -50,6 +50,17 @@ export default {
       letterSpacing: {
         tightest: "-0.04em",
       },
+      /* Sombras em camadas, tingidas de verde-petróleo (nunca preto puro) */
+      boxShadow: {
+        soft: "0 1px 2px rgba(20,45,41,0.04), 0 4px 10px -4px rgba(20,45,41,0.08), 0 18px 36px -18px rgba(20,45,41,0.18)",
+        card: "0 1px 2px rgba(20,45,41,0.05), 0 8px 18px -8px rgba(20,45,41,0.12), 0 30px 60px -30px rgba(20,45,41,0.30)",
+        lift: "0 2px 4px rgba(20,45,41,0.06), 0 14px 28px -10px rgba(20,45,41,0.18), 0 44px 80px -36px rgba(20,45,41,0.42)",
+        float: "0 2px 6px rgba(20,45,41,0.08), 0 22px 44px -16px rgba(20,45,41,0.32), 0 60px 110px -50px rgba(20,45,41,0.5)",
+        rose: "0 10px 24px -10px rgba(196,111,120,0.45), 0 30px 60px -28px rgba(196,111,120,0.55)",
+        pine: "0 10px 24px -10px rgba(47,91,84,0.5), 0 30px 60px -28px rgba(47,91,84,0.6)",
+        "inner-line": "inset 0 0 0 1px rgba(47,91,84,0.07)",
+        glass: "inset 0 1px 0 rgba(255,255,255,0.12), 0 20px 40px -24px rgba(0,0,0,0.5)",
+      },
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.75rem",
@@ -70,8 +81,18 @@ export default {
         "spin-slow": {
           to: { transform: "rotate(360deg)" },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "marquee-rev": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
       },
       animation: {
+        marquee: "marquee 60s linear infinite",
+        "marquee-rev": "marquee-rev 64s linear infinite",
         "pulse-ring": "pulse-ring 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite",
         float: "float 7s ease-in-out infinite",
         sway: "sway 5s ease-in-out infinite",

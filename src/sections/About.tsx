@@ -49,7 +49,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -10% 0px" }}
               transition={{ duration: 1, ease: EASE_OUT, delay: i * 0.12 }}
-              className={`group relative overflow-hidden rounded-[2rem] ${p.tone} md:even:translate-y-14`}
+              className={`group relative overflow-hidden rounded-[2rem] shadow-card transition-shadow duration-500 hover:shadow-float ${p.tone} md:even:translate-y-14`}
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
                 <ParallaxImage src={assetUrl(p.img)} alt={p.alt} amount={8} position={p.pos} className="h-full w-full" imgClassName="transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]" />

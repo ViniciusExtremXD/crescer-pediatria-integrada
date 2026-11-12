@@ -15,6 +15,7 @@ export const COMPANY = {
   instagramHandle: "crescer.pediatriaintegrada",
   instagramUrl: "https://www.instagram.com/crescer.pediatriaintegrada/",
   instagramFollowers: "8 mil",
+  googleReviewsUrl: "https://www.google.com/maps?cid=15194554536432631035",
   googleRating: "4,8",
   googleReviews: 40,
   years: 4,
@@ -89,37 +90,144 @@ export const NAV_LINKS = [
 
 /* ───────────────────────── Equipe médica ───────────────────────── */
 
+export interface DoctorReview {
+  text: string;
+  author: string;
+}
+
 export interface Doctor {
   id: string;
   name: string;
   specialty: string;
+  specialtyId: string;
   /* null = número não confirmado (não exibir). */
   crm: string | null;
   photo: string;
+  /* Posição do recorte da foto no card (CSS object-position). */
+  focus?: string;
+  about: string;
   instagram?: string;
+  /* Trechos reais de avaliações do Google que citam a médica. */
+  reviews?: DoctorReview[];
 }
 
 export const DOCTORS: Doctor[] = [
-  { id: "karla", name: "Dra. Karla Bussons", specialty: "Pediatria Geral", crm: "CRM-AP 1528 · RQE 767", photo: "images/dra-karla-bussons.webp", instagram: "dra.karlabussonspediatra" },
-  { id: "lorena", name: "Dra. Lorena Neri", specialty: "Pediatria Geral", crm: "CRM-AP 1597 · RQE 803", photo: "images/polaroid-lorena.webp" },
-  { id: "nathalia", name: "Dra. Nathalia Dias", specialty: "Gastroenterologia Pediátrica", crm: "CRM-AP 1447 · RQE 819/820", photo: "images/dra-nathalia-dias.webp", instagram: "nathaliadias.gastropediatra" },
-  { id: "regiane", name: "Dra. Regiane Barreto", specialty: "Pneumologia Pediátrica", crm: "CRM-AP 1441 · RQE 898", photo: "images/dra-regiane-barreto.webp" },
-  { id: "laila", name: "Dra. Laila Botelho", specialty: "Alergia e Imunologia Pediátrica", crm: "CRM-AP 1403 · RQE 1122", photo: "images/slide-laila.webp" },
-  { id: "marcia", name: "Dra. Márcia Cajueiro", specialty: "Pediatria do Neurodesenvolvimento", crm: "CRM-AP 1550 · RQE 968", photo: "images/slide-marcia.webp" },
+  {
+    id: "karla",
+    name: "Dra. Karla Bussons",
+    specialty: "Pediatria Geral",
+    specialtyId: "pediatria",
+    crm: "CRM-AP 1528 · RQE 767",
+    photo: "images/dra-karla-bussons.webp",
+    focus: "50% 22%",
+    about: "Pediatra geral da Crescer. Acompanha crescimento, desenvolvimento, alimentação, sono e vacinação, e identifica quando uma avaliação especializada pode ser necessária.",
+    instagram: "dra.karlabussonspediatra",
+    reviews: [
+      { text: "Atendimento humanizado, cuidadoso e cheio de carinho Dra Karla é incrível. Toda a equipe é muito atenciosa e transmite segurança e confiança.", author: "Alessandra Z." },
+      { text: "A minha primeira impressão foi maravilhosa, a Dr. Karla, super atenciosa e cuidadosa!", author: "Wanessa A." },
+    ],
+  },
+  {
+    id: "lorena",
+    name: "Dra. Lorena Neri",
+    specialty: "Pediatria Geral",
+    specialtyId: "pediatria",
+    crm: "CRM-AP 1597 · RQE 803",
+    photo: "images/polaroid-lorena.webp",
+    focus: "50% 30%",
+    about: "Pediatra geral. Faz o acompanhamento de rotina do bebê ao adolescente: crescimento, desenvolvimento, alimentação, sono, vacinação e prevenção em cada fase.",
+  },
+  {
+    id: "nathalia",
+    name: "Dra. Nathalia Dias",
+    specialty: "Gastroenterologia Pediátrica",
+    specialtyId: "gastro",
+    crm: "CRM-AP 1447 · RQE 819/820",
+    photo: "images/dra-nathalia-dias.webp",
+    focus: "50% 30%",
+    about: "Gastroenterologista pediátrica. Cuida do sistema digestivo da criança: refluxo, dor abdominal, constipação, diarreia, alterações nas fezes, dificuldades alimentares e alergias alimentares.",
+    instagram: "nathaliadias.gastropediatra",
+    reviews: [{ text: "Dra Natalia Dias (Gastropediatra) é bem atenciosa, o atendimento é humanizado do início ao fim. Me senti segura e bem orientada.", author: "Debby R." }],
+  },
+  {
+    id: "regiane",
+    name: "Dra. Regiane Barreto",
+    specialty: "Pneumologia Pediátrica",
+    specialtyId: "pneumo",
+    crm: "CRM-AP 1441 · RQE 898",
+    photo: "images/dra-regiane-barreto.webp",
+    focus: "50% 18%",
+    about: "Pneumologista pediátrica. Atende quando a principal preocupação é a respiração: asma, chiado, tosse persistente, falta de ar e crises respiratórias que se repetem.",
+    reviews: [{ text: "Atendem meu filho sempre com muita paciência, sem pressa, tiram todas as minhas dúvidas. Quero deixar meu agradecimento especial para a Dra. Regiane e Dra. Luara.", author: "Sarina S." }],
+  },
+  {
+    id: "laila",
+    name: "Dra. Laila Botelho",
+    specialty: "Alergia e Imunologia Pediátrica",
+    specialtyId: "alergia",
+    crm: "CRM-AP 1403 · RQE 1122",
+    photo: "images/slide-laila.webp",
+    focus: "50% 12%",
+    about: "Alergista e imunologista pediátrica. Investiga e acompanha alergias alimentares, respiratórias e de pele, outras reações e alterações do sistema imunológico.",
+  },
+  {
+    id: "marcia",
+    name: "Dra. Márcia Cajueiro",
+    specialty: "Pediatria do Neurodesenvolvimento",
+    specialtyId: "neuro",
+    crm: "CRM-AP 1550 · RQE 968",
+    photo: "images/slide-marcia.webp",
+    focus: "50% 12%",
+    about: "Pediatra do neurodesenvolvimento. Acompanha questões de desenvolvimento, comportamento, aprendizagem e outras particularidades do neurodesenvolvimento.",
+  },
   /* O post publica o mesmo CRM/RQE da Dra. Regiane para a Dra. Helena: A CONFIRMAR antes de exibir. */
-  { id: "helena", name: "Dra. Helena Progênio", specialty: "Infectologia Pediátrica", crm: null, photo: "images/slide-helena.webp" },
-  { id: "luciana", name: "Dra. Luciana Campos", specialty: "Hematologia Pediátrica", crm: "CRM-AP 401 · RQE 450", photo: "images/dra-luciana-campos.webp" },
+  {
+    id: "helena",
+    name: "Dra. Helena Progênio",
+    specialty: "Infectologia Pediátrica",
+    specialtyId: "infecto",
+    crm: null,
+    photo: "images/slide-helena.webp",
+    focus: "50% 12%",
+    about: "Infectologista pediátrica. Acompanha infecções recorrentes, quadros mais complexos, doenças infecciosas específicas e dúvidas sobre prevenção e vacinação.",
+  },
+  {
+    id: "luciana",
+    name: "Dra. Luciana Campos",
+    specialty: "Hematologia Pediátrica",
+    specialtyId: "hemato",
+    crm: "CRM-AP 401 · RQE 450",
+    photo: "images/dra-luciana-campos.webp",
+    focus: "50% 25%",
+    about: "Hematologista pediátrica. Cuida de anemias, alterações no hemograma e nas plaquetas, problemas de coagulação e outras condições hematológicas.",
+  },
 ];
 
+/* Equipe multiprofissional: fotos e registros do post oficial "Também contamos com" (nov/2026). */
 export const CARE_TEAM = [
-  { name: "Helenilde Gibson", role: "Fisioterapia respiratória" },
-  { name: "Ana Cássia", role: "Fisioterapia respiratória" },
-  { name: "Luara Moreira", role: "Nutrição materno-infantil" },
-  { name: "Maira Branco", role: "Nutrição materno-infantil" },
-  { name: "Taynara Lima", role: "Enfermagem pediátrica" },
-  { name: "Valéria Sousa", role: "Fonoaudiologia" },
-  { name: "Tainan Souza", role: "Neuropsicologia infantil" },
-  { name: "Cristina Dias", role: "Neuropsicopedagogia" },
+  { name: "Helenilde Gibson", role: "Fisioterapia respiratória", reg: "CREFITO 12 106558.1-F", photo: "images/equipe/helenilde-gibson.webp" },
+  { name: "Ana Cássia", role: "Fisioterapia respiratória", reg: "CREFITO 213505-F", photo: "images/equipe/ana-cassia.webp" },
+  { name: "Luara Moreira", role: "Nutricionista materno-infantil", reg: "CRN 7-4847", photo: "images/equipe/luara-moreira.webp" },
+  { name: "Maira Branco", role: "Nutricionista materno-infantil", reg: "CRN 7-5223", photo: "images/equipe/maira-branco.webp" },
+  { name: "Taynara Lima", role: "Enfermeira pediátrica", reg: "COREN-AP 514138", photo: "images/equipe/taynara-lima.webp" },
+  { name: "Valéria Sousa", role: "Fonoaudióloga", reg: "CRFa 9-6291-5", photo: "images/equipe/valeria-sousa.webp" },
+  { name: "Tainan Souza", role: "Neuropsicóloga infantil", reg: "CRP 10/06786", photo: "images/equipe/tainan-souza.webp" },
+  { name: "Cristina Dias", role: "Neuropsicopedagoga", reg: "CBO 2394-40", photo: "images/equipe/cristina-dias.webp" },
+];
+
+/* ───────────────────────── Avaliações reais do Google ─────────────────────────
+ * Copiadas do perfil da clínica no Google Maps em 12/11/2026 (todas 5 estrelas),
+ * mantidas como escritas pelas famílias. Nomes abreviados por privacidade.
+ */
+export const GOOGLE_REVIEWS = [
+  { author: "Sarina S.", text: "Profissionais maravilhosas. Muito competentes, cuidadosas. Atendem meu filho sempre com muita paciência, sem pressa, tiram todas as minhas dúvidas. Além de terem um espaço muito bem equipado e preparado para atender crianças. Meu filho ama a clínica, brinca do início ao fim da consulta." },
+  { author: "Alessandra Z.", text: "Adorei a experiência na clínica! Atendimento humanizado, cuidadoso e cheio de carinho. Toda a equipe é muito atenciosa e transmite segurança e confiança. É muito bom saber que nossos pequenos estão em boas mãos! ❤️" },
+  { author: "Mariane F.", text: "Um ótimo atendimento, lugar acolhedor, equipe muito simpática e prestativa, lá tem diversas especialidades e as crianças amam ir, pois a brinquedoteca é incrível!" },
+  { author: "Anderson M.", text: "Sou muito satisfeito com os profissionais que atendem meus filhos, já frequentamos a clínica desde 2022 e sempre fomos muito bem atendidos." },
+  { author: "Antonia V.", text: "As profissionais são extremamente competentes, atenciosas e comprometidas com o cuidado integral do paciente. O atendimento é humanizado, ético e transmite muita segurança desde o primeiro contato." },
+  { author: "Ruy G.", text: "Ótimas profissionais! Transmitem todo o conhecimento que possuem mas sem deixar de prestar o devido cuidado. Meu filho foi muito bem tratado." },
+  { author: "Wanessa A.", text: "A minha primeira impressão foi maravilhosa, a Dr. Karla, super atenciosa e cuidadosa!" },
+  { author: "Dayse M.", text: "Atendimento de excelência, as profissionais são competentes e muito qualificadas. Super recomendo!!!" },
 ];
 
 /* ───────────────────────── Especialidades ───────────────────────── */

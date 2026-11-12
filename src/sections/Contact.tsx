@@ -14,7 +14,7 @@ export function Contact() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-5">
-            <SectionLabel index="09" tone="dark">
+            <SectionLabel index="10" tone="dark">
               Contato
             </SectionLabel>
             <h2 className="font-display mt-6 text-[clamp(2.6rem,5.4vw,4.8rem)] font-medium leading-[1] tracking-tight">
@@ -95,7 +95,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.4 }}
-              className="absolute bottom-4 left-4 right-4 rounded-[1.75rem] bg-cream-50 p-6 text-pine-800 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] sm:right-auto sm:max-w-sm"
+              className="absolute bottom-4 left-4 right-4 rounded-[1.75rem] bg-cream-50 p-6 text-pine-800 shadow-float sm:right-auto sm:max-w-sm"
             >
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-500">
                 <MapPin weight="fill" className="h-4 w-4" /> Onde estamos

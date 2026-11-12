@@ -9,7 +9,7 @@ export function Instagram() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <SectionLabel index="07">Instagram</SectionLabel>
+            <SectionLabel index="08">Instagram</SectionLabel>
             <h2 className="font-display mt-6 text-[clamp(2.4rem,5vw,4.4rem)] font-medium leading-[1.02] tracking-tight text-pine-700">
               <SplitWords text="Acompanhe a Crescer de *pertinho*." />
             </h2>
@@ -22,7 +22,7 @@ export function Instagram() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => pushEvent("instagram_click", { link_location: "secao_instagram" })}
-                className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-pine-600 p-1.5 pr-6 text-white shadow-[0_18px_40px_-14px_rgba(196,111,120,0.7)]"
+                className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-pine-600 p-1.5 pr-6 text-white shadow-rose"
               >
                 <span className="grid h-12 w-12 place-items-center rounded-full bg-white/20">
                   <InstagramLogo weight="bold" className="h-6 w-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
@@ -50,7 +50,7 @@ export function Instagram() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => pushEvent("instagram_click", { link_location: "post", post: p.code })}
-                className="group relative block aspect-square overflow-hidden rounded-[1.5rem] bg-rose-200"
+                className="group relative block aspect-square overflow-hidden rounded-[1.5rem] bg-rose-200 shadow-soft transition-shadow duration-500 hover:shadow-lift"
               >
                 <img src={assetUrl(p.img)} alt={p.text} loading="lazy" width={640} height={640} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
                 <div className="absolute inset-0 flex flex-col justify-between bg-pine-800/0 p-4 transition-colors duration-500 group-hover:bg-pine-800/70">

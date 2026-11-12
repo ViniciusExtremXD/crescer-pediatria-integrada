@@ -9,6 +9,7 @@ import { Team } from "./sections/Team";
 import { Services } from "./sections/Services";
 import { Space } from "./sections/Space";
 import { Steps } from "./sections/Steps";
+import { Reviews } from "./sections/Reviews";
 import { Instagram } from "./sections/Instagram";
 import { Faq } from "./sections/Faq";
 import { Contact } from "./sections/Contact";
@@ -41,6 +42,7 @@ export default function App() {
         <Services />
         <Space />
         <Steps />
+        <Reviews />
         <Instagram />
         <Faq />
         <Contact />

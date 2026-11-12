@@ -59,7 +59,7 @@ export function Hero({ ready }: { ready: boolean }) {
             initial={{ opacity: 0, y: 16 }}
             animate={ready ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.8, ease: EASE_OUT }}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 shadow-[0_8px_24px_-16px_rgba(20,45,41,0.4)] backdrop-blur"
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 shadow-soft backdrop-blur"
           >
             <span className="whitespace-nowrap rounded-full bg-pine-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Macapá · AP</span>
             Clínica de especialidades pediátricas
@@ -177,7 +177,7 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         initial={{ clipPath: "inset(100% 0% 0% 0% round 999px 999px 36px 36px)" }}
         animate={ready ? { clipPath: "inset(0% 0% 0% 0% round 999px 999px 36px 36px)" } : undefined}
         transition={{ duration: 1.35, ease: EASE_IN_OUT, delay: 0.3 }}
-        className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[36px] bg-rose-100 shadow-[0_40px_80px_-30px_rgba(20,45,41,0.45)]"
+        className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[36px] bg-rose-100 shadow-float"
       >
         <motion.img
           src={assetUrl("images/criancas-brincando.webp")}
@@ -198,7 +198,7 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         initial={{ opacity: 0, y: 40, rotate: -12 }}
         animate={ready ? { opacity: 1, y: 0, rotate: -6 } : undefined}
         transition={{ duration: 1, ease: EASE_OUT, delay: 1.05 }}
-        className="absolute -bottom-10 -left-4 w-40 rounded-2xl bg-white p-2 pb-3 shadow-[0_24px_50px_-14px_rgba(20,45,41,0.5)] sm:-left-12 sm:w-48"
+        className="absolute -bottom-10 -left-4 w-40 rounded-2xl bg-white p-2 pb-3 shadow-lift sm:-left-12 sm:w-48"
       >
         <img src={assetUrl("images/consulta-bebe-carimbo.webp")} alt="Médica da Crescer em consulta com um bebê" width={1400} height={1063} loading="eager" className="aspect-square w-full rounded-xl object-cover object-[70%_50%]" />
         <figcaption className="font-display mt-2 text-center text-sm italic text-pine-600">consulta sem pressa</figcaption>
@@ -209,7 +209,7 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         initial={{ opacity: 0, scale: 0.6 }}
         animate={ready ? { opacity: 1, scale: 1 } : undefined}
         transition={{ type: "spring", stiffness: 220, damping: 16, delay: 1.35 }}
-        className="absolute right-3 top-[16%] rounded-2xl bg-white/95 px-4 py-3 shadow-[0_20px_40px_-18px_rgba(20,45,41,0.45)] backdrop-blur 2xl:-right-8"
+        className="absolute right-3 top-[16%] rounded-2xl bg-white/95 px-4 py-3 shadow-lift backdrop-blur 2xl:-right-8"
       >
         <div className="flex gap-0.5 text-rose-400">
           {[0, 1, 2, 3, 4].map((i) => (
@@ -227,7 +227,7 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         initial={{ opacity: 0, x: 30 }}
         animate={ready ? { opacity: 1, x: 0 } : undefined}
         transition={{ duration: 0.9, ease: EASE_OUT, delay: 1.5 }}
-        className="group absolute right-3 bottom-[12%] flex items-center gap-3 rounded-full bg-pine-700 py-2 pl-2 pr-5 text-white shadow-[0_20px_40px_-14px_rgba(20,45,41,0.6)] 2xl:-right-10"
+        className="group absolute right-3 bottom-[12%] flex items-center gap-3 rounded-full bg-pine-700 py-2 pl-2 pr-5 text-white shadow-pine 2xl:-right-10"
       >
         <span className="flex -space-x-3">
           {faces.map((d) => (

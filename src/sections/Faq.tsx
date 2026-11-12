@@ -12,7 +12,7 @@ export function Faq() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">
-            <SectionLabel index="08">Dúvidas</SectionLabel>
+            <SectionLabel index="09">Dúvidas</SectionLabel>
             <h2 className="font-display mt-6 text-[clamp(2.4rem,5vw,4.2rem)] font-medium leading-[1.02] tracking-tight text-pine-700">
               <SplitWords text="Antes de *agendar*." />
             </h2>

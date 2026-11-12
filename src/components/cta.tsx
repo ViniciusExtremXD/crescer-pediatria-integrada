@@ -69,9 +69,9 @@ export function PrimaryCta({
   const pad = size === "lg" ? "h-14 pl-6 pr-2 text-[15px]" : "h-12 pl-5 pr-1.5 text-sm";
   const dot = size === "lg" ? "h-10 w-10" : "h-9 w-9";
   const colors = {
-    pine: { base: "bg-pine-600 text-white shadow-[0_18px_40px_-14px_rgba(47,91,84,0.75)]", sweep: "bg-pine-800", dot: "bg-cream-50 text-pine-700" },
-    rose: { base: "bg-rose-500 text-white shadow-[0_18px_40px_-14px_rgba(196,111,120,0.8)]", sweep: "bg-rose-600", dot: "bg-white text-rose-600" },
-    cream: { base: "bg-cream-50 text-pine-800 shadow-[0_18px_40px_-14px_rgba(0,0,0,0.45)]", sweep: "bg-white", dot: "bg-pine-600 text-white" },
+    pine: { base: "bg-pine-600 text-white shadow-pine", sweep: "bg-pine-800", dot: "bg-cream-50 text-pine-700" },
+    rose: { base: "bg-rose-500 text-white shadow-rose", sweep: "bg-rose-600", dot: "bg-white text-rose-600" },
+    cream: { base: "bg-cream-50 text-pine-800 shadow-float", sweep: "bg-white", dot: "bg-pine-600 text-white" },
   }[tone];
   return (
     <Magnetic strength={0.22}>
