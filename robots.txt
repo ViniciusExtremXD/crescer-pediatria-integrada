@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crescerpediatriaintegrada.com.br/sitemap.xml
