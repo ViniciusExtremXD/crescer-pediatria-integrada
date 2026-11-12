@@ -48,5 +48,17 @@ Conteúdo levantado em fontes públicas (Google, Instagram, CNPJ). **Confirmar c
 
 ## Deploy (GitHub Pages)
 
-Publicado a partir da branch `main`, pasta raiz. Para apontar o domínio `crescerpediatriaintegrada.com.br`
-para o GitHub Pages (go-live), siga as instruções do registro DNS no repositório/handoff.
+Publicado da branch `main` (pasta raiz) em https://viniciusextremxd.github.io/crescer-pediatria-integrada/.
+Cada push na `main` republica o site em cerca de 1 minuto.
+
+### Go-live no domínio `crescerpediatriaintegrada.com.br`
+
+Hoje o domínio aponta para a hospedagem da HostGator (nameservers ns230/ns231). Para servir o site pelo GitHub Pages:
+
+1. Na zona DNS do domínio (HostGator, cPanel > Editor de Zona), apontar:
+   - registros **A** da raiz para `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`;
+   - **CNAME** de `www` para `viniciusextremxd.github.io`.
+2. Adicionar um arquivo `CNAME` na raiz do repositório com `crescerpediatriaintegrada.com.br`.
+3. No GitHub, em Settings > Pages, confirmar o domínio personalizado e marcar **Enforce HTTPS** (o certificado leva alguns minutos).
+
+Enquanto isso não for feito, o endereço `github.io` acima serve para apresentação. Não crie o `CNAME` antes do go-live, senão o endereço `github.io` passa a redirecionar para o domínio, que ainda mostra a página padrão da HostGator.
