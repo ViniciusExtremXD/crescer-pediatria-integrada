@@ -1,571 +1,76 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Crescer Pediatria Integrada | Clínica de especialidades pediátricas em Macapá</title>
-  <meta name="description" content="Clínica de especialidades pediátricas em Macapá-AP: pediatria, gastropediatria, pneumologia e mais, com atendimento acolhedor. Agende pelo WhatsApp.">
-  <meta name="theme-color" content="#fff9f2">
-  <link rel="canonical" href="https://crescerpediatriaintegrada.com.br/">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crescer Pediatria Integrada | Clínica de especialidades pediátricas em Macapá</title>
+    <meta
+      name="description"
+      content="Pediatria e especialidades pediátricas em Macapá/AP: gastro, pneumo, alergia, neurodesenvolvimento, infecto e hemato, com equipe multiprofissional e exames na clínica. Agende pelo WhatsApp."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#FFFBF7" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="canonical" href="https://crescerpediatriaintegrada.com.br/" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="preload" as="image" href="%BASE_URL%images/criancas-brincando.webp" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Crescer Pediatria Integrada">
-  <meta property="og:title" content="Crescer Pediatria Integrada | Pediatria feita com amor e dedicação">
-  <meta property="og:description" content="Clínica de especialidades pediátricas em Macapá-AP. Uma equipe integrada para acompanhar seu filho em todas as fases da infância.">
-  <meta property="og:url" content="https://crescerpediatriaintegrada.com.br/">
-  <meta property="og:image" content="https://crescerpediatriaintegrada.com.br/assets/img/og-image.jpg">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="420">
-  <meta name="twitter:card" content="summary_large_image">
+    <!-- SEO local -->
+    <meta name="geo.region" content="BR-AP" />
+    <meta name="geo.placename" content="Macapá" />
+    <meta name="geo.position" content="0.0433638;-51.0766207" />
+    <meta name="ICBM" content="0.0433638, -51.0766207" />
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/nunito-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script>document.documentElement.classList.add('js');</script>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Crescer Pediatria Integrada" />
+    <meta property="og:title" content="Crescer Pediatria Integrada — Pediatria feita com amor e dedicação" />
+    <meta property="og:description" content="Clínica de especialidades pediátricas em Macapá. Uma equipe integrada para acompanhar seu filho em todas as fases da infância." />
+    <meta property="og:url" content="https://crescerpediatriaintegrada.com.br/" />
+    <meta property="og:image" content="https://crescerpediatriaintegrada.com.br/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Médicas da Crescer Pediatria Integrada na recepção da clínica" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- ===== Consent Mode v2 (LGPD): tudo negado até o visitante aceitar ===== -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('consent', 'default', {
-      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-      analytics_storage: 'denied', wait_for_update: 500
-    });
-    try {
-      if (localStorage.getItem('crescer_consent') === 'granted') {
-        gtag('consent', 'update', {
-          ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'
-        });
-      }
-    } catch (e) {}
-  </script>
+    <!-- Consent Mode v2 (LGPD): tudo negado até o visitante aceitar no aviso de cookies -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "denied", wait_for_update: 500 });
+      try {
+        if (localStorage.getItem("crescer-consent") === "granted")
+          gtag("consent", "update", { ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted", analytics_storage: "granted" });
+      } catch (e) {}
+    </script>
 
-  <!-- ===== Google Tag Manager =====
-       Troque GTM-XXXXXXX pelo ID do contêiner (ver TRACKING.md). Enquanto for o
-       placeholder, o GTM não carrega. Meta Pixel, GA4 e Google Ads rodam dentro dele. -->
-  <script>
-    (function(w,d,s,l,i){
-      if (/^GTM-X+$/.test(i)) return; // placeholder: não carrega
-      w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s);
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');
-  </script>
+    <!--
+      Google Tag Manager — só carrega no domínio de produção, para que prévias (GitHub Pages,
+      localhost) não mandem visitas nem conversões para o GA4 / Google Ads da clínica.
+      Para testar numa prévia, abra com ?gtm_debug=x (o Tag Assistant faz isso) ou ?track=1.
+      Troque GTM-XXXXXXX pelo ID do contêiner (ver TRACKING.md).
+    -->
+    <script>
+      (function (w, d, s, l, i) {
+        var prod = /(^|\.)crescerpediatriaintegrada\.com\.br$/.test(w.location.hostname);
+        var debug = /[?&](gtm_debug|track)=/.test(w.location.search);
+        w[l] = w[l] || [];
+        if ((!prod && !debug) || /^GTM-X+$/.test(i)) return;
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-XXXXXXX");
+    </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "name": "Crescer Pediatria Integrada",
-    "legalName": "CRESCER PED LTDA",
-    "url": "https://crescerpediatriaintegrada.com.br/",
-    "description": "Clínica de especialidades pediátricas em Macapá-AP.",
-    "medicalSpecialty": "Pediatric",
-    "telephone": "+55-96-98107-4126",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Av. Raimundo Álvares da Costa, 2659",
-      "addressLocality": "Macapá",
-      "addressRegion": "AP",
-      "postalCode": "68901-256",
-      "addressCountry": "BR"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 0.0433638, "longitude": -51.0766207 },
-    "sameAs": ["https://www.instagram.com/crescer.pediatriaintegrada/"]
-  }
-  </script>
-</head>
-
-<body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-
-  <!-- ===== Ícones (sprite) ===== -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .7a3.6 3.6 0 0 1-1.6-1.6l.7-1-1-2Z"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
-      <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-steth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
-      <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
-      <symbol id="i-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
-      <symbol id="i-fork" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
-      <symbol id="i-milk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"/><path d="M9 2v2.789a4 4 0 0 1-.672 2.219l-.656.984A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9.789a4 4 0 0 0-.672-2.219l-.656-.984A4 4 0 0 1 15 4.788V2"/><path d="M7 15a6.472 6.472 0 0 1 5 0 6.47 6.47 0 0 0 5 0"/></symbol>
-      <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-      <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></symbol>
-      <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
-      <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
-      <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
-      <symbol id="i-menu"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-      <symbol id="mark" viewBox="0 0 120 120">
-        <circle cx="60" cy="60" r="58" fill="#fff3ef"/>
-        <path d="M82 36C64 22 36 30 33 56c-2 24 19 40 41 28" fill="none" stroke="#d97788" stroke-width="7" stroke-linecap="round"/>
-        <circle cx="78" cy="86" r="9" fill="none" stroke="#d97788" stroke-width="6"/>
-        <path d="M70 29c-3-10-14-12-20-8 2 9 11 12 20 8z" fill="#1d5b52"/>
-      </symbol>
-    </defs>
-  </svg>
-
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="topo">
-    <div class="container header-inner">
-      <a class="brand" href="#topo" aria-label="Crescer Pediatria Integrada — início">
-        <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
-        <span class="brand-text">
-          <span class="brand-name">Crescer</span>
-          <span class="brand-sub">Pediatria Integrada</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Principal">
-        <ul>
-          <li><a href="#especialidades">Especialidades</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#a-clinica">A clínica</a></li>
-          <li><a href="#duvidas">Dúvidas</a></li>
-          <li><a href="#localizacao">Localização</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <a class="btn btn--sm header-cta" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="header">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar consulta
-        </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
-          <svg class="icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
-          <svg class="icon-close" aria-hidden="true"><use href="#i-close"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-nav" id="menu-mobile">
-      <ul>
-        <li><a href="#especialidades">Especialidades</a></li>
-        <li><a href="#como-funciona">Como funciona</a></li>
-        <li><a href="#a-clinica">A clínica</a></li>
-        <li><a href="#duvidas">Dúvidas</a></li>
-        <li><a href="#localizacao">Localização</a></li>
-      </ul>
-      <a class="btn btn--block" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="menu_mobile">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar pelo WhatsApp
-      </a>
-    </div>
-  </header>
-
-  <main id="conteudo">
-
-    <!-- ===== Hero ===== -->
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow reveal">Clínica de especialidades pediátricas · Macapá, AP</p>
-          <h1 id="hero-titulo" class="reveal" data-delay="1">Pediatria feita com <span class="accent">amor</span> e dedicação.</h1>
-          <p class="hero-lead reveal" data-delay="2">Uma equipe integrada para acompanhar seu filho em todas as fases da infância, do recém-nascido à adolescência, e acolher a família em cada etapa.</p>
-
-          <div class="hero-actions reveal" data-delay="3">
-            <a class="btn" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="hero">
-              <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar pelo WhatsApp
-            </a>
-            <a class="btn btn--ghost" href="#especialidades">
-              Conhecer especialidades <svg aria-hidden="true"><use href="#i-arrow"/></svg>
-            </a>
-          </div>
-
-          <ul class="trust-row reveal" data-delay="3" aria-label="Diferenciais">
-            <li><svg aria-hidden="true"><use href="#i-star"/></svg> 4,8 no Google · 40 avaliações</li>
-            <li><svg aria-hidden="true"><use href="#i-heart"/></svg> 4 anos de história</li>
-            <li><svg aria-hidden="true"><use href="#i-users"/></svg> Equipe multiprofissional</li>
-          </ul>
-        </div>
-
-        <div class="hero-visual reveal" data-delay="2">
-          <span class="blob blob--1" aria-hidden="true"></span>
-          <span class="blob blob--2" aria-hidden="true"></span>
-          <div class="arch">
-            <!-- Para usar uma foto real da clínica: salve em assets/img/hero.jpg (ela aparece sozinha). -->
-            <img class="hero-photo" src="assets/img/hero.jpg" alt="" data-optional width="800" height="1000">
-            <svg class="arch-mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
-          </div>
-          <div class="float-card float-card--a"><span class="ico"><svg aria-hidden="true"><use href="#i-steth"/></svg></span>Pediatria</div>
-          <div class="float-card float-card--b"><span class="ico"><svg aria-hidden="true"><use href="#i-wind"/></svg></span>Pneumologia</div>
-          <div class="float-card float-card--c"><span class="ico"><svg aria-hidden="true"><use href="#i-fork"/></svg></span>Gastropediatria</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Valores ===== -->
-    <section class="section section--tight" aria-label="Nosso jeito de cuidar">
-      <div class="container values">
-        <article class="value reveal">
-          <span class="ico"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>
-          <h3>Cuidar</h3>
-          <p>Atenção ao que a criança sente e ao que a família precisa, sem pressa na consulta.</p>
-        </article>
-        <article class="value reveal" data-delay="1">
-          <span class="ico"><svg aria-hidden="true"><use href="#i-smile"/></svg></span>
-          <h3>Acolher</h3>
-          <p>Um espaço pensado e lúdico, para a criança se sentir bem e os pais, seguros.</p>
-        </article>
-        <article class="value reveal" data-delay="2">
-          <span class="ico"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>
-          <h3>Desenvolver</h3>
-          <p>Acompanhamento em cada fase, para a criança crescer com saúde e a família, com informação.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===== Especialidades ===== -->
-    <section class="section section--sage" id="especialidades" aria-labelledby="esp-titulo">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Especialidades</p>
-          <h2 id="esp-titulo">Um só lugar para <span class="accent">cada fase</span> da infância</h2>
-          <p>Quando a criança precisa de mais de um profissional, o cuidado acontece dentro da mesma equipe.</p>
-        </div>
-
-        <div class="spec-grid">
-          <article class="spec reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-steth"/></svg></span>
-            <h3>Pediatria</h3>
-            <p>Acompanhamento do crescimento e do desenvolvimento, consultas de rotina e as dúvidas do dia a dia, do bebê ao adolescente.</p>
-          </article>
-          <article class="spec reveal" data-delay="1">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-fork"/></svg></span>
-            <h3>Gastropediatria</h3>
-            <p>Avaliação de sintomas digestivos, dificuldades alimentares e alergias alimentares.</p>
-          </article>
-          <article class="spec reveal" data-delay="2">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-wind"/></svg></span>
-            <h3>Pneumologia pediátrica</h3>
-            <p>Investigação de tosse, chiado e crises respiratórias que se repetem.</p>
-          </article>
-          <article class="spec reveal" data-delay="3">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>
-            <h3>Hematopediatria</h3>
-            <p>Acompanhamento de alterações no hemograma, na coagulação e outras condições do sangue.</p>
-          </article>
-          <article class="spec reveal">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-activity"/></svg></span>
-            <h3>Fisioterapia respiratória</h3>
-            <p>Cuidado voltado à respiração de bebês e crianças, com indicação conforme a avaliação de cada caso.</p>
-          </article>
-          <article class="spec reveal" data-delay="1">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>
-            <h3>Nutrição infantil</h3>
-            <p>Introdução alimentar, seletividade alimentar e orientação para uma relação mais leve com a comida.</p>
-          </article>
-          <article class="spec reveal" data-delay="2">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-milk"/></svg></span>
-            <h3>Amamentação e primeiros cuidados</h3>
-            <p>Apoio à amamentação, avaliação dos freios orais e orientação para os primeiros meses.</p>
-          </article>
-          <article class="spec reveal" data-delay="3">
-            <span class="ico"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span>
-            <h3>Desenvolvimento e comunicação</h3>
-            <p>Atenção aos marcos do desenvolvimento, à fala e ao comportamento, com a equipe trabalhando junto.</p>
-          </article>
-        </div>
-
-        <div class="spec-foot reveal">
-          <p><strong>Não sabe qual profissional procurar?</strong>Conte para a nossa equipe o que está acontecendo e ela orienta o melhor caminho.</p>
-          <a class="btn btn--light" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Gostaria%20de%20ajuda%20para%20saber%20qual%20profissional%20procurar%20para%20meu%20filho." target="_blank" rel="noopener" data-track="whatsapp" data-location="especialidades">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg> Falar com a equipe
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Como funciona ===== -->
-    <section class="section" id="como-funciona" aria-labelledby="como-titulo">
-      <div class="container">
-        <div class="section-head section-head--center reveal">
-          <p class="eyebrow">Como funciona</p>
-          <h2 id="como-titulo">Agendar é <span class="accent">simples</span></h2>
-          <p>Do primeiro contato à consulta, a equipe acompanha você.</p>
-        </div>
-        <ol class="steps">
-          <li class="step reveal">
-            <h3>Chame no WhatsApp</h3>
-            <p>Conte brevemente o motivo da consulta e a idade da criança.</p>
-          </li>
-          <li class="step reveal" data-delay="1">
-            <h3>Escolha o horário</h3>
-            <p>A equipe indica o profissional mais adequado e os horários disponíveis.</p>
-          </li>
-          <li class="step reveal" data-delay="2">
-            <h3>Venha para a Crescer</h3>
-            <p>Uma consulta com tempo para ouvir, examinar e tirar todas as dúvidas.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== A clínica ===== -->
-    <section class="section section--cream2" id="a-clinica" aria-labelledby="clinica-titulo">
-      <div class="container about-grid">
-        <div class="reveal">
-          <p class="eyebrow">A clínica</p>
-          <h2 id="clinica-titulo" style="font-size:clamp(1.9rem,4.2vw,2.9rem)">Crescemos junto com as <span class="accent">famílias</span></h2>
-          <p style="margin-top:16px;color:var(--muted);font-size:1.125rem">A Crescer nasceu de um sonho e, ao longo de 4 anos, ganhou vida em cada criança acolhida. Hoje reúne diferentes especialidades da saúde infantil em um mesmo espaço.</p>
-          <ul class="checklist">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Equipe integrada</strong><span>Profissionais de diferentes áreas que conversam entre si sobre cada criança.</span></div></li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Ambiente pensado para crianças</strong><span>Um espaço lúdico e aconchegante, que torna a consulta mais leve.</span></div></li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Informação para os pais</strong><span>Orientação clara, com linguagem simples, para você decidir com segurança.</span></div></li>
-          </ul>
-        </div>
-        <figure class="about-quote reveal" data-delay="1" style="margin:0">
-          <p>Cuidar, acolher e desenvolver: a essência que nos trouxe até aqui.</p>
-          <small>Crescer Pediatria Integrada</small>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ===== Cursos ===== -->
-    <section class="section section--dark" aria-labelledby="cursos-titulo">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Cursos e encontros</p>
-          <h2 id="cursos-titulo">Aprender também faz parte do cuidado</h2>
-          <p>Promovemos experiências para pais e filhos, com turmas divulgadas ao longo do ano.</p>
-        </div>
-        <div class="courses">
-          <article class="course reveal">
-            <span class="tag">Para gestantes e famílias</span>
-            <h3>Primeiros cuidados com o recém-nascido</h3>
-            <p>Para quem está esperando um bebê ou acabou de recebê-lo: orientações práticas para os primeiros dias e meses.</p>
-          </article>
-          <article class="course reveal" data-delay="1">
-            <span class="tag">Para pais e filhos</span>
-            <h3>Descobrindo novos sabores</h3>
-            <p>Curso prático sobre alimentação e seletividade alimentar, com brincadeiras e sem pressão à mesa.</p>
-          </article>
-        </div>
-        <p class="reveal" style="margin-top:28px">
-          <a class="btn btn--light" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Gostaria%20de%20saber%20sobre%20os%20pr%C3%B3ximos%20cursos%20da%20Crescer." target="_blank" rel="noopener" data-track="whatsapp" data-location="cursos">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg> Saber das próximas turmas
-          </a>
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== Agendamento ===== -->
-    <section class="section" id="agendar" aria-labelledby="agendar-titulo">
-      <div class="container book">
-        <div class="reveal">
-          <p class="eyebrow">Agende sua consulta</p>
-          <h2 id="agendar-titulo" style="font-size:clamp(1.9rem,4.2vw,2.9rem)">Conte um pouco e a gente cuida do <span class="accent">resto</span></h2>
-          <p style="margin-top:16px;color:var(--muted);font-size:1.125rem">Preencha os campos e abriremos uma conversa no WhatsApp já com essas informações. Nossa equipe responde com os próximos horários.</p>
-          <ul class="contact-list">
-            <li>
-              <span class="ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
-              <div><small>WhatsApp</small><a href="https://wa.me/5596981074126" target="_blank" rel="noopener" data-track="whatsapp" data-location="contato">(96) 98107-4126</a></div>
-            </li>
-            <li>
-              <span class="ico"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
-              <div><small>Telefone</small><a href="tel:+559632423883" data-track="phone" data-location="contato">(96) 3242-3883</a></div>
-            </li>
-            <li>
-              <span class="ico"><svg aria-hidden="true"><use href="#i-insta"/></svg></span>
-              <div><small>Instagram</small><a href="https://www.instagram.com/crescer.pediatriaintegrada/" target="_blank" rel="noopener" data-track="instagram" data-location="contato">@crescer.pediatriaintegrada</a></div>
-            </li>
-          </ul>
-        </div>
-
-        <form class="book-card reveal" data-delay="1" id="form-agendar" novalidate>
-          <div class="field">
-            <label for="f-nome">Seu nome</label>
-            <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Como podemos te chamar?">
-            <span class="error">Informe seu nome para continuarmos.</span>
-          </div>
-          <div class="field">
-            <label for="f-idade">Faixa etária da criança</label>
-            <select id="f-idade" name="idade" required>
-              <option value="">Selecione</option>
-              <option>Recém-nascido (até 28 dias)</option>
-              <option>Bebê (1 a 23 meses)</option>
-              <option>Criança (2 a 11 anos)</option>
-              <option>Adolescente (12 a 17 anos)</option>
-              <option>Gestante / ainda não nasceu</option>
-            </select>
-            <span class="error">Selecione a faixa etária.</span>
-          </div>
-          <div class="field">
-            <label for="f-motivo">Como podemos ajudar?</label>
-            <select id="f-motivo" name="motivo">
-              <option value="">Prefiro explicar na conversa</option>
-              <option>Consulta de rotina (pediatria)</option>
-              <option>Alimentação / seletividade alimentar</option>
-              <option>Tosse, chiado ou questões respiratórias</option>
-              <option>Amamentação e primeiros cuidados</option>
-              <option>Questões digestivas ou alergia alimentar</option>
-              <option>Desenvolvimento e comunicação</option>
-              <option>Não sei qual profissional procurar</option>
-            </select>
-          </div>
-          <button class="btn btn--block" type="submit">
-            <svg aria-hidden="true"><use href="#i-wa"/></svg> Continuar no WhatsApp
-          </button>
-          <p class="form-note">Ao continuar, você será levado ao WhatsApp. Não armazenamos as informações deste formulário neste site. <a href="politica-de-privacidade.html">Política de privacidade</a>.</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section class="section section--sage" id="duvidas" aria-labelledby="faq-titulo">
-      <div class="container">
-        <div class="section-head section-head--center reveal">
-          <p class="eyebrow">Dúvidas frequentes</p>
-          <h2 id="faq-titulo">Antes de agendar</h2>
-        </div>
-        <div class="faq reveal">
-          <details>
-            <summary>Quem a Crescer atende?</summary>
-            <div class="answer"><p>Atendemos bebês, crianças e adolescentes. Se tiver dúvida sobre o perfil do seu filho, fale com a nossa equipe pelo WhatsApp.</p></div>
-          </details>
-          <details>
-            <summary>Como faço para agendar uma consulta?</summary>
-            <div class="answer"><p>O agendamento é feito pelo WhatsApp <strong>(96) 98107-4126</strong> ou pelo telefone <strong>(96) 3242-3883</strong>. Basta informar a idade da criança e o motivo da consulta.</p></div>
-          </details>
-          <details>
-            <summary>Não sei qual especialista procurar. O que faço?</summary>
-            <div class="answer"><p>Muitas vezes o ponto de partida é a consulta com o pediatra, que avalia se há necessidade de outros profissionais. Você também pode descrever a situação para a nossa equipe, que orienta o melhor caminho.</p></div>
-          </details>
-          <details>
-            <summary>Vocês atendem por convênio ou plano de saúde?</summary>
-            <div class="answer"><p>Para informações sobre formas de pagamento e convênios, fale com a nossa equipe pelo WhatsApp.</p></div>
-          </details>
-          <details>
-            <summary>Onde fica a clínica?</summary>
-            <div class="answer"><p>Av. Raimundo Álvares da Costa, 2659, bairro Santa Rita, Macapá-AP, CEP 68901-256.</p></div>
-          </details>
-          <details>
-            <summary>Como funcionam os cursos para as famílias?</summary>
-            <div class="answer"><p>Realizamos cursos e encontros, como o de primeiros cuidados com o recém-nascido e o de alimentação para pais e filhos. As turmas e datas são divulgadas no nosso Instagram e pelo WhatsApp.</p></div>
-          </details>
-          <details>
-            <summary>A clínica atende urgências?</summary>
-            <div class="answer"><p>A Crescer atende com hora marcada e não funciona como pronto-socorro. Em caso de emergência, procure o pronto atendimento mais próximo ou ligue <strong>192 (SAMU)</strong>.</p></div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Localização ===== -->
-    <section class="section" id="localizacao" aria-labelledby="loc-titulo">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Localização</p>
-          <h2 id="loc-titulo">Venha nos <span class="accent">conhecer</span></h2>
-        </div>
-        <div class="loc">
-          <div class="loc-card reveal">
-            <address>
-              <strong>Crescer Pediatria Integrada</strong>
-              Av. Raimundo Álvares da Costa, 2659<br>
-              Santa Rita · Macapá, AP<br>
-              CEP 68901-256
-            </address>
-            <div class="loc-actions">
-              <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Crescer+Pediatria+Integrada+Macap%C3%A1" target="_blank" rel="noopener" data-track="maps" data-location="localizacao">
-                <svg aria-hidden="true"><use href="#i-pin"/></svg> Como chegar
-              </a>
-              <a class="btn btn--ghost" href="tel:+559632423883" data-track="phone" data-location="localizacao">
-                <svg aria-hidden="true"><use href="#i-phone"/></svg> Ligar
-              </a>
-            </div>
-          </div>
-          <div class="map-box reveal" data-delay="1" id="map-box">
-            <div>
-              <svg class="map-pin" aria-hidden="true"><use href="#i-pin"/></svg>
-              <p>Veja a clínica no mapa</p>
-              <button type="button" class="btn btn--sm" id="load-map">Carregar mapa</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA final ===== -->
-    <section class="section section--dark cta-final" aria-labelledby="cta-titulo">
-      <div class="container">
-        <h2 id="cta-titulo" class="reveal">Seu filho merece um cuidado que <span class="accent" style="color:var(--rose-300)">acompanha</span> cada fase</h2>
-        <p class="reveal" data-delay="1">Fale com a nossa equipe e agende uma consulta na Crescer Pediatria Integrada.</p>
-        <a class="btn btn--light reveal" data-delay="2" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="cta_final">
-          <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar pelo WhatsApp
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===== Rodapé ===== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#topo" aria-label="Voltar ao topo">
-            <svg class="brand-mark" aria-hidden="true"><use href="#mark"/></svg>
-            <span class="brand-text">
-              <span class="brand-name">Crescer</span>
-              <span class="brand-sub">Pediatria Integrada</span>
-            </span>
-          </a>
-          <p>Clínica de especialidades pediátricas em Macapá. Pediatria feita com amor e dedicação.</p>
-        </div>
-        <div>
-          <h3>Contato</h3>
-          <ul>
-            <li><a href="https://wa.me/5596981074126" target="_blank" rel="noopener" data-track="whatsapp" data-location="rodape">WhatsApp (96) 98107-4126</a></li>
-            <li><a href="tel:+559632423883" data-track="phone" data-location="rodape">Telefone (96) 3242-3883</a></li>
-            <li><a href="https://www.instagram.com/crescer.pediatriaintegrada/" target="_blank" rel="noopener" data-track="instagram" data-location="rodape">Instagram</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Endereço</h3>
-          <ul>
-            <li>Av. Raimundo Álvares da Costa, 2659</li>
-            <li>Santa Rita · Macapá, AP</li>
-            <li>CEP 68901-256</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-legal">
-        <p id="rt-line" hidden></p>
-        <p>CRESCER PED LTDA · CNPJ 41.539.910/0001-24</p>
-        <p>As informações deste site têm caráter informativo e não substituem a consulta médica. Em caso de emergência, procure o pronto atendimento mais próximo ou ligue 192 (SAMU).</p>
-        <p>© <span id="ano">2026</span> Crescer Pediatria Integrada · <a href="politica-de-privacidade.html">Política de privacidade</a> · <a href="#" id="reabrir-consent">Preferências de cookies</a></p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Botões fixos de WhatsApp ===== -->
-  <a class="wa-float" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="flutuante" aria-label="Agendar pelo WhatsApp">
-    <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar consulta
-  </a>
-  <div class="sticky-cta" id="sticky-cta">
-    <a class="btn btn--block" href="https://wa.me/5596981074126?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Crescer%20Pediatria%20Integrada%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" data-track="whatsapp" data-location="barra_mobile">
-      <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar pelo WhatsApp
-    </a>
-  </div>
-
-  <!-- ===== Aviso de cookies (LGPD) ===== -->
-  <div class="consent" id="consent" role="dialog" aria-labelledby="consent-titulo" aria-describedby="consent-texto" hidden>
-    <p id="consent-texto"><strong id="consent-titulo">Sua privacidade importa.</strong> Usamos cookies para entender como o site é usado e melhorar nossos anúncios. Você escolhe. Saiba mais na <a href="politica-de-privacidade.html">política de privacidade</a>.</p>
-    <div class="consent-actions">
-      <button class="btn btn--sm btn--ghost" type="button" id="consent-recusar">Recusar</button>
-      <button class="btn btn--sm" type="button" id="consent-aceitar">Aceitar</button>
-    </div>
-  </div>
-
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/main.js" defer></script>
-</body>
+    <!--structured-data-->
+    <noscript><style>.crescer-preloader{display:none!important}</style></noscript>
+  </head>
+  <body class="antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

@@ -1,64 +1,51 @@
-# Crescer Pediatria Integrada: landing page
+# Crescer Pediatria Integrada — site institucional
 
-Landing page estática (HTML + CSS + JS puro, sem build) da clínica Crescer Pediatria Integrada, Macapá-AP.
-Fontes hospedadas no próprio site (sem requisições ao Google Fonts).
+Site da clínica de especialidades pediátricas Crescer Pediatria Integrada (Macapá/AP).
+Mesma stack dos sites da Extin Seven / Grupo Alvo: **Vite + React + TypeScript + Tailwind + framer-motion + Lenis + Phosphor**, com HTML pré-renderizado no build (SEO).
 
-## Rodar localmente
+- Prévia: https://viniciusextremxd.github.io/crescer-pediatria-integrada/
+- Produção (após o go-live): https://crescerpediatriaintegrada.com.br/
+
+## Comandos
 
 ```bash
-python -m http.server 8000
-# abra http://localhost:8000
+npm install
+npm run dev          # http://localhost:5176
+npm run build        # dist/ com HTML pré-renderizado + JSON-LD
+npm run deploy:gh    # publica a prévia no GitHub Pages (branch gh-pages)
 ```
 
 ## Estrutura
 
 ```
-index.html                    página única
-politica-de-privacidade.html  LGPD
-assets/css/styles.css         estilos (paleta da marca nas variáveis :root)
-assets/js/main.js             menu, formulário→WhatsApp, eventos, consentimento
-assets/js/config.js           responsável técnico (CRM/RQE) e horário
-assets/img/                   favicon, og-image e (opcional) hero.jpg
-tools/set-gtm.mjs             troca o ID do GTM
-TRACKING.md                   eventos e configuração de GTM/Ads/Meta
+src/data/site.ts        todo o conteúdo: contatos, equipe, especialidades, serviços, Instagram, FAQ
+src/sections/*          uma seção por arquivo (Hero, About, Specialties, Team, Services, Space, Steps, Instagram, Faq, Contact, Footer)
+src/components/motion   animações reutilizáveis (SplitWords, ScrollLitText, VelocityMarquee, ParallaxImage, ClipReveal, TiltCard, Magnetic, Counter)
+src/components/chrome   preloader, menu, barra de progresso, WhatsApp flutuante, aviso de cookies (Consent Mode v2)
+src/components/cta      links de WhatsApp/telefone com medição
+public/                 logo vetorizado (4 versões), fotos (WebP), grade do Instagram, política de privacidade
 ```
 
-## Como editar
+## De onde veio o conteúdo
 
-- **Textos e seções:** `index.html`.
-- **Cores:** variáveis no topo de `assets/css/styles.css`.
-- **Foto na capa:** salve uma foto vertical como `assets/img/hero.jpg`. Ela aparece sozinha no arco do topo.
-- **CRM/RQE no rodapé:** preencha `responsavelTecnico` em `assets/js/config.js`.
-- **GTM:** `node tools/set-gtm.mjs GTM-ABC1234` (detalhes em `TRACKING.md`).
+- **Logo:** vetorizado a partir dos posts oficiais (nova identidade, out/2026). `logo-crescer.svg`, versão clara e só o símbolo.
+- **Fotos:** posts do Instagram @crescer.pediatriaintegrada, recortadas sem os textos dos posts.
+- **Equipe, CRM/RQE e serviços:** carrosséis "Seu filho precisa de qual especialista?" e "Além das consultas, o que você encontra na Crescer?".
+- **Endereço, CNPJ e avaliação:** Google Meu Negócio e cartão CNPJ.
 
-## Pendências antes do go-live
+## Pendências antes do go-live (confirmar com a clínica)
 
-Conteúdo levantado em fontes públicas (Google, Instagram, CNPJ). **Confirmar com a clínica:**
-
-- [ ] Responsável técnico, CRM e RQE (exigência do CFM em publicidade médica).
-- [ ] Lista final de especialidades e serviços (hoje: pediatria, gastropediatria, pneumologia pediátrica, hematopediatria, fisioterapia respiratória, nutrição infantil, amamentação/freios orais, desenvolvimento e comunicação).
-- [ ] Atendimento por convênio (hoje o site manda perguntar pelo WhatsApp).
-- [ ] Horário de funcionamento (campo `horario` em `config.js`).
-- [ ] Número do WhatsApp oficial para anúncios: o site usa (96) 98107-4126; há um segundo, (96) 99810-7412, em posts de curso.
-- [ ] Selo "4,8 no Google · 40 avaliações" e "4 anos de história" (conferir se querem manter).
-- [ ] Fotos da clínica e da equipe (a landing foi feita sem fotos para não usar imagem sem autorização).
-- [ ] Logo oficial em vetor (o ícone atual é uma recriação simples do símbolo do Instagram).
+- [ ] **Diretora técnica (CRM/RQE)** para o rodapé, exigência do CFM (campo `technicalDirector` em `src/data/site.ts`).
+- [ ] **CRM/RQE da Dra. Helena Progênio:** o post publica os mesmos números da Dra. Regiane (CRM-AP 1441 · RQE 898). Por isso o site mostra "em atualização".
+- [ ] Autorização de uso das fotos e nomes da equipe no site (já são públicos no Instagram, mas vale o ok formal).
+- [ ] Convênios aceitos e horário de funcionamento.
+- [ ] Foto individual da Dra. Lorena Neri em melhor resolução (hoje é recorte de um post).
+- [ ] IDs de GTM, Google Ads, GA4 e Meta Pixel (ver `TRACKING.md`).
 - [ ] Revisão jurídica da política de privacidade.
-- [ ] IDs: GTM, Google Ads (conversão), GA4 e Pixel da Meta.
 
-## Deploy (GitHub Pages)
+## Go-live no domínio
 
-Publicado da branch `main` (pasta raiz) em https://viniciusextremxd.github.io/crescer-pediatria-integrada/.
-Cada push na `main` republica o site em cerca de 1 minuto.
+O domínio está na HostGator (DNS ns230/ns231) com o Plano P ativo. Duas opções:
 
-### Go-live no domínio `crescerpediatriaintegrada.com.br`
-
-Hoje o domínio aponta para a hospedagem da HostGator (nameservers ns230/ns231). Para servir o site pelo GitHub Pages:
-
-1. Na zona DNS do domínio (HostGator, cPanel > Editor de Zona), apontar:
-   - registros **A** da raiz para `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`;
-   - **CNAME** de `www` para `viniciusextremxd.github.io`.
-2. Adicionar um arquivo `CNAME` na raiz do repositório com `crescerpediatriaintegrada.com.br`.
-3. No GitHub, em Settings > Pages, confirmar o domínio personalizado e marcar **Enforce HTTPS** (o certificado leva alguns minutos).
-
-Enquanto isso não for feito, o endereço `github.io` acima serve para apresentação. Não crie o `CNAME` antes do go-live, senão o endereço `github.io` passa a redirecionar para o domínio, que ainda mostra a página padrão da HostGator.
+1. **GitHub Pages:** na zona DNS da HostGator, registros A da raiz para `185.199.108.153`, `185.199.109.153`, `185.199.110.153` e `185.199.111.153`, CNAME de `www` para `viniciusextremxd.github.io`; criar `public/CNAME` com o domínio, rodar `npm run build` (sem `VITE_BASE`) + `gh-pages -d dist`, e ativar *Enforce HTTPS*.
+2. **HostGator (usa o plano pago):** `npm run build` e enviar o conteúdo de `dist/` para `public_html` pelo Gerenciador de Arquivos/FTP. O SSL gratuito (AutoSSL) é emitido pela própria HostGator.
