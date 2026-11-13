@@ -304,27 +304,18 @@ function AlemDasConsultas() {
           </WhatsAppLink>
         </Reveal>
 
-        {/* Curso Descobrindo Novos Sabores: mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
+        {/* Oficina de seletividade alimentar: mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
         <Reveal className="relative grid overflow-hidden rounded-[2.25rem] bg-rose-200 shadow-card lg:col-span-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative p-7 sm:p-10">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
               <CookingPot weight="duotone" className="h-4 w-4" /> {sabores.for}
             </p>
             <h4 className="font-display mt-3 text-[1.9rem] font-medium leading-tight text-pine-700 sm:text-4xl">{sabores.title}</h4>
-            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-pine-800/75">{sabores.desc}</p>
-            <ul className="mt-6 space-y-2.5">
-              {sabores.learn.map((l) => (
-                <li key={l} className="flex items-center gap-2.5 text-[15px] font-medium text-pine-800">
-                  <Sparkle weight="fill" className="h-4 w-4 shrink-0 text-rose-400" /> {l}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 rounded-lg border border-dashed border-pine-600/30 bg-pine-600 px-4 py-3 text-sm font-medium text-cream-50">
-              Sem brigas à mesa: a criança descobre a comida no tempo dela, com os pais junto.
-            </p>
+            <p className="font-display mt-2 text-xl italic text-rose-500 sm:text-2xl">{sabores.subtitle}</p>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-pine-800/75">{sabores.desc}</p>
             <WhatsAppLink
               location="cursos"
-              message="Olá! Gostaria de saber sobre a próxima turma do curso Descobrindo Novos Sabores."
+              message="Olá! Gostaria de saber sobre a próxima turma da oficina Seletividade Alimentar na Prática."
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pine-700 underline decoration-pine-600/40 underline-offset-4 hover:decoration-pine-600"
             >
               Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
@@ -408,7 +399,7 @@ function PolaroidReel({ photos }: { photos: { src: string; w: number; h: number 
               src={near ? assetUrl(p.src) : undefined}
               width={p.w}
               height={p.h}
-              alt={i < photos.length ? "Crianças no curso Descobrindo Novos Sabores, na Crescer" : ""}
+              alt={i < photos.length ? "Crianças em atividade de alimentação na Crescer" : ""}
               loading="eager"
               decoding="async"
               draggable={false}

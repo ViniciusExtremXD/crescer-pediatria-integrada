@@ -23,7 +23,7 @@ const PILLARS = [
     word: "Desenvolver",
     text: "Acompanhamento em todas as fases e cursos para pais e filhos aprenderem juntos.",
     img: "images/curso-culinaria.webp",
-    alt: "Crianças com toucas de chef no curso Descobrindo Novos Sabores",
+    alt: "Crianças com toucas de chef em atividade de alimentação na Crescer",
     pos: "50% 45%",
     tone: "bg-cream-200",
   },

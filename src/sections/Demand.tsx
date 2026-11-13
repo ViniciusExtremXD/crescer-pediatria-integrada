@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, FirstAidKit, Stethoscope, WarningCircle } from "@phosphor-icons/react";
+import { Stethoscope, WarningCircle } from "@phosphor-icons/react";
 import { DEMAND, assetUrl } from "../data/site";
 import { EASE_OUT, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PhoneCta, PrimaryCta } from "../components/cta";
@@ -27,7 +27,7 @@ export function Demand() {
             </h2>
 
             <Reveal className="mt-6 max-w-xl text-lg leading-relaxed text-pine-800/75">
-              Aquelas situações que aparecem de repente e precisam de uma avaliação. Para esses momentos, a Crescer tem a Consulta de Demanda: atendimento pediátrico para a criança que ficou doentinha e precisa ser avaliada no mesmo dia.
+              Na Crescer, a Consulta de Demanda atende a criança que ficou doentinha e precisa ser avaliada no mesmo dia, conforme disponibilidade.
             </Reveal>
 
             <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Sintomas comuns">
@@ -44,13 +44,6 @@ export function Demand() {
                 </motion.li>
               ))}
             </ul>
-
-            <Reveal className="mt-8 flex items-center gap-3 text-pine-700">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-pine-600 text-cream-50">
-                <Clock weight="duotone" className="h-5 w-5" />
-              </span>
-              <p className="font-semibold">Atendimento pediátrico no mesmo dia, conforme disponibilidade.</p>
-            </Reveal>
 
             <Reveal className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4">
               <PrimaryCta location="consulta_demanda" tone="rose" message={DEMAND.whatsappMessage}>
@@ -84,21 +77,6 @@ export function Demand() {
                 className="h-full w-full object-cover object-[50%_30%]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pine-950/55 via-transparent to-transparent" />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.35 }}
-              className="absolute -left-4 bottom-8 flex items-center gap-3 rounded-2xl bg-white p-4 pr-5 shadow-card sm:-left-8"
-            >
-              <span className="grid h-11 w-11 place-items-center rounded-full bg-rose-100 text-rose-500">
-                <FirstAidKit weight="duotone" className="h-6 w-6" />
-              </span>
-              <span className="leading-tight">
-                <span className="block text-sm font-semibold text-pine-800">Ficou doente?</span>
-                <span className="text-xs text-pine-800/60">Fale com a Crescer</span>
-              </span>
             </motion.div>
           </div>
         </div>

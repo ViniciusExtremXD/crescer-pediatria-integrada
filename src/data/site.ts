@@ -400,13 +400,16 @@ export const COURSES = [
     title: "Primeiros Cuidados com o Bebê Recém-Nascido e Iniciando a Amamentação",
     for: "Para quem está esperando um bebê",
     desc: "Um encontro para aprender, na teoria e na prática, os cuidados dos primeiros dias com o bebê.",
+    subtitle: "",
     learn: ["Banho do bebê", "Troca de fralda", "Amamentação", "Manobra de desengasgo", "Cólicas e refluxo"],
   },
   {
-    title: "Descobrindo Novos Sabores",
-    for: "Para pais e filhos de 3 a 8 anos",
-    desc: "Curso prático para pais e filhos, pensado para crianças com seletividade alimentar. A hora de comer deixa de ser uma batalha e vira descoberta.",
-    learn: ["Explorar os alimentos com as mãos", "Experimentar novas texturas e sabores", "Aprender brincando, sem pressão", "Estratégias para os pais levarem para casa"],
+    /* Nome enviado pelo Pinheiro em 13/11/2026 ("por enquanto tá esse", a confirmar). Antes: "Descobrindo Novos Sabores". */
+    title: "Seletividade Alimentar na Prática",
+    subtitle: "Transformando a Hora de Comer",
+    for: "Oficina para pais e famílias",
+    desc: "Estratégias práticas para lidar com as recusas alimentares e tornar as refeições mais leves, sem pressão e com mais conexão.",
+    learn: [] as string[],
   },
 ];
 
@@ -416,7 +419,7 @@ export const DEMAND = {
   whatsappMessage: "Olá! Meu filho ficou doente. Gostaria de consultar a disponibilidade da Consulta de Demanda para hoje.",
 };
 
-/* Fotos do curso Descobrindo Novos Sabores (álbum enviado pela clínica, 13/11/2026). */
+/* Fotos da oficina de seletividade alimentar (álbum enviado pela clínica, 13/11/2026). */
 const SABORES_LANDSCAPE = new Set([2, 5, 8, 10, 13]);
 export const SABORES_PHOTOS = Array.from({ length: 13 }, (_, i) => ({
   src: `images/sabores/sabores-${String(i + 1).padStart(2, "0")}.webp`,
