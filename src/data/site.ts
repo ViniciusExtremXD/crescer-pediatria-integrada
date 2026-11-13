@@ -419,6 +419,13 @@ export const DEMAND = {
   whatsappMessage: "Olá! Meu filho ficou doente. Gostaria de consultar a disponibilidade da Consulta de Demanda para hoje.",
 };
 
+/* Fotos do curso de primeiros cuidados com o recém-nascido (enviadas pelo Pinheiro por WhatsApp, 13/11/2026). */
+export const NATAL_PHOTOS = Array.from({ length: 7 }, (_, i) => ({
+  src: `images/natal/natal-${String(i + 1).padStart(2, "0")}.webp`,
+  w: i === 0 ? 853 : 480,
+  h: 640,
+}));
+
 /* Fotos da oficina de seletividade alimentar (álbum enviado pela clínica, 13/11/2026). */
 const SABORES_LANDSCAPE = new Set([2, 5, 8, 10, 13]);
 export const SABORES_PHOTOS = Array.from({ length: 13 }, (_, i) => ({

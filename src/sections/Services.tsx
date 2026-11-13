@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, HandPalm, Microscope, Phone, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
-import { ART_SPECIALTIES, COMPANY, COURSES, LASER, OTHER_SERVICES, SABORES_PHOTOS, TESTS, assetUrl, type TestIcon } from "../data/site";
+import { ART_SPECIALTIES, COMPANY, COURSES, LASER, NATAL_PHOTOS, OTHER_SERVICES, SABORES_PHOTOS, TESTS, assetUrl, type TestIcon } from "../data/site";
 import { EASE_OUT, ParallaxImage, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PhoneLink, PrimaryCta, WhatsAppLink } from "../components/cta";
 
@@ -228,7 +228,7 @@ function AlemDasConsultas() {
         </Reveal>
 
         {/* Consultoria de amamentação + puericultura (slide 8) */}
-        <Reveal className="group relative overflow-hidden rounded-[2.25rem] bg-pine-800 shadow-card lg:col-span-7">
+        <Reveal className="group relative overflow-hidden rounded-[2.25rem] bg-pine-800 shadow-card lg:col-span-12">
           <div className="absolute inset-0">
             <ParallaxImage
               src={assetUrl("images/servicos/mao-bebe.webp")}
@@ -239,16 +239,21 @@ function AlemDasConsultas() {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-pine-950/50 via-pine-950/15 to-transparent" />
-          <div className="relative grid gap-0 p-5 sm:p-8 md:max-w-[34rem]">
+          <div className="relative grid gap-0 p-5 sm:p-8 md:max-w-[46rem] md:grid-cols-2 lg:p-10">
             {[amamentacao, puericultura].map((s, i) => (
-              <div key={s.id} className={`relative bg-rose-100/95 px-7 py-7 text-center sm:px-9 ${i ? "rounded-b-2xl pt-10" : "z-10 rounded-t-2xl pb-10"}`}>
+              <div
+                key={s.id}
+                className={`relative bg-rose-100/95 px-7 py-7 text-center sm:px-9 ${
+                  i ? "rounded-b-2xl pt-10 md:rounded-l-none md:rounded-r-2xl md:pt-7" : "z-10 rounded-t-2xl pb-10 md:rounded-l-2xl md:rounded-tr-none md:pb-7"
+                }`}
+              >
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-pine-500">{s.kicker}</p>
                 <h4 className="font-display mt-2 text-3xl font-medium leading-tight text-rose-400 sm:text-4xl">{s.title}</h4>
                 <p className="mt-2.5 text-[15px] leading-relaxed text-pine-800/80">{s.desc}</p>
                 {i === 0 && (
                   <>
-                    <span aria-hidden className="absolute inset-x-0 -bottom-px h-0.5 bg-cream-50/80" />
-                    <WaxSeal className="absolute -bottom-8 left-1/2 z-10 h-16 w-16 -translate-x-1/2" />
+                    <span aria-hidden className="absolute inset-x-0 -bottom-px h-0.5 bg-cream-50/80 md:inset-x-auto md:inset-y-0 md:-right-px md:h-auto md:w-0.5" />
+                    <WaxSeal className="absolute -bottom-8 left-1/2 z-10 h-16 w-16 -translate-x-1/2 md:bottom-auto md:left-auto md:-right-8 md:top-1/2 md:-translate-y-1/2 md:translate-x-0" />
                   </>
                 )}
               </div>
@@ -256,52 +261,31 @@ function AlemDasConsultas() {
           </div>
         </Reveal>
 
-        {/* Curso para gestantes (slides 9 e 10) */}
-        <Reveal delay={0.08} className="relative overflow-hidden rounded-[2.25rem] bg-[#8DA9A1] p-7 text-cream-50 shadow-card sm:p-10 lg:col-span-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pine-900/70">{gestantes.for}</p>
-          <h4 className="font-display mt-3 text-[1.7rem] font-medium leading-tight sm:text-3xl">{gestantes.title}</h4>
-          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-cream-50/90">{gestantes.desc}</p>
-
-          <div className="mt-6 flex items-start gap-5">
-            <ul className="min-w-0 flex-1 space-y-2.5">
+        {/* Curso para gestantes: mesmo formato da oficina de seletividade, com as fotos passando em polaroids */}
+        <Reveal className="relative grid overflow-hidden rounded-[2.25rem] bg-[#8DA9A1] text-cream-50 shadow-card lg:col-span-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="relative p-7 sm:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pine-900/70">{gestantes.for}</p>
+            <h4 className="font-display mt-3 text-[1.7rem] font-medium leading-tight sm:text-3xl">{gestantes.title}</h4>
+            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-cream-50/90">{gestantes.desc}</p>
+            <ul className="mt-6 space-y-2.5">
               {gestantes.learn.map((l) => (
                 <li key={l} className="flex items-center gap-2.5 text-[15px] font-medium">
                   <Sparkle weight="fill" className="h-4 w-4 shrink-0 text-pine-700" /> {l}
                 </li>
               ))}
             </ul>
-            <div className="relative hidden h-44 w-36 shrink-0 sm:block">
-              {[
-                { src: "curso-desengasgo", r: -7, t: "0", l: "0" },
-                { src: "curso-cuidados", r: 6, t: "2.6rem", l: "0.9rem" },
-                { src: "curso-amamentacao", r: -3, t: "5.4rem", l: "0.2rem" },
-              ].map((p, i) => (
-                <motion.img
-                  key={p.src}
-                  src={assetUrl(`images/servicos/${p.src}.webp`)}
-                  alt=""
-                  loading="lazy" decoding="async"
-                  className="absolute w-32 rounded-[3px] border-[5px] border-b-[14px] border-cream-50 shadow-soft"
-                  style={{ top: p.t, left: p.l }}
-                  initial={{ opacity: 0, rotate: 0, y: 16 }}
-                  whileInView={{ opacity: 1, rotate: p.r, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 120, damping: 14, delay: 0.15 + i * 0.12 }}
-                />
-              ))}
-            </div>
+            <p className="mt-6 rounded-lg border border-dashed border-cream-50/50 bg-pine-600 px-4 py-3 text-sm font-medium">
+              E outros cuidados que fazem parte da rotina com um recém-nascido.
+            </p>
+            <WhatsAppLink
+              location="cursos"
+              message="Olá! Gostaria de saber sobre a próxima turma do curso Primeiros Cuidados com o Bebê Recém-Nascido."
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cream-50 underline decoration-cream-50/40 underline-offset-4 hover:decoration-cream-50"
+            >
+              Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
+            </WhatsAppLink>
           </div>
-
-          <p className="mt-6 rounded-lg border border-dashed border-cream-50/50 bg-pine-600 px-4 py-3 text-sm font-medium">
-            E outros cuidados que fazem parte da rotina com um recém-nascido.
-          </p>
-          <WhatsAppLink
-            location="cursos"
-            message="Olá! Gostaria de saber sobre a próxima turma do curso Primeiros Cuidados com o Bebê Recém-Nascido."
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cream-50 underline decoration-cream-50/40 underline-offset-4 hover:decoration-cream-50"
-          >
-            Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
-          </WhatsAppLink>
+          <PolaroidReel photos={NATAL_PHOTOS} alt="Gestantes e famílias aprendendo os cuidados com o recém-nascido no curso da Crescer" />
         </Reveal>
 
         {/* Oficina de seletividade alimentar: mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
@@ -321,7 +305,7 @@ function AlemDasConsultas() {
               Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
             </WhatsAppLink>
           </div>
-          <PolaroidReel photos={SABORES_PHOTOS} />
+          <PolaroidReel photos={SABORES_PHOTOS} alt="Crianças em atividade de alimentação na Crescer" />
         </Reveal>
       </div>
 
@@ -340,7 +324,7 @@ function AlemDasConsultas() {
 const TILTS = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3.5, 2];
 const REEL_SPEED = 42; // px por segundo
 
-function PolaroidReel({ photos }: { photos: { src: string; w: number; h: number }[] }) {
+function PolaroidReel({ photos, alt }: { photos: { src: string; w: number; h: number }[]; alt: string }) {
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
@@ -399,7 +383,7 @@ function PolaroidReel({ photos }: { photos: { src: string; w: number; h: number 
               src={near ? assetUrl(p.src) : undefined}
               width={p.w}
               height={p.h}
-              alt={i < photos.length ? "Crianças em atividade de alimentação na Crescer" : ""}
+              alt={i < photos.length ? alt : ""}
               loading="eager"
               decoding="async"
               draggable={false}
@@ -412,21 +396,22 @@ function PolaroidReel({ photos }: { photos: { src: string; w: number; h: number 
   );
 }
 
-/* Selo de cera com o símbolo da Crescer, como nos posts. */
+/* Selo de cera com o símbolo da Crescer, como nos posts. O posicionamento fica no wrapper: o transform do framer não pode disputar com o translate. */
 function WaxSeal({ className }: { className?: string }) {
   return (
-    <motion.span
-      aria-hidden
-      initial={{ scale: 0, rotate: -40 }}
-      whileInView={{ scale: 1, rotate: 0 }}
-      viewport={{ once: true }}
-      transition={{ type: "spring", stiffness: 220, damping: 13, delay: 0.25 }}
-      className={`grid place-items-center rounded-[46%_54%_50%_50%/52%_48%_52%_48%] bg-[radial-gradient(circle_at_35%_30%,#E9AEB4,#C9777F_55%,#A85A64)] shadow-[inset_0_2px_5px_rgba(255,255,255,0.35),inset_0_-4px_8px_rgba(90,25,35,0.3),0_6px_14px_-6px_rgba(110,40,50,0.55)] ${className ?? ""}`}
-    >
-      <span className="grid h-[72%] w-[72%] place-items-center rounded-full shadow-[inset_0_2px_4px_rgba(90,25,35,0.35),0_1px_0_rgba(255,255,255,0.3)]">
-        <img src={assetUrl("logo-mark-light.svg")} alt="" className="h-[70%] w-[70%] opacity-90" />
-      </span>
-    </motion.span>
+    <span aria-hidden className={className}>
+      <motion.span
+        initial={{ scale: 0, rotate: -40 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 220, damping: 13, delay: 0.25 }}
+        className="grid h-full w-full place-items-center rounded-[46%_54%_50%_50%/52%_48%_52%_48%] bg-[radial-gradient(circle_at_35%_30%,#E9AEB4,#C9777F_55%,#A85A64)] shadow-[inset_0_2px_5px_rgba(255,255,255,0.35),inset_0_-4px_8px_rgba(90,25,35,0.3),0_6px_14px_-6px_rgba(110,40,50,0.55)]"
+      >
+        <span className="grid h-[72%] w-[72%] place-items-center rounded-full shadow-[inset_0_2px_4px_rgba(90,25,35,0.35),0_1px_0_rgba(255,255,255,0.3)]">
+          <img src={assetUrl("logo-mark-light.svg")} alt="" className="h-[70%] w-[70%] opacity-90" />
+        </span>
+      </motion.span>
+    </span>
   );
 }
 

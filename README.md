@@ -38,7 +38,8 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 
 - **Logo:** vetorizado a partir dos posts oficiais (nova identidade, out/2026). `logo-crescer.svg`, versão clara e só o símbolo.
 - **Fotos das médicas:** ensaios oficiais. Karla e Lorena vêm das galerias da fotógrafa (Isabela Pimentel, links enviados pela clínica); as demais, do carrossel "Seu filho precisa de qual especialista?". Foto do grupo: post do Dia do Médico.
-- **Consulta de Demanda:** roteiro do reel DeScte7iPC9 enviado pela clínica (13/11/2026); capa do reel como foto.
+- **Consulta de Demanda:** roteiro do reel DeScte7iPC9 enviado pela clínica (13/11/2026). Sem foto, a pedido da clínica.
+- **Curso de primeiros cuidados com o recém-nascido:** 7 fotos enviadas pelo Pinheiro por WhatsApp (13/11/2026). Aparecem pais e um bebê; vale a clínica confirmar a autorização de uso de imagem dos participantes.
 - **Oficina "Seletividade Alimentar na Prática" (antes "Descobrindo Novos Sabores"; nome provisório, a clínica confirma):** fotos do álbum do Google Fotos enviado pela clínica (13/11/2026).
 - **Demais fotos:** posts do Instagram @crescer.pediatriaintegrada, recortadas sem os textos dos posts.
 - **Equipe, CRM/RQE e serviços:** carrosséis "Seu filho precisa de qual especialista?" e "Além das consultas, o que você encontra na Crescer?" (terapia alimentar, bioimpedância, laserterapia, consultoria de amamentação, puericultura e curso para gestantes).
