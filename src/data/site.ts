@@ -30,8 +30,10 @@ export const COMPANY = {
   geo: { lat: 0.0433638, lng: -51.0766207 },
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Crescer+Pediatria+Integrada+Macap%C3%A1",
   mapsEmbed: "https://www.google.com/maps?q=Crescer+Pediatria+Integrada,+Av.+Raimundo+%C3%81lvares+da+Costa,+2659+-+Santa+Rita,+Macap%C3%A1+-+AP&hl=pt-BR&z=16&output=embed",
-  /* Exigência do CFM (Res. 2.336/2023). Preencher com o diretor técnico. A CONFIRMAR. */
-  technicalDirector: "",
+  /* Exigência do CFM (Res. 2.336/2023). Definido pelo Fábio Pinheiro no grupo em 13/11/2026: a Dra. Karla é a responsável técnica. CRM/RQE conforme a tabela oficial. */
+  technicalDirector: "Dra. Karla Bussons · CRM-AP 1528 · RQE 767",
+  /* Informado pelo Fábio Pinheiro em 13/11/2026 ("8h às 18h"). Os dias da semana não foram informados: não exibir dias até confirmar. */
+  hours: "8h às 18h",
 };
 
 export function assetUrl(path: string): string {
@@ -223,11 +225,11 @@ export const DOCTORS: Doctor[] = [
 export const CARE_TEAM = [
   { name: "Helenilde Gibson", role: "Fisioterapia respiratória", reg: "CREFITO 12 106558.1-F", photo: "images/equipe/helenilde-gibson.webp" },
   { name: "Ana Cássia", role: "Fisioterapia respiratória", reg: "CREFITO 213505-F", photo: "images/equipe/ana-cassia.webp" },
-  { name: "Luara Moreira", role: "Nutricionista materno-infantil", reg: "CRN 7-4847", photo: "images/equipe/luara-moreira.webp" },
-  { name: "Maira Lima", role: "Nutricionista materno-infantil", reg: "CRN 7-5223", photo: "images/equipe/maira-branco.webp" },
-  { name: "Taynara Lima", role: "Enfermeira materno-infantil · consultoria em amamentação", reg: "COREN-AP 514138", photo: "images/equipe/taynara-lima.webp" },
+  { name: "Luara Moreira", role: "Nutricionista materno-infantil", reg: "CRN 7-4847", photo: "images/equipe/luara-moreira-2.webp" },
+  { name: "Maira Lima", role: "Nutricionista materno-infantil", reg: "CRN 7-5223", photo: "images/equipe/maira-branco-2.webp" },
+  { name: "Taynara Lima", role: "Enfermeira materno-infantil · consultoria em amamentação", reg: "COREN-AP 514138", photo: "images/equipe/taynara-lima-2.webp" },
   { name: "Valéria Sousa", role: "Fonoaudióloga", reg: "CRFa 9.6291-5", photo: "images/equipe/valeria-sousa.webp" },
-  { name: "Tainan Souza", role: "Neuropsicóloga infantil", reg: "CRP 10/06786", photo: "images/equipe/tainan-souza.webp" },
+  { name: "Tainan Souza", role: "Neuropsicóloga infantil", reg: "CRP 10/06786", photo: "images/equipe/tainan-souza-2.webp" },
   { name: "Cristina Dias", role: "Neuropsicopedagoga", reg: "CBO 2394-40", photo: "images/equipe/cristina-dias.webp" },
 ];
 
@@ -410,10 +412,10 @@ export const COURSES = [
     learn: ["Banho do bebê", "Troca de fralda", "Amamentação", "Manobra de desengasgo", "Cólicas e refluxo"],
   },
   {
-    /* Nome enviado pelo Pinheiro em 13/11/2026 ("por enquanto tá esse", a confirmar). Antes: "Descobrindo Novos Sabores". */
-    title: "Seletividade Alimentar na Prática",
+    /* Nome definido pelo Fábio Pinheiro após reunião da clínica (13/11/2026, 17:51 a 17:53): curso "Descobrindo Novos Sabores". Substitui "Seletividade Alimentar na Prática". */
+    title: "Descobrindo Novos Sabores",
     subtitle: "Transformando a Hora de Comer",
-    for: "Oficina para pais e famílias",
+    for: "Curso para pais e filhos",
     desc: "Estratégias práticas para lidar com as recusas alimentares e tornar as refeições mais leves, sem pressão e com mais conexão.",
     learn: [] as string[],
   },
@@ -485,7 +487,7 @@ export const FAQ = [
   },
   {
     q: "Atendem convênio ou plano de saúde?",
-    a: "Para saber sobre formas de pagamento e convênios, fale com a nossa equipe pelo WhatsApp.",
+    a: "A Crescer não trabalha com convênios nem planos de saúde. Para valores e formas de pagamento, fale com a nossa equipe pelo WhatsApp.",
   },
   {
     q: "A clínica atende urgências?",

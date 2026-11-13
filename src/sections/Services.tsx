@@ -288,7 +288,7 @@ function AlemDasConsultas() {
           <PolaroidReel photos={NATAL_PHOTOS} alt="Gestantes e famílias aprendendo os cuidados com o recém-nascido no curso da Crescer" />
         </Reveal>
 
-        {/* Oficina de seletividade alimentar: mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
+        {/* Curso Descobrindo Novos Sabores (dificuldades alimentares): mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
         <Reveal className="relative grid overflow-hidden rounded-[2.25rem] bg-rose-200 shadow-card lg:col-span-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="relative p-7 sm:p-10">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
@@ -299,7 +299,7 @@ function AlemDasConsultas() {
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-pine-800/75">{sabores.desc}</p>
             <WhatsAppLink
               location="cursos"
-              message="Olá! Gostaria de saber sobre a próxima turma da oficina Seletividade Alimentar na Prática."
+              message="Olá! Gostaria de saber sobre a próxima turma do curso Descobrindo Novos Sabores."
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pine-700 underline decoration-pine-600/40 underline-offset-4 hover:decoration-pine-600"
             >
               Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />

@@ -348,8 +348,7 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
-        "paused": true
+        "notes": "Conversão criada na conta Google Ads da Crescer (AW-17632899275). Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
       },
       {
         "tagId": "6",
@@ -401,8 +400,7 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
-        "paused": true
+        "notes": "Conversão criada na conta Google Ads da Crescer (AW-17632899275). Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
       },
       {
         "tagId": "7",
@@ -454,8 +452,7 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
-        "paused": true
+        "notes": "Conversão criada na conta Google Ads da Crescer (AW-17632899275). Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
       },
       {
         "tagId": "8",
@@ -794,7 +791,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "000000000"
+            "value": "17632899275"
           }
         ],
         "accountId": "0",
@@ -810,7 +807,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "XXXXXXXXXXXXXXXXXXX"
+            "value": "lJM5CJvO_rcdEMvhgthB"
           }
         ],
         "accountId": "0",
@@ -826,7 +823,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "XXXXXXXXXXXXXXXXXXX"
+            "value": "HT4mCJ7O_rcdEMvhgthB"
           }
         ],
         "accountId": "0",
@@ -842,7 +839,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "XXXXXXXXXXXXXXXXXXX"
+            "value": "qWXbCKHO_rcdEMvhgthB"
           }
         ],
         "accountId": "0",

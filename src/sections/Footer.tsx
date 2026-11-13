@@ -45,6 +45,8 @@ export function Footer() {
                 {COMPANY.address.street}
                 <br />
                 {COMPANY.address.district} · {COMPANY.address.city} · CEP {COMPANY.address.cep}
+                <br />
+                Atendimento das {COMPANY.hours}
               </li>
             </ul>
           </div>

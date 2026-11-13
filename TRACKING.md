@@ -8,11 +8,11 @@ O site só envia eventos para o `dataLayer`. **Toda tag fica dentro do GTM**, e 
 |---|---|
 | **GTM** | `GTM-5RPK8QJW` (conta "Crescer Pediatria Integrada", criada no login da agência). Contêiner importado e **publicado** (versão 2). `VITE_GTM_ID` já está no `.env`. |
 | **GA4** | `G-JLXBSWS3V8` (conta 416211754, propriedade 564283989, fluxo Web 16336339817, fuso Belém, moeda BRL). Medição otimizada sem "interações com formulário" e sem "pesquisa no site" (conflitariam com `form_start`/`form_submit` e não existem aqui). Hits conferidos: `page_view`, `section_view` e `generate_lead` chegam com o `G-JLXBSWS3V8`. |
-| **Google Ads** | **Pendente.** Não há conta da Crescer neste login. As 3 tags de conversão estão **pausadas** no GTM até existirem a conta e as conversões. |
+| **Google Ads** | Conta "Crescer Pediatria Integrada", ID de conversão `AW-17632899275`. Criadas as conversões **Lead - WhatsApp**, **Lead - Telefone** e **Lead - Formulario** (categoria *Enviar formulário de lead*, contagem Uma, janela de 30 dias, valor 0). Variáveis `const - Ads …` preenchidas, 3 tags **ativas**, GTM **publicado (versão 3)**. Hit conferido: após aceitar cookies, o clique no WhatsApp envia `pagead/conversion/17632899275` com o rótulo certo e o `lead_id` como ID da transação; sem consentimento, nenhum pedido ao Ads. Marcação automática ligada e sufixo de URL final `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}` na conta. Conversões otimizadas (dados do usuário) ficaram **desligadas** de propósito. A conversão antiga "SITE - Contato" (site antigo, 90 dias) segue na conta com status de configuração incorreta; não é usada pelo site novo. |
 | **Meta Pixel** | **Pendente.** As 2 tags do Pixel estão **pausadas** no GTM até existir o Pixel. |
 | **Evento principal no GA4** | Marcar `generate_lead` como evento principal (estrela) em Administrador > Exibição de dados > Eventos, assim que ele aparecer (depois dos primeiros dados). |
 
-Para ligar Google Ads e Meta: preencher as variáveis `const - Ads …` / `const - Meta Pixel ID`, **despausar** as 5 tags no GTM, pré-visualizar e publicar uma nova versão.
+Para ligar o Meta: preencher `const - Meta Pixel ID`, **despausar** as 2 tags `Meta Pixel` no GTM (editar a tag > banner "Pausada" > *Ativar* > Salvar), pré-visualizar e publicar uma nova versão. O Google Ads já está ligado.
 
 Falta também dar acesso à conta do GTM e do GA4 ao e-mail da clínica (Administrador > Gerenciamento de usuários).
 
