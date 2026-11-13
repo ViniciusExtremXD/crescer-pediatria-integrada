@@ -118,11 +118,11 @@ export const DOCTORS: Doctor[] = [
     id: "karla",
     name: "Dra. Karla Bussons",
     specialty: "Pediatria Geral",
-    title: "Pediatra",
+    title: "Pediatra geral",
     specialtyId: "pediatria",
     crm: "CRM-AP 1528 · RQE 767",
-    photo: "images/dra-karla-bussons.webp",
-    focus: "50% 22%",
+    photo: "images/ensaios/karla-bussons.webp",
+    focus: "50% 30%",
     about: "Pediatra geral da Crescer. Acompanha o desenvolvimento, o sono, a alimentação e a rotina de saúde da criança, cuida do recém-nascido e identifica quando uma avaliação especializada pode ser necessária.",
     instagram: "dra.karlabussonspediatra",
     reviews: [
@@ -134,10 +134,10 @@ export const DOCTORS: Doctor[] = [
     id: "lorena",
     name: "Dra. Lorena Neri",
     specialty: "Pediatria Geral",
-    title: "Pediatra",
+    title: "Pediatra geral",
     specialtyId: "pediatria",
     crm: "CRM-AP 1597 · RQE 803",
-    photo: "images/polaroid-lorena.webp",
+    photo: "images/ensaios/lorena-neri.webp",
     focus: "50% 30%",
     about: "Pediatra geral. Faz o acompanhamento de rotina do recém-nascido ao adolescente: desenvolvimento, sono, alimentação, sintomas comuns da infância, vacinação e prevenção.",
   },
@@ -148,8 +148,8 @@ export const DOCTORS: Doctor[] = [
     title: "Gastropediatra",
     specialtyId: "gastro",
     crm: "CRM-AP 1447 · RQE 819/820",
-    photo: "images/dra-nathalia-dias.webp",
-    focus: "50% 30%",
+    photo: "images/ensaios/nathalia-dias.webp",
+    focus: "50% 8%",
     about: "Gastroenterologista pediátrica. Cuida do sistema digestivo da criança: APLV, intolerância à lactose, constipação intestinal, dor abdominal, doença celíaca e seletividade alimentar.",
     instagram: "nathaliadias.gastropediatra",
     reviews: [{ text: "Dra Natalia Dias (Gastropediatra) é bem atenciosa, o atendimento é humanizado do início ao fim. Me senti segura e bem orientada.", author: "Debby R." }],
@@ -161,8 +161,8 @@ export const DOCTORS: Doctor[] = [
     title: "Pneumopediatra",
     specialtyId: "pneumo",
     crm: "CRM-AP 1441 · RQE 898",
-    photo: "images/dra-regiane-barreto.webp",
-    focus: "50% 18%",
+    photo: "images/ensaios/regiane-barreto.webp",
+    focus: "50% 8%",
     about: "Pneumologista pediátrica. Atende quando a principal preocupação é a respiração: asma, chiado, tosse persistente, falta de ar e crises respiratórias que se repetem.",
     reviews: [{ text: "Atendem meu filho sempre com muita paciência, sem pressa, tiram todas as minhas dúvidas. Quero deixar meu agradecimento especial para a Dra. Regiane e Dra. Luara.", author: "Sarina S." }],
   },
@@ -173,8 +173,8 @@ export const DOCTORS: Doctor[] = [
     title: "Alergopediatra",
     specialtyId: "alergia",
     crm: "CRM-AP 1403 · RQE 1103/1122",
-    photo: "images/slide-laila.webp",
-    focus: "50% 12%",
+    photo: "images/ensaios/laila-botelho.webp",
+    focus: "50% 8%",
     about: "Alergista e imunologista pediátrica. Investiga e acompanha alergias alimentares, respiratórias e de pele, outras reações e alterações do sistema imunológico.",
   },
   {
@@ -184,8 +184,8 @@ export const DOCTORS: Doctor[] = [
     title: "Pediatra do Desenvolvimento Infantil",
     specialtyId: "neuro",
     crm: "CRM-AP 1550 · RQE 968",
-    photo: "images/slide-marcia.webp",
-    focus: "50% 12%",
+    photo: "images/ensaios/marcia-cajueiro.webp",
+    focus: "50% 8%",
     about: "Pediatra especialista em neurodesenvolvimento infantil, com formação em Psiquiatria Infantil. Acompanha questões de desenvolvimento, comportamento, aprendizagem e outras particularidades do neurodesenvolvimento.",
   },
   /* CRM/RQE conforme a tabela oficial de registros enviada pela clínica (12/11/2026). */
@@ -196,8 +196,8 @@ export const DOCTORS: Doctor[] = [
     title: "Infectopediatra",
     specialtyId: "infecto",
     crm: "CRM-AP 1036 · RQE 214/810",
-    photo: "images/slide-helena.webp",
-    focus: "50% 12%",
+    photo: "images/ensaios/helena-progenio.webp",
+    focus: "50% 8%",
     about: "Infectologista pediátrica. Acompanha infecções recorrentes, quadros mais complexos, doenças infecciosas específicas e dúvidas sobre prevenção e vacinação.",
   },
   {
@@ -207,8 +207,8 @@ export const DOCTORS: Doctor[] = [
     title: "Hematopediatra",
     specialtyId: "hemato",
     crm: "CRM-AP 401 · RQE 450",
-    photo: "images/dra-luciana-campos.webp",
-    focus: "50% 25%",
+    photo: "images/ensaios/luciana-campos.webp",
+    focus: "50% 8%",
     about: "Hematologista pediátrica. Cuida de anemias, alterações no hemograma e nas plaquetas, problemas de coagulação e outras condições hematológicas.",
   },
 ];
@@ -250,7 +250,6 @@ export interface Specialty {
   /* Descrição de cada tema (mesma ordem de topics). Opcional. */
   details?: string[];
   doctorIds: string[];
-  photo: string;
 }
 
 export const SPECIALTIES: Specialty[] = [
@@ -276,7 +275,6 @@ export const SPECIALTIES: Specialty[] = [
       "Consultas de puericultura, vacinação, orientações preventivas e acompanhamento da saúde e do desenvolvimento infantil.",
     ],
     doctorIds: ["karla", "lorena"],
-    photo: "images/dra-karla-bussons.webp",
   },
   {
     id: "gastro",
@@ -285,7 +283,6 @@ export const SPECIALTIES: Specialty[] = [
     /* Lista enviada pela clínica (WhatsApp, 12/11/2026). */
     topics: ["APLV (alergia à proteína do leite de vaca)", "Intolerância à lactose", "Constipação intestinal", "Dor abdominal", "Doença celíaca", "Seletividade alimentar"],
     doctorIds: ["nathalia"],
-    photo: "images/dra-nathalia-dias.webp",
   },
   {
     id: "pneumo",
@@ -293,7 +290,6 @@ export const SPECIALTIES: Specialty[] = [
     lead: "Quando a principal preocupação está na respiração.",
     topics: ["Asma e chiado", "Tosse persistente", "Falta de ar", "Crises que se repetem"],
     doctorIds: ["regiane"],
-    photo: "images/dra-regiane-barreto.webp",
   },
   {
     id: "alergia",
@@ -301,7 +297,6 @@ export const SPECIALTIES: Specialty[] = [
     lead: "Para investigar e acompanhar alergias e alterações do sistema imunológico.",
     topics: ["Alergias alimentares", "Alergias respiratórias", "Alergias de pele", "Prick Test e imunoterapia"],
     doctorIds: ["laila"],
-    photo: "images/slide-laila.webp",
   },
   {
     id: "neuro",
@@ -309,7 +304,6 @@ export const SPECIALTIES: Specialty[] = [
     lead: "O desenvolvimento infantil também faz parte do acompanhamento da criança.",
     topics: ["Marcos do desenvolvimento", "Comportamento", "Aprendizagem", "Neurodiversidade"],
     doctorIds: ["marcia"],
-    photo: "images/slide-marcia.webp",
   },
   {
     id: "infecto",
@@ -317,7 +311,6 @@ export const SPECIALTIES: Specialty[] = [
     lead: "Para situações relacionadas a infecções na infância.",
     topics: ["Infecções recorrentes", "Quadros mais complexos", "Doenças infecciosas", "Prevenção e vacinação"],
     doctorIds: ["helena"],
-    photo: "images/slide-helena.webp",
   },
   {
     id: "hemato",
@@ -325,7 +318,6 @@ export const SPECIALTIES: Specialty[] = [
     lead: "Cuida das doenças e alterações relacionadas ao sangue.",
     topics: ["Anemias", "Alterações no hemograma", "Plaquetas", "Condições hematológicas"],
     doctorIds: ["luciana"],
-    photo: "images/dra-luciana-campos.webp",
   },
 ];
 
@@ -354,27 +346,67 @@ export const TESTS: { title: string; desc: string; icon: TestIcon }[] = [
   { title: "Streptococcus do Grupo A", desc: "Identifica a bactéria causadora de muitas amigdalites.", icon: "microscope" },
   { title: "Covid-19, Influenza A e B", desc: "Para diagnóstico ágil de gripes e resfriados.", icon: "virus" },
   { title: "Vírus Sincicial Respiratório (VSR)", desc: "Comum em bebês e crianças pequenas.", icon: "baby" },
-  { title: "Teste do Olhinho", desc: "Triagem da visão nos primeiros meses de vida.", icon: "eye" },
-  { title: "Teste da Linguinha", desc: "Avaliação do frênulo da língua, importante para a amamentação e a fala.", icon: "smiley" },
-  { title: "Prick Test", desc: "Teste na pele que ajuda a investigar alergias.", icon: "hand" },
-  { title: "Imunoterapia", desc: "Tratamento de alergias, com indicação e acompanhamento da especialista.", icon: "shield" },
+  { title: "Teste do Olhinho", desc: "Avalia estruturas dos olhos do bebê e ajuda a identificar alterações que precisam de investigação e acompanhamento.", icon: "eye" },
+  { title: "Teste da Linguinha", desc: "Avalia o frênulo da língua e alterações que podem interferir na sucção, na amamentação e nos movimentos da língua.", icon: "smiley" },
+  { title: "Prick Test", desc: "Teste na pele que investiga a sensibilização a alimentos, ácaros, pelos de animais e outros alérgenos.", icon: "hand" },
+  { title: "Imunoterapia", desc: "Tratamento que busca modificar a resposta do organismo a alérgenos, indicado em alguns casos após avaliação especializada.", icon: "shield" },
 ];
 
+/*
+ * Carrossel oficial "Além das consultas, o que você encontra na Crescer?"
+ * (Instagram, DfaSrXSFQa7, slides 5 a 8).
+ */
 export const OTHER_SERVICES = [
-  { title: "Bioimpedância", desc: "Avaliação da composição corporal no acompanhamento nutricional." },
-  { title: "Terapia alimentar", desc: "Para crianças com seletividade e dificuldades na hora de comer." },
+  {
+    id: "terapia-alimentar",
+    title: "Terapia alimentar",
+    kicker: "Alimentação também faz parte do cuidado",
+    desc: "Acompanhamento para crianças com dificuldades relacionadas à alimentação, como seletividade, recusa ou resistência a determinados alimentos.",
+  },
+  {
+    id: "bioimpedancia",
+    title: "Bioimpedância",
+    kicker: "Composição corporal",
+    desc: "Avaliação que mostra a composição corporal: massa muscular, percentual e distribuição de gordura e água corporal.",
+  },
+  {
+    id: "amamentacao",
+    title: "Consultoria de amamentação",
+    kicker: "Para a mãe e o bebê",
+    desc: "Orientação individualizada para dúvidas e desafios da amamentação, da pega e do posicionamento do bebê ao manejo das dificuldades.",
+  },
+  {
+    id: "puericultura",
+    title: "Puericultura",
+    kicker: "Consulta de rotina",
+    desc: "Acompanhamento periódico da saúde e do desenvolvimento da criança e do adolescente: crescimento, alimentação, sono, vacinação e cada fase.",
+  },
 ];
+
+export const LASER = {
+  title: "Laserterapia",
+  lead: "Entre as aplicações realizadas na Crescer, estão:",
+  uses: [
+    { title: "Cicatrização", desc: "Assaduras, lesões mamárias, dermatites, queimaduras, granuloma umbilical e cuidados no pós-operatório." },
+    { title: "Ação antimicrobiana", desc: "Estomatite, impetigo, herpes, candidíase mamária e mão-pé-boca." },
+    { title: "Ação anti-inflamatória", desc: "Pneumonia e asma, dermatites e outros." },
+    { title: "Ação analgésica", desc: "Nascimento dos dentes e dor durante a amamentação." },
+  ],
+  note: "E outras indicações, sempre de acordo com a avaliação individual.",
+};
 
 export const COURSES = [
   {
-    title: "Primeiros cuidados com o recém-nascido",
-    for: "Para gestantes e famílias",
-    desc: "Orientações práticas para os primeiros dias e meses com o bebê em casa.",
+    title: "Primeiros Cuidados com o Bebê Recém-Nascido e Iniciando a Amamentação",
+    for: "Para quem está esperando um bebê",
+    desc: "Um encontro para aprender, na teoria e na prática, os cuidados dos primeiros dias com o bebê.",
+    learn: ["Banho do bebê", "Troca de fralda", "Amamentação", "Manobra de desengasgo", "Cólicas e refluxo"],
   },
   {
-    title: "Descobrindo novos sabores",
+    title: "Descobrindo Novos Sabores",
     for: "Para pais e filhos de 3 a 8 anos",
     desc: "Curso prático sobre seletividade alimentar: explorar, tocar, preparar e experimentar, sem brigas à mesa.",
+    learn: [] as string[],
   },
 ];
 

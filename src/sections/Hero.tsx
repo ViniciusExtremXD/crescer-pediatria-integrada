@@ -73,8 +73,8 @@ export function Hero({ ready }: { ready: boolean }) {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={ready ? { opacity: 1, y: 0 } : undefined} transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.75 }}>
             <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-pine-800/75 sm:text-xl">
-              Do recém-nascido à adolescência, uma equipe de médicas especialistas e profissionais da saúde infantil que acompanha{" "}
-              <RotatingWord words={AUDIENCES} /> em cada fase, no mesmo lugar.
+              Pediatria, subespecialidades, testes e terapias no mesmo endereço. Do recém-nascido à adolescência, uma equipe que acompanha{" "}
+              <RotatingWord words={AUDIENCES} /> com tempo para ouvir, examinar e explicar.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-5">

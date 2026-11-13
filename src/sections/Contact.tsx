@@ -21,7 +21,7 @@ export function Contact() {
               <SplitWords text="Vamos *cuidar* juntos?" accentClassName="italic text-rose-300" />
             </h2>
             <Reveal className="mt-6 max-w-md text-lg leading-relaxed text-cream-100/75">
-              Atendimento com hora marcada. Fale com a equipe pelo WhatsApp, por telefone ou pelo formulário.
+              Conte a idade da criança e o que está acontecendo. A equipe indica a especialista certa e o melhor horário, pelo WhatsApp, por telefone ou pelo formulário.
             </Reveal>
 
             <ul className="mt-10 space-y-3">

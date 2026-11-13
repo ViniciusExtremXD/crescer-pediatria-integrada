@@ -22,12 +22,13 @@ export function Instagram() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => pushEvent("instagram_click", { link_location: "secao_instagram" })}
-                className="group inline-flex items-center gap-4 rounded-full bg-gradient-to-r from-rose-400 via-rose-500 to-pine-600 p-1.5 pr-6 text-white shadow-rose"
+                className="group relative inline-flex items-center gap-4 overflow-hidden rounded-full bg-rose-400 p-1.5 pr-6 text-white shadow-rose"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-white/20">
+                <span className="absolute inset-0 origin-left scale-x-0 bg-rose-500 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+                <span className="relative grid h-12 w-12 place-items-center rounded-full bg-white text-rose-500">
                   <InstagramLogo weight="bold" className="h-6 w-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
                 </span>
-                <span className="leading-tight">
+                <span className="relative leading-tight">
                   <span className="block text-sm font-semibold">@{COMPANY.instagramHandle}</span>
                   <span className="text-xs text-white/80">{COMPANY.instagramFollowers} seguidores · seguir</span>
                 </span>
@@ -50,7 +51,7 @@ export function Instagram() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => pushEvent("instagram_click", { link_location: "post", post: p.code })}
-                className="group relative block aspect-square overflow-hidden rounded-[1.5rem] bg-rose-200 shadow-soft transition-shadow duration-500 hover:shadow-lift"
+                className="group relative block aspect-square overflow-hidden rounded-[1.5rem] bg-rose-200 shadow-soft transition-shadow duration-500 hover:shadow-card"
               >
                 <img src={assetUrl(p.img)} alt={p.text} loading="lazy" width={640} height={640} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
                 <div className="absolute inset-0 flex flex-col justify-between bg-pine-800/0 p-4 transition-colors duration-500 group-hover:bg-pine-800/70">

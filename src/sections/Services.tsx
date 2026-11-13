@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, ForkKnife, HandPalm, Microscope, Phone, Scales, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
+import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, HandPalm, Microscope, Phone, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
-import { ART_SPECIALTIES, COMPANY, COURSES, OTHER_SERVICES, TESTS, assetUrl, type TestIcon } from "../data/site";
+import { ART_SPECIALTIES, COMPANY, COURSES, LASER, OTHER_SERVICES, TESTS, assetUrl, type TestIcon } from "../data/site";
 import { EASE_OUT, ParallaxImage, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PhoneLink, PrimaryCta, WhatsAppLink } from "../components/cta";
 
@@ -31,7 +31,7 @@ export function Services() {
             <SplitWords text="fase do seu filho." delay={0.25} className="text-pine-600" />
           </h2>
           <Reveal className="mt-5 max-w-xl text-lg leading-relaxed text-pine-800/70">
-            Consultas, testes e acompanhamento no mesmo lugar, com uma equipe que conversa entre si sobre cada criança.
+            Consultas, testes rápidos e terapias no mesmo endereço: menos idas e vindas para a família e uma equipe que conversa entre si sobre cada criança.
           </Reveal>
         </div>
 
@@ -141,60 +141,236 @@ export function Services() {
           </div>
         </Reveal>
 
-        {/* Outros serviços e cursos */}
-        <div className="mt-6 grid gap-6 lg:grid-cols-12">
-          <Reveal delay={0.05} className="relative overflow-hidden rounded-[2.5rem] bg-pine-700 p-8 text-cream-50 shadow-pine sm:p-10 lg:col-span-5">
-            <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-pine-500/40 blur-2xl" />
-            <h3 className="font-display relative text-3xl font-medium">
-              Também na <span className="italic text-rose-200">Crescer</span>
-            </h3>
-            <ul className="relative mt-6 space-y-4">
-              {OTHER_SERVICES.map((o, i) => {
-                const Ico = i ? ForkKnife : Scales;
-                return (
-                  <li key={o.title} className="flex items-start gap-4 rounded-2xl bg-white/[0.06] p-4 shadow-glass ring-1 ring-white/10">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-rose-300 text-pine-900">
-                      <Ico weight="duotone" className="h-5 w-5" />
-                    </span>
-                    <span>
-                      <span className="block font-semibold">{o.title}</span>
-                      <span className="text-sm text-cream-100/70">{o.desc}</span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-            <p className="relative mt-6 text-sm text-cream-100/60">A indicação de exames e terapias é feita pela especialista durante a consulta.</p>
-          </Reveal>
-
-          <Reveal delay={0.12} className="group relative grid overflow-hidden rounded-[2.5rem] bg-rose-100 shadow-card transition-shadow duration-500 hover:shadow-lift sm:grid-cols-[0.9fr_1.1fr] lg:col-span-7">
-            <div className="relative min-h-[220px] overflow-hidden">
-              <ParallaxImage src={assetUrl("images/curso-culinaria.webp")} alt="Crianças com as mãos sujas de massa no curso de culinária" amount={10} position="50% 40%" className="absolute inset-0" />
-              <span className="absolute left-5 top-5 rounded-full bg-cream-50/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-pine-700 shadow-soft">Cursos para famílias</span>
-            </div>
-            <div className="p-8 sm:p-9">
-              {COURSES.map((c, i) => (
-                <div key={c.title} className={i ? "mt-5 border-t border-pine-600/10 pt-5" : ""}>
-                  <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-600">
-                    {i ? <CookingPot weight="duotone" className="h-4 w-4" /> : <Baby weight="duotone" className="h-4 w-4" />}
-                    {c.for}
-                  </p>
-                  <h4 className="font-display mt-2 text-2xl font-medium text-pine-700">{c.title}</h4>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-pine-800/70">{c.desc}</p>
-                </div>
-              ))}
-              <WhatsAppLink
-                location="cursos"
-                message="Olá! Gostaria de saber sobre as próximas turmas dos cursos da Crescer."
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-pine-700 underline decoration-pine-600/30 underline-offset-4 hover:decoration-pine-600"
-              >
-                Quero saber das próximas turmas <ArrowUpRight weight="bold" className="h-4 w-4" />
-              </WhatsAppLink>
-            </div>
-          </Reveal>
-        </div>
+        <AlemDasConsultas />
       </div>
     </section>
+  );
+}
+
+/*
+ * "Além das consultas, o que você encontra na Crescer?"
+ * Conteúdo e linguagem visual do carrossel oficial (DfaSrXSFQa7): bloco rosa
+ * com borda recortada, prancheta da laserterapia, selo de cera e polaroids do curso.
+ */
+function AlemDasConsultas() {
+  const [terapia, bio, amamentacao, puericultura] = OTHER_SERVICES;
+  const [gestantes, sabores] = COURSES;
+
+  return (
+    <div className="mt-28 sm:mt-36">
+      <div className="grid items-end gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rose-600">Além das consultas</p>
+          <h3 className="font-display mt-4 text-[clamp(2.2rem,4.6vw,4rem)] font-medium leading-[1.04] tracking-tight text-pine-700">
+            <SplitWords text="O que você *encontra* na Crescer" accentClassName="italic text-rose-400" />
+          </h3>
+        </div>
+        <Reveal className="text-lg leading-relaxed text-pine-800/70 lg:col-span-5">
+          Serviços que completam o acompanhamento da criança, da alimentação à amamentação, com a mesma equipe e no mesmo endereço.
+        </Reveal>
+      </div>
+
+      <div className="mt-12 grid gap-5 lg:grid-cols-12">
+        {/* Terapia alimentar + bioimpedância (slide 5) */}
+        <Reveal className="group relative flex flex-col overflow-hidden rounded-[2.25rem] bg-rose-400 text-cream-50 shadow-card lg:col-span-5">
+          <div className="relative px-7 pb-10 pt-8 text-center sm:px-10">
+            <span className="inline-block rounded-md border border-dashed border-cream-50/50 bg-pine-600 px-3 py-1.5 text-xs font-semibold tracking-wide">
+              {terapia.kicker}
+            </span>
+            <h4 className="font-display mt-5 text-3xl font-medium sm:text-4xl">{terapia.title}</h4>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-cream-50/90">{terapia.desc}</p>
+            <h4 className="font-display mt-7 text-3xl font-medium sm:text-4xl">{bio.title}</h4>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-cream-50/90">{bio.desc}</p>
+          </div>
+          <div className="relative mt-auto h-56 overflow-hidden sm:h-64">
+            <img
+              src={assetUrl("images/servicos/terapia-alimentar.webp")}
+              alt="Mão de criança pegando pedaços de banana no prato"
+              loading="lazy"
+              className="h-full w-full object-cover object-[40%_40%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
+            />
+            {/* borda recortada da arte */}
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-3"
+              style={{ backgroundImage: "radial-gradient(circle at 50% 0, #D4898F 10px, transparent 10.5px)", backgroundSize: "20px 12px", backgroundRepeat: "repeat-x" }}
+            />
+            <WaxSeal className="absolute right-6 top-4 h-16 w-16" />
+          </div>
+        </Reveal>
+
+        {/* Laserterapia na prancheta (slide 7) */}
+        <Reveal delay={0.08} className="relative flex flex-col justify-center rounded-[2.25rem] bg-rose-200 px-4 pb-6 pt-12 shadow-card sm:px-10 sm:pb-10 lg:col-span-7">
+          <Clip className="absolute left-1/2 top-0 h-16 w-32 -translate-x-1/2 -translate-y-3" />
+          <div className="relative rounded-md bg-white px-6 pb-8 pt-9 text-center shadow-soft [clip-path:polygon(0_1%,6%_0,14%_1.2%,22%_0.2%,31%_1%,40%_0,49%_1.1%,58%_0.1%,67%_1%,76%_0,85%_1.2%,93%_0.2%,100%_1%,99.6%_50%,100%_99%,92%_100%,83%_98.9%,74%_99.9%,65%_99%,56%_100%,47%_98.9%,38%_99.8%,29%_99%,20%_100%,11%_98.9%,3%_99.8%,0_99%,0.4%_50%)] sm:px-10">
+            <h4 className="font-display text-4xl font-medium text-rose-400 sm:text-5xl">{LASER.title}</h4>
+            <p className="font-display mt-3 text-lg font-medium text-pine-700 sm:text-xl">{LASER.lead}</p>
+            <ul className="mt-7 grid gap-x-8 gap-y-5 text-left sm:grid-cols-2">
+              {LASER.uses.map((u, i) => (
+                <motion.li
+                  key={u.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.1 + i * 0.07 }}
+                >
+                  <p className="flex items-center gap-2 font-semibold text-rose-500">
+                    <Sparkle weight="fill" className="h-4 w-4 shrink-0" />
+                    {u.title}
+                  </p>
+                  <p className="mt-1 pl-6 text-[15px] leading-snug text-pine-800/75">{u.desc}</p>
+                </motion.li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm font-semibold text-pine-700 underline decoration-pine-600/40 underline-offset-4">{LASER.note}</p>
+          </div>
+        </Reveal>
+
+        {/* Consultoria de amamentação + puericultura (slide 8) */}
+        <Reveal className="group relative overflow-hidden rounded-[2.25rem] bg-pine-800 shadow-card lg:col-span-7">
+          <div className="absolute inset-0">
+            <ParallaxImage
+              src={assetUrl("images/servicos/mao-bebe.webp")}
+              alt="Mãozinha de bebê saindo da manga de tricô sobre a manta"
+              amount={8}
+              position="60% 50%"
+              className="h-full w-full"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pine-950/50 via-pine-950/15 to-transparent" />
+          <div className="relative grid gap-0 p-5 sm:p-8 md:max-w-[34rem]">
+            {[amamentacao, puericultura].map((s, i) => (
+              <div key={s.id} className={`relative bg-rose-100/95 px-7 py-7 text-center backdrop-blur-sm sm:px-9 ${i ? "rounded-b-2xl pt-10" : "z-10 rounded-t-2xl pb-10"}`}>
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-pine-500">{s.kicker}</p>
+                <h4 className="font-display mt-2 text-3xl font-medium leading-tight text-rose-400 sm:text-4xl">{s.title}</h4>
+                <p className="mt-2.5 text-[15px] leading-relaxed text-pine-800/80">{s.desc}</p>
+                {i === 0 && (
+                  <>
+                    <span aria-hidden className="absolute inset-x-0 -bottom-px h-0.5 bg-cream-50/80" />
+                    <WaxSeal className="absolute -bottom-8 left-1/2 z-10 h-16 w-16 -translate-x-1/2" />
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Curso para gestantes (slides 9 e 10) */}
+        <Reveal delay={0.08} className="relative overflow-hidden rounded-[2.25rem] bg-[#8DA9A1] p-7 text-cream-50 shadow-card sm:p-10 lg:col-span-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pine-900/70">{gestantes.for}</p>
+          <h4 className="font-display mt-3 text-[1.7rem] font-medium leading-tight sm:text-3xl">{gestantes.title}</h4>
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-cream-50/90">{gestantes.desc}</p>
+
+          <div className="mt-6 flex items-start gap-5">
+            <ul className="min-w-0 flex-1 space-y-2.5">
+              {gestantes.learn.map((l) => (
+                <li key={l} className="flex items-center gap-2.5 text-[15px] font-medium">
+                  <Sparkle weight="fill" className="h-4 w-4 shrink-0 text-pine-700" /> {l}
+                </li>
+              ))}
+            </ul>
+            <div className="relative hidden h-44 w-36 shrink-0 sm:block">
+              {[
+                { src: "curso-desengasgo", r: -7, t: "0", l: "0" },
+                { src: "curso-cuidados", r: 6, t: "2.6rem", l: "0.9rem" },
+                { src: "curso-amamentacao", r: -3, t: "5.4rem", l: "0.2rem" },
+              ].map((p, i) => (
+                <motion.img
+                  key={p.src}
+                  src={assetUrl(`images/servicos/${p.src}.webp`)}
+                  alt=""
+                  loading="lazy"
+                  className="absolute w-32 rounded-[3px] border-[5px] border-b-[14px] border-cream-50 shadow-soft"
+                  style={{ top: p.t, left: p.l }}
+                  initial={{ opacity: 0, rotate: 0, y: 16 }}
+                  whileInView={{ opacity: 1, rotate: p.r, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 120, damping: 14, delay: 0.15 + i * 0.12 }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-6 rounded-lg border border-dashed border-cream-50/50 bg-pine-600 px-4 py-3 text-sm font-medium">
+            E outros cuidados que fazem parte da rotina com um recém-nascido.
+          </p>
+          <WhatsAppLink
+            location="cursos"
+            message="Olá! Gostaria de saber sobre a próxima turma do curso Primeiros Cuidados com o Bebê Recém-Nascido."
+            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cream-50 underline decoration-cream-50/40 underline-offset-4 hover:decoration-cream-50"
+          >
+            Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
+          </WhatsAppLink>
+        </Reveal>
+
+        {/* Curso de culinária */}
+        <Reveal className="group relative grid overflow-hidden rounded-[2.25rem] bg-cream-200 shadow-card sm:grid-cols-[0.8fr_1.2fr] lg:col-span-12">
+          <div className="relative min-h-[220px] overflow-hidden">
+            <div className="absolute inset-0">
+              <ParallaxImage src={assetUrl("images/curso-culinaria.webp")} alt="Crianças com toucas de chef no curso Descobrindo Novos Sabores" amount={10} position="50% 40%" className="h-full w-full" />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-600">
+                <CookingPot weight="duotone" className="h-4 w-4" /> {sabores.for}
+              </p>
+              <h4 className="font-display mt-2 text-3xl font-medium text-pine-700">{sabores.title}</h4>
+              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-pine-800/70">{sabores.desc}</p>
+            </div>
+            <WhatsAppLink
+              location="cursos"
+              message="Olá! Gostaria de saber sobre a próxima turma do curso Descobrindo Novos Sabores."
+              className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-pine-600 px-5 py-3 text-sm font-semibold text-cream-50 shadow-pine transition-colors hover:bg-pine-700 lg:self-center"
+            >
+              Quero participar <ArrowUpRight weight="bold" className="h-4 w-4" />
+            </WhatsAppLink>
+          </div>
+        </Reveal>
+      </div>
+
+      <p className="mt-6 text-center text-sm text-pine-800/55">A indicação de exames, terapias e procedimentos é feita na consulta, de acordo com cada criança.</p>
+    </div>
+  );
+}
+
+/* Selo de cera com o símbolo da Crescer, como nos posts. */
+function WaxSeal({ className }: { className?: string }) {
+  return (
+    <motion.span
+      aria-hidden
+      initial={{ scale: 0, rotate: -40 }}
+      whileInView={{ scale: 1, rotate: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 220, damping: 13, delay: 0.25 }}
+      className={`grid place-items-center rounded-[46%_54%_50%_50%/52%_48%_52%_48%] bg-[radial-gradient(circle_at_35%_30%,#E9AEB4,#C9777F_55%,#A85A64)] shadow-[inset_0_2px_5px_rgba(255,255,255,0.35),inset_0_-4px_8px_rgba(90,25,35,0.3),0_6px_14px_-6px_rgba(110,40,50,0.55)] ${className ?? ""}`}
+    >
+      <span className="grid h-[72%] w-[72%] place-items-center rounded-full shadow-[inset_0_2px_4px_rgba(90,25,35,0.35),0_1px_0_rgba(255,255,255,0.3)]">
+        <img src={assetUrl("logo-mark-light.svg")} alt="" className="h-[70%] w-[70%] opacity-90" />
+      </span>
+    </motion.span>
+  );
+}
+
+/* Prendedor da prancheta. */
+function Clip({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 128 64" className={className} aria-hidden>
+      <defs>
+        <linearGradient id="clip-metal" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stopColor="#F4F4F2" />
+          <stop offset="0.55" stopColor="#B9BBBA" />
+          <stop offset="1" stopColor="#8E9190" />
+        </linearGradient>
+      </defs>
+      <path d="M40 30 V16 C40 6 48 2 64 2 C80 2 88 6 88 16 V30 Z" fill="url(#clip-metal)" stroke="#7E8180" strokeWidth="1.5" />
+      {[50, 56, 62, 68, 74].map((x) => (
+        <rect key={x} x={x} y="9" width="3" height="18" rx="1.5" fill="#8E9190" opacity="0.7" />
+      ))}
+      <rect x="8" y="28" width="112" height="22" rx="7" fill="url(#clip-metal)" stroke="#7E8180" strokeWidth="1.5" />
+      <circle cx="20" cy="39" r="3.5" fill="#7E8180" />
+      <circle cx="108" cy="39" r="3.5" fill="#7E8180" />
+    </svg>
   );
 }
 

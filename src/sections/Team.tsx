@@ -47,7 +47,7 @@ export function Team() {
               <p className="font-display relative mt-4 text-4xl font-medium leading-[1.05] sm:text-6xl">
                 Conheça nossa <span className="italic text-rose-200">equipe</span>
               </p>
-              <p className="relative mt-4 max-w-sm text-cream-100/80">Pediatras e especialistas lado a lado, com uma equipe multiprofissional que acompanha cada fase.</p>
+              <p className="relative mt-4 max-w-sm text-cream-100/80">Pediatras e subespecialistas lado a lado. Se o seu filho precisar de outro olhar, a próxima especialista está na sala ao lado.</p>
               <dl className="relative mt-8 flex gap-8">
                 <div>
                   <dd className="font-display text-4xl font-medium">{DOCTORS.length}</dd>
@@ -59,12 +59,12 @@ export function Team() {
                 </div>
               </dl>
             </div>
-            <div className="relative aspect-[1400/1306] overflow-hidden bg-cream-200">
+            <div className="relative aspect-[1600/1240] overflow-hidden bg-cream-200">
               <motion.img
-                src={assetUrl("images/equipe-trio.webp")}
-                alt="Três médicas da Crescer em um estúdio claro"
-                width={1400}
-                height={1306}
+                src={assetUrl("images/equipe-socias.webp")}
+                alt="Dra. Nathalia Dias, Dra. Karla Bussons e Dra. Regiane Barreto na recepção da Crescer"
+                width={1600}
+                height={1240}
                 loading="lazy"
                 className="h-full w-full object-cover"
                 initial={{ scale: 1.12 }}
@@ -119,7 +119,11 @@ export function Team() {
                         className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-pine-900/75 via-pine-900/5 to-transparent" />
-                      <p className="absolute inset-x-4 bottom-4 text-xs font-medium text-cream-100/90">{d.crm ?? "CRM e RQE em atualização"}</p>
+                      {d.crm && (
+                        <p className="absolute inset-x-3 bottom-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-pine-950/45 px-3 py-1.5 text-[11px] font-semibold tracking-wide text-cream-50 ring-1 ring-white/15 backdrop-blur-md">
+                          <SealCheck weight="fill" className="h-3.5 w-3.5 text-rose-300" /> {d.crm}
+                        </p>
+                      )}
                       <span className="absolute right-4 top-4 flex h-10 items-center gap-0 overflow-hidden rounded-full bg-cream-50/95 pl-2.5 pr-2.5 text-pine-700 shadow-soft backdrop-blur transition-all duration-500 group-hover:gap-1.5 group-hover:pr-3.5">
                         <Plus weight="bold" className="h-4 w-4 transition-transform duration-500 group-hover:rotate-90" />
                         <span className="max-w-0 overflow-hidden whitespace-nowrap text-xs font-bold transition-[max-width] duration-500 group-hover:max-w-[80px]">Conhecer</span>
@@ -155,7 +159,7 @@ export function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: EASE_OUT, delay: (i % 4) * 0.06 }}
-                className="group flex min-w-0 flex-col items-center rounded-3xl bg-white/[0.06] px-3 pb-6 pt-6 text-center shadow-glass ring-1 ring-white/10 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.1]"
+                className="group flex min-w-0 flex-col items-center rounded-3xl bg-white/[0.045] px-3 pb-6 pt-6 text-center ring-1 ring-inset ring-white/[0.08] transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.08]"
               >
                 <span className={`relative grid h-24 w-24 place-items-center rounded-full p-1 sm:h-28 sm:w-28 ${i % 2 ? "bg-pine-300" : "bg-rose-300"}`}>
                   <img

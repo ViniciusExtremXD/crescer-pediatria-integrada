@@ -29,8 +29,9 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 ## De onde veio o conteúdo
 
 - **Logo:** vetorizado a partir dos posts oficiais (nova identidade, out/2026). `logo-crescer.svg`, versão clara e só o símbolo.
-- **Fotos:** posts do Instagram @crescer.pediatriaintegrada, recortadas sem os textos dos posts.
-- **Equipe, CRM/RQE e serviços:** carrosséis "Seu filho precisa de qual especialista?" e "Além das consultas, o que você encontra na Crescer?".
+- **Fotos das médicas:** ensaios oficiais, recortados do carrossel "Seu filho precisa de qual especialista?" (Karla e Lorena vêm do slide de Pediatria Geral). Foto do grupo: post do Dia do Médico.
+- **Demais fotos:** posts do Instagram @crescer.pediatriaintegrada, recortadas sem os textos dos posts.
+- **Equipe, CRM/RQE e serviços:** carrosséis "Seu filho precisa de qual especialista?" e "Além das consultas, o que você encontra na Crescer?" (terapia alimentar, bioimpedância, laserterapia, consultoria de amamentação, puericultura e curso para gestantes).
 - **Endereço, CNPJ e avaliação:** Google Meu Negócio e cartão CNPJ.
 
 ## Pendências antes do go-live (confirmar com a clínica)
@@ -40,7 +41,8 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 - [ ] Autorização de uso das fotos e nomes da equipe no site (já são públicos no Instagram, mas vale o ok formal).
 - [ ] **Avaliações do Google** (`GOOGLE_REVIEWS` e `reviews` das médicas em `src/data/site.ts`): textos reais copiados do Google Maps em 12/11/2026, com nomes abreviados. Ficaram de fora uma avaliação com comparação ("uma das melhores") e uma de pessoa com o mesmo sobrenome de uma médica. Pela Res. CFM 2.336/2023, depoimentos devem ser sóbrios e sem promessa de resultado; vale a clínica revisar a seleção.
 - [ ] Convênios aceitos e horário de funcionamento.
-- [ ] Foto individual da Dra. Lorena Neri em melhor resolução (hoje é recorte de um post).
+- [ ] Arquivos originais dos ensaios da Dra. Karla e da Dra. Lorena (hoje vêm do slide de Pediatria Geral, com cerca de 430 px de altura).
+- [ ] Conferir divergências entre a arte "Pediatria e subespecialidades" e a tabela oficial (o site segue a tabela): CRM da Dra. Helena (a arte repete o da Dra. Márcia), RQE da Dra. Laila (arte: 1122; tabela: 1103/1122), sobrenome da nutricionista Maira (arte: Branco; tabela: Lima) e título da Taynara (arte: Enfermeira Pediátrica, ENF ESP 76768).
 - [ ] IDs de GTM, Google Ads, GA4 e Meta Pixel (ver `TRACKING.md`).
 - [ ] Revisão jurídica da política de privacidade.
 

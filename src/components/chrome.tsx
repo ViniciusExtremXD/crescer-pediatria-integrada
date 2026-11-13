@@ -148,7 +148,7 @@ export function Nav() {
               aria-label={`Instagram @${COMPANY.instagramHandle}`}
               className="group relative grid h-11 w-11 place-items-center overflow-hidden rounded-full border border-pine-600/15 bg-white text-pine-700 shadow-soft transition-colors hover:border-transparent hover:text-white"
             >
-              <span className="absolute inset-0 scale-0 rounded-full bg-[linear-gradient(135deg,#F58529,#DD2A7B_50%,#8134AF)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-100" />
+              <span className="absolute inset-0 scale-0 rounded-full bg-rose-400 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-100" />
               <InstagramLogo weight="bold" className="relative h-5 w-5 transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110" />
             </a>
             <WhatsAppLink

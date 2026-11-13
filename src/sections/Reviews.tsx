@@ -70,7 +70,7 @@ export function Reviews() {
 function Row({ items, direction }: { items: Review[]; direction: "left" | "right" }) {
   const loop = [...items, ...items];
   return (
-    <div className="group mask-fade-x relative flex overflow-hidden py-4">
+    <div className="group mask-fade-x relative -my-8 flex overflow-hidden py-12">
       <div
         className={`flex w-max shrink-0 gap-5 pr-5 ${direction === "left" ? "animate-marquee" : "animate-marquee-rev"} group-hover:[animation-play-state:paused]`}
         aria-hidden={false}
@@ -91,7 +91,7 @@ function ReviewCard({ r, hidden }: { r: Review; hidden: boolean }) {
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: EASE_OUT }}
       aria-hidden={hidden}
-      className="relative flex w-[300px] shrink-0 flex-col rounded-[1.75rem] bg-white p-6 shadow-card ring-1 ring-pine-600/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-lift sm:w-[380px] sm:p-7"
+      className="relative flex w-[300px] shrink-0 flex-col rounded-[1.75rem] bg-white p-6 shadow-soft ring-1 ring-pine-600/5 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-card sm:w-[380px] sm:p-7"
     >
       <Quotes weight="fill" className="absolute right-6 top-6 h-8 w-8 text-rose-100" />
       <div className="flex gap-0.5 text-[#F4B400]">

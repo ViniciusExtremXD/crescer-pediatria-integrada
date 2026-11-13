@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Plus } from "@phosphor-icons/react";
+import { ArrowRight, Plus, SealCheck } from "@phosphor-icons/react";
 import { DOCTORS, SPECIALTIES, assetUrl, type Specialty } from "../data/site";
 import { EASE_OUT, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PrimaryCta } from "../components/cta";
@@ -108,28 +108,63 @@ export function Specialties() {
 
 function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
   const docs = doctorsOf(s);
+  const solo = docs.length === 1;
   return (
     <div className={compact ? "pb-7" : ""}>
-      <div className={`relative overflow-hidden rounded-[2rem] bg-pine-700 shadow-glass ring-1 ring-white/10 ${compact ? "aspect-[16/11]" : s.details ? "aspect-[16/9]" : "aspect-[5/4]"}`}>
-        <motion.img
-          key={s.photo}
-          src={assetUrl(s.photo)}
-          alt={docs.map((d) => d.name).join(" e ")}
-          loading="lazy"
-          className="h-full w-full object-cover object-[50%_20%]"
-          initial={{ scale: 1.12 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.4, ease: EASE_OUT }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-pine-900/80 via-transparent to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 flex flex-wrap gap-2 p-5">
-          {docs.map((d) => (
-            <span key={d.id} className="rounded-full bg-cream-50/95 px-3.5 py-1.5 text-xs font-semibold text-pine-800 backdrop-blur">
-              {d.name}
-              {d.crm && <span className="ml-1.5 font-medium text-pine-800/55">{d.crm}</span>}
-            </span>
-          ))}
-        </div>
+      {/* Retratos dos ensaios oficiais, com nome, especialidade, CRM e RQE */}
+      <div className={`grid gap-3 ${solo ? "grid-cols-[0.95fr_1.05fr]" : "grid-cols-2"}`}>
+        {docs.map((d, i) => (
+          <motion.figure
+            key={d.id}
+            className={`relative overflow-hidden rounded-[1.6rem] bg-rose-200 ring-1 ring-white/10 ${compact ? "aspect-[4/5]" : solo ? "aspect-[4/5]" : "aspect-[5/6]"}`}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT, delay: i * 0.1 }}
+          >
+            <motion.img
+              src={assetUrl(d.photo)}
+              alt={`${d.name}, ${d.title}`}
+              loading="lazy"
+              style={{ objectPosition: d.focus }}
+              className="h-full w-full object-cover"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.4, ease: EASE_OUT }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-pine-950/85 via-pine-950/10 to-transparent" />
+            {!solo && (
+              <figcaption className="absolute inset-x-0 bottom-0 p-3.5 sm:p-5">
+                <p className="font-display text-lg font-medium leading-tight text-cream-50 sm:text-2xl">{d.name}</p>
+                <p className="mt-0.5 text-xs font-semibold text-rose-200 sm:text-sm">{d.title}</p>
+                {d.crm && <p className="mt-1 text-[11px] font-medium text-cream-100/80 sm:text-xs">{d.crm}</p>}
+              </figcaption>
+            )}
+          </motion.figure>
+        ))}
+        {solo && (
+          <motion.div
+            className="flex flex-col justify-between rounded-[1.6rem] bg-white/[0.05] p-5 ring-1 ring-white/10 sm:p-7"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.1 }}
+          >
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-rose-300">Atendimento com</p>
+              <p className="font-display mt-3 text-2xl font-medium leading-tight sm:text-[2rem]">{docs[0].name}</p>
+              <p className="mt-1.5 text-sm font-semibold text-rose-200">{docs[0].title}</p>
+              {docs[0].crm && (
+                <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] px-3 py-1.5 text-xs font-medium text-cream-100/85 ring-1 ring-white/10">
+                  <SealCheck weight="fill" className="h-3.5 w-3.5 text-rose-300" /> {docs[0].crm}
+                </p>
+              )}
+            </div>
+            <div className="mt-6">
+              <PrimaryCta location={`especialidade_${s.id}`} tone="rose" size="md" message={`Olá! Gostaria de agendar uma consulta de ${s.title} com a ${docs[0].name}.`}>
+                Agendar
+              </PrimaryCta>
+            </div>
+          </motion.div>
+        )}
       </div>
       <p className={`text-lg leading-relaxed text-cream-100/85 ${s.details ? "mt-5" : "mt-6"}`}>{s.lead}</p>
       {s.details ? (
@@ -140,7 +175,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.12 + i * 0.05 }}
-              className="rounded-2xl bg-white/[0.06] px-4 py-3.5 shadow-glass ring-1 ring-white/10"
+              className="rounded-2xl bg-white/[0.045] px-4 py-3.5 ring-1 ring-inset ring-white/[0.08] transition-colors duration-300 hover:bg-white/[0.08]"
             >
               <p className="flex items-center gap-2 text-sm font-semibold text-cream-50">
                 <ArrowRight weight="bold" className="h-3.5 w-3.5 shrink-0 text-rose-300" />
