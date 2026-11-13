@@ -126,7 +126,7 @@ export function Team() {
                       </span>
                     </motion.div>
                     <h3 className="font-display mt-4 text-2xl font-medium tracking-tight text-pine-700 transition-colors group-hover:text-rose-600">{d.name}</h3>
-                    <p className="mt-0.5 text-sm font-medium text-rose-600">{d.specialty}</p>
+                    <p className="mt-0.5 text-sm font-medium text-rose-600">{d.title}</p>
                   </button>
                 </TiltCard>
               </motion.article>

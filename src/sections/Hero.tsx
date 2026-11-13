@@ -200,8 +200,8 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         transition={{ duration: 1, ease: EASE_OUT, delay: 1.05 }}
         className="absolute -bottom-10 -left-4 w-40 rounded-2xl bg-white p-2 pb-3 shadow-lift sm:-left-12 sm:w-48"
       >
-        <img src={assetUrl("images/consulta-bebe-carimbo.webp")} alt="Médica da Crescer em consulta com um bebê" width={1400} height={1063} loading="eager" className="aspect-square w-full rounded-xl object-cover object-[70%_50%]" />
-        <figcaption className="font-display mt-2 text-center text-sm italic text-pine-600">consulta sem pressa</figcaption>
+        <img src={assetUrl("images/menina-e-pediatra.webp")} alt="Pediatra da Crescer sorrindo ao lado de uma menina" width={1400} height={1026} loading="eager" className="aspect-square w-full rounded-xl object-cover object-[55%_35%]" />
+        <figcaption className="font-display mt-2 text-center text-sm italic text-pine-600">cuidado que acolhe</figcaption>
       </motion.figure>
 
       {/* Selo Google */}

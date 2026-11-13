@@ -6,9 +6,9 @@ const PILLARS = [
   {
     word: "Cuidar",
     text: "Consultas com tempo para examinar, ouvir e explicar. A criança no centro de cada decisão.",
-    img: "images/consulta-bebe-carimbo.webp",
-    alt: "Médica atendendo um bebê no consultório da Crescer",
-    pos: "62% 50%",
+    img: "images/pediatra-e-crianca.webp",
+    alt: "Pediatra da Crescer abraçada a uma menina no consultório",
+    pos: "50% 30%",
     tone: "bg-rose-100",
   },
   {

@@ -36,7 +36,7 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 ## Pendências antes do go-live (confirmar com a clínica)
 
 - [ ] **Diretora técnica (CRM/RQE)** para o rodapé, exigência do CFM (campo `technicalDirector` em `src/data/site.ts`).
-- [ ] **CRM/RQE da Dra. Helena Progênio:** o post publica os mesmos números da Dra. Regiane (CRM-AP 1441 · RQE 898). Por isso o site mostra "em atualização".
+- [x] CRM/RQE de todas as médicas e registros da equipe conferidos com a tabela oficial enviada pela clínica (12/11/2026). Nome da nutricionista ajustado para Maira Lima, como na tabela.
 - [ ] Autorização de uso das fotos e nomes da equipe no site (já são públicos no Instagram, mas vale o ok formal).
 - [ ] **Avaliações do Google** (`GOOGLE_REVIEWS` e `reviews` das médicas em `src/data/site.ts`): textos reais copiados do Google Maps em 12/11/2026, com nomes abreviados. Ficaram de fora uma avaliação com comparação ("uma das melhores") e uma de pessoa com o mesmo sobrenome de uma médica. Pela Res. CFM 2.336/2023, depoimentos devem ser sóbrios e sem promessa de resultado; vale a clínica revisar a seleção.
 - [ ] Convênios aceitos e horário de funcionamento.

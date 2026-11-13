@@ -99,6 +99,8 @@ export interface Doctor {
   id: string;
   name: string;
   specialty: string;
+  /* Título usado pela clínica na arte "Pediatria e subespecialidades". */
+  title: string;
   specialtyId: string;
   /* null = número não confirmado (não exibir). */
   crm: string | null;
@@ -116,6 +118,7 @@ export const DOCTORS: Doctor[] = [
     id: "karla",
     name: "Dra. Karla Bussons",
     specialty: "Pediatria Geral",
+    title: "Pediatra",
     specialtyId: "pediatria",
     crm: "CRM-AP 1528 · RQE 767",
     photo: "images/dra-karla-bussons.webp",
@@ -131,6 +134,7 @@ export const DOCTORS: Doctor[] = [
     id: "lorena",
     name: "Dra. Lorena Neri",
     specialty: "Pediatria Geral",
+    title: "Pediatra",
     specialtyId: "pediatria",
     crm: "CRM-AP 1597 · RQE 803",
     photo: "images/polaroid-lorena.webp",
@@ -141,6 +145,7 @@ export const DOCTORS: Doctor[] = [
     id: "nathalia",
     name: "Dra. Nathalia Dias",
     specialty: "Gastroenterologia Pediátrica",
+    title: "Gastropediatra",
     specialtyId: "gastro",
     crm: "CRM-AP 1447 · RQE 819/820",
     photo: "images/dra-nathalia-dias.webp",
@@ -153,6 +158,7 @@ export const DOCTORS: Doctor[] = [
     id: "regiane",
     name: "Dra. Regiane Barreto",
     specialty: "Pneumologia Pediátrica",
+    title: "Pneumopediatra",
     specialtyId: "pneumo",
     crm: "CRM-AP 1441 · RQE 898",
     photo: "images/dra-regiane-barreto.webp",
@@ -164,8 +170,9 @@ export const DOCTORS: Doctor[] = [
     id: "laila",
     name: "Dra. Laila Botelho",
     specialty: "Alergia e Imunologia Pediátrica",
+    title: "Alergopediatra",
     specialtyId: "alergia",
-    crm: "CRM-AP 1403 · RQE 1122",
+    crm: "CRM-AP 1403 · RQE 1103/1122",
     photo: "images/slide-laila.webp",
     focus: "50% 12%",
     about: "Alergista e imunologista pediátrica. Investiga e acompanha alergias alimentares, respiratórias e de pele, outras reações e alterações do sistema imunológico.",
@@ -173,20 +180,22 @@ export const DOCTORS: Doctor[] = [
   {
     id: "marcia",
     name: "Dra. Márcia Cajueiro",
-    specialty: "Pediatria do Neurodesenvolvimento",
+    specialty: "Neurodesenvolvimento Infantil",
+    title: "Pediatra do Desenvolvimento Infantil",
     specialtyId: "neuro",
     crm: "CRM-AP 1550 · RQE 968",
     photo: "images/slide-marcia.webp",
     focus: "50% 12%",
-    about: "Pediatra do neurodesenvolvimento. Acompanha questões de desenvolvimento, comportamento, aprendizagem e outras particularidades do neurodesenvolvimento.",
+    about: "Pediatra especialista em neurodesenvolvimento infantil, com formação em Psiquiatria Infantil. Acompanha questões de desenvolvimento, comportamento, aprendizagem e outras particularidades do neurodesenvolvimento.",
   },
-  /* O post publica o mesmo CRM/RQE da Dra. Regiane para a Dra. Helena: A CONFIRMAR antes de exibir. */
+  /* CRM/RQE conforme a tabela oficial de registros enviada pela clínica (12/11/2026). */
   {
     id: "helena",
     name: "Dra. Helena Progênio",
     specialty: "Infectologia Pediátrica",
+    title: "Infectopediatra",
     specialtyId: "infecto",
-    crm: null,
+    crm: "CRM-AP 1036 · RQE 214/810",
     photo: "images/slide-helena.webp",
     focus: "50% 12%",
     about: "Infectologista pediátrica. Acompanha infecções recorrentes, quadros mais complexos, doenças infecciosas específicas e dúvidas sobre prevenção e vacinação.",
@@ -195,6 +204,7 @@ export const DOCTORS: Doctor[] = [
     id: "luciana",
     name: "Dra. Luciana Campos",
     specialty: "Hematologia Pediátrica",
+    title: "Hematopediatra",
     specialtyId: "hemato",
     crm: "CRM-AP 401 · RQE 450",
     photo: "images/dra-luciana-campos.webp",
@@ -208,9 +218,9 @@ export const CARE_TEAM = [
   { name: "Helenilde Gibson", role: "Fisioterapia respiratória", reg: "CREFITO 12 106558.1-F", photo: "images/equipe/helenilde-gibson.webp" },
   { name: "Ana Cássia", role: "Fisioterapia respiratória", reg: "CREFITO 213505-F", photo: "images/equipe/ana-cassia.webp" },
   { name: "Luara Moreira", role: "Nutricionista materno-infantil", reg: "CRN 7-4847", photo: "images/equipe/luara-moreira.webp" },
-  { name: "Maira Branco", role: "Nutricionista materno-infantil", reg: "CRN 7-5223", photo: "images/equipe/maira-branco.webp" },
-  { name: "Taynara Lima", role: "Enfermeira pediátrica", reg: "COREN-AP 514138", photo: "images/equipe/taynara-lima.webp" },
-  { name: "Valéria Sousa", role: "Fonoaudióloga", reg: "CRFa 9-6291-5", photo: "images/equipe/valeria-sousa.webp" },
+  { name: "Maira Lima", role: "Nutricionista materno-infantil", reg: "CRN 7-5223", photo: "images/equipe/maira-branco.webp" },
+  { name: "Taynara Lima", role: "Enfermeira materno-infantil · consultoria em amamentação", reg: "COREN-AP 514138", photo: "images/equipe/taynara-lima.webp" },
+  { name: "Valéria Sousa", role: "Fonoaudióloga", reg: "CRFa 9.6291-5", photo: "images/equipe/valeria-sousa.webp" },
   { name: "Tainan Souza", role: "Neuropsicóloga infantil", reg: "CRP 10/06786", photo: "images/equipe/tainan-souza.webp" },
   { name: "Cristina Dias", role: "Neuropsicopedagoga", reg: "CBO 2394-40", photo: "images/equipe/cristina-dias.webp" },
 ];
@@ -295,7 +305,7 @@ export const SPECIALTIES: Specialty[] = [
   },
   {
     id: "neuro",
-    title: "Neurodesenvolvimento",
+    title: "Neurodesenvolvimento Infantil",
     lead: "O desenvolvimento infantil também faz parte do acompanhamento da criança.",
     topics: ["Marcos do desenvolvimento", "Comportamento", "Aprendizagem", "Neurodiversidade"],
     doctorIds: ["marcia"],
@@ -321,23 +331,38 @@ export const SPECIALTIES: Specialty[] = [
 
 /* ───────────────────────── Serviços e exames ───────────────────────── */
 
-export const EXAMS = [
-  { title: "Teste do Olhinho", desc: "Triagem do reflexo vermelho, feita nos primeiros meses de vida." },
-  { title: "Teste da Linguinha", desc: "Avaliação do frênulo da língua, importante para a amamentação e a fala." },
-  { title: "Prick Test", desc: "Teste na pele que ajuda a investigar alergias." },
-  { title: "Imunoterapia", desc: "Tratamento de alergias, com indicação e acompanhamento da especialista." },
-  { title: "Testes rápidos", desc: "Exames de resultado rápido que apoiam a avaliação na própria consulta." },
-  { title: "Bioimpedância", desc: "Avaliação da composição corporal no acompanhamento nutricional." },
-  { title: "Terapia alimentar", desc: "Para crianças com seletividade e dificuldades na hora de comer." },
-];
-
-export const CARE_AREAS = [
+/* Arte oficial "Cuidado completo para cada fase do seu filho" (12/11/2026). */
+export const ART_SPECIALTIES = [
+  "Pediatria Geral",
+  "Pneumologia Pediátrica",
+  "Gastroenterologia Pediátrica",
+  "Alergia e Imunologia Pediátrica",
+  "Neurodesenvolvimento Infantil (formação em Psiquiatria Infantil)",
+  "Infectologia Pediátrica",
+  "Hematologia Pediátrica",
+  "Enfermeira materno-infantil · consultoria em amamentação",
+  "Nutricionista infantil",
   "Fisioterapia respiratória",
-  "Nutrição materno-infantil",
   "Fonoaudiologia",
   "Neuropsicologia infantil",
   "Neuropsicopedagogia",
-  "Enfermagem pediátrica",
+];
+
+export type TestIcon = "microscope" | "virus" | "baby" | "eye" | "smiley" | "hand" | "shield";
+
+export const TESTS: { title: string; desc: string; icon: TestIcon }[] = [
+  { title: "Streptococcus do Grupo A", desc: "Identifica a bactéria causadora de muitas amigdalites.", icon: "microscope" },
+  { title: "Covid-19, Influenza A e B", desc: "Para diagnóstico ágil de gripes e resfriados.", icon: "virus" },
+  { title: "Vírus Sincicial Respiratório (VSR)", desc: "Comum em bebês e crianças pequenas.", icon: "baby" },
+  { title: "Teste do Olhinho", desc: "Triagem da visão nos primeiros meses de vida.", icon: "eye" },
+  { title: "Teste da Linguinha", desc: "Avaliação do frênulo da língua, importante para a amamentação e a fala.", icon: "smiley" },
+  { title: "Prick Test", desc: "Teste na pele que ajuda a investigar alergias.", icon: "hand" },
+  { title: "Imunoterapia", desc: "Tratamento de alergias, com indicação e acompanhamento da especialista.", icon: "shield" },
+];
+
+export const OTHER_SERVICES = [
+  { title: "Bioimpedância", desc: "Avaliação da composição corporal no acompanhamento nutricional." },
+  { title: "Terapia alimentar", desc: "Para crianças com seletividade e dificuldades na hora de comer." },
 ];
 
 export const COURSES = [
@@ -358,7 +383,6 @@ export const COURSES = [
 export const SPACE_GALLERY = [
   { src: "images/brinquedoteca-arvore.webp", title: "A árvore da brinquedoteca", caption: "Cada canto foi pensado para a criança se sentir em casa." },
   { src: "images/criancas-brincando.webp", title: "Brincar enquanto espera", caption: "Mesa de atividades, livros e brinquedos na área das crianças." },
-  { src: "images/consulta-bebe-carimbo.webp", title: "Consulta sem pressa", caption: "Tempo para examinar, conversar e tirar todas as dúvidas." },
   { src: "images/sala-de-espera.webp", title: "Recepção acolhedora", caption: "Um espaço tranquilo para a família chegar com calma." },
   { src: "images/familia-recem-nascido.webp", title: "Desde o primeiro dia", caption: "Acompanhamento que começa nas primeiras semanas de vida." },
   { src: "images/curso-culinaria.webp", title: "Aprender brincando", caption: "Cursos práticos para pais e filhos dentro da clínica." },
