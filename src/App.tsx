@@ -4,6 +4,7 @@ import { bindAnchorLinks, initSmoothScroll } from "./lib/smooth-scroll";
 import { CookieNotice, FloatingContact, Nav, Preloader, ScrollProgress } from "./components/chrome";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
+import { Demand } from "./sections/Demand";
 import { Specialties } from "./sections/Specialties";
 import { Team } from "./sections/Team";
 import { Services } from "./sections/Services";
@@ -37,6 +38,7 @@ export default function App() {
       <main className="paper">
         <Hero ready={ready} />
         <About />
+        <Demand />
         <Specialties />
         <Team />
         <Services />

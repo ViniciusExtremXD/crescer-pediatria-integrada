@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
-import { ArrowDown, Star } from "@phosphor-icons/react";
+import { ArrowDown, ArrowRight, Star } from "@phosphor-icons/react";
 import { COMPANY, DOCTORS, assetUrl } from "../data/site";
 import { Counter, EASE_IN_OUT, EASE_OUT, Leaf, SplitWords, VelocityMarquee } from "../components/motion";
 import { PrimaryCta } from "../components/cta";
@@ -93,7 +93,16 @@ export function Hero({ ready }: { ready: boolean }) {
               </a>
             </div>
 
-            <dl className="mt-12 grid max-w-xl grid-cols-3 gap-4 border-t border-pine-600/10 pt-6">
+            <a
+              href="#consulta-de-demanda"
+              className="group mt-7 inline-flex max-w-full items-center gap-2.5 rounded-full bg-rose-100 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 ring-1 ring-rose-200 transition-colors hover:bg-rose-200"
+            >
+              <span className="shrink-0 rounded-full bg-rose-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Novo</span>
+              <span className="truncate">Consulta de Demanda: pediatra no mesmo dia</span>
+              <ArrowRight weight="bold" className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+
+            <dl className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-pine-600/10 pt-6">
               <div>
                 <dt className="sr-only">Avaliação no Google</dt>
                 <dd className="font-display flex items-baseline gap-1 text-3xl font-medium text-pine-700 sm:text-4xl">

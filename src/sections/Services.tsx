@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, HandPalm, Microscope, Phone, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
-import { ART_SPECIALTIES, COMPANY, COURSES, LASER, OTHER_SERVICES, TESTS, assetUrl, type TestIcon } from "../data/site";
+import { ART_SPECIALTIES, COMPANY, COURSES, LASER, OTHER_SERVICES, SABORES_PHOTOS, TESTS, assetUrl, type TestIcon } from "../data/site";
 import { EASE_OUT, ParallaxImage, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PhoneLink, PrimaryCta, WhatsAppLink } from "../components/cta";
 
@@ -303,33 +303,71 @@ function AlemDasConsultas() {
           </WhatsAppLink>
         </Reveal>
 
-        {/* Curso de culinária */}
-        <Reveal className="group relative grid overflow-hidden rounded-[2.25rem] bg-cream-200 shadow-card sm:grid-cols-[0.8fr_1.2fr] lg:col-span-12">
-          <div className="relative min-h-[220px] overflow-hidden">
-            <div className="absolute inset-0">
-              <ParallaxImage src={assetUrl("images/curso-culinaria.webp")} alt="Crianças com toucas de chef no curso Descobrindo Novos Sabores" amount={10} position="50% 40%" className="h-full w-full" />
-            </div>
-          </div>
-          <div className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-            <div>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-rose-600">
-                <CookingPot weight="duotone" className="h-4 w-4" /> {sabores.for}
-              </p>
-              <h4 className="font-display mt-2 text-3xl font-medium text-pine-700">{sabores.title}</h4>
-              <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-pine-800/70">{sabores.desc}</p>
-            </div>
+        {/* Curso Descobrindo Novos Sabores: mesmo formato do curso de gestantes, com as fotos passando em polaroids */}
+        <Reveal className="relative grid overflow-hidden rounded-[2.25rem] bg-rose-200 shadow-card lg:col-span-12 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="relative p-7 sm:p-10">
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
+              <CookingPot weight="duotone" className="h-4 w-4" /> {sabores.for}
+            </p>
+            <h4 className="font-display mt-3 text-[1.9rem] font-medium leading-tight text-pine-700 sm:text-4xl">{sabores.title}</h4>
+            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-pine-800/75">{sabores.desc}</p>
+            <ul className="mt-6 space-y-2.5">
+              {sabores.learn.map((l) => (
+                <li key={l} className="flex items-center gap-2.5 text-[15px] font-medium text-pine-800">
+                  <Sparkle weight="fill" className="h-4 w-4 shrink-0 text-rose-400" /> {l}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 rounded-lg border border-dashed border-pine-600/30 bg-pine-600 px-4 py-3 text-sm font-medium text-cream-50">
+              Sem brigas à mesa: a criança descobre a comida no tempo dela, com os pais junto.
+            </p>
             <WhatsAppLink
               location="cursos"
               message="Olá! Gostaria de saber sobre a próxima turma do curso Descobrindo Novos Sabores."
-              className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-pine-600 px-5 py-3 text-sm font-semibold text-cream-50 shadow-pine transition-colors hover:bg-pine-700 lg:self-center"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-pine-700 underline decoration-pine-600/40 underline-offset-4 hover:decoration-pine-600"
             >
-              Quero participar <ArrowUpRight weight="bold" className="h-4 w-4" />
+              Quero saber da próxima turma <ArrowUpRight weight="bold" className="h-4 w-4" />
             </WhatsAppLink>
           </div>
+          <PolaroidReel photos={SABORES_PHOTOS} />
         </Reveal>
       </div>
 
       <p className="mt-6 text-center text-sm text-pine-800/55">A indicação de exames, terapias e procedimentos é feita na consulta, de acordo com cada criança.</p>
+    </div>
+  );
+}
+
+/*
+ * Fotos do curso em polaroids que passam devagar para o lado (carrossel contínuo).
+ * Para quando o mouse passa por cima.
+ */
+const TILTS = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3.5, 2];
+
+function PolaroidReel({ photos }: { photos: string[] }) {
+  const loop = [...photos, ...photos];
+  return (
+    <div className="group relative flex min-h-[300px] items-center overflow-hidden py-8 mask-fade-x lg:min-h-full">
+      <div
+        className="flex w-max shrink-0 items-center gap-5 pr-5 animate-marquee group-hover:[animation-play-state:paused]"
+        style={{ animationDuration: "55s" }}
+      >
+        {loop.map((src, i) => (
+          <figure
+            key={`${src}-${i}`}
+            aria-hidden={i >= photos.length}
+            className="shrink-0 rounded-[3px] bg-cream-50 p-2 pb-8 shadow-soft transition-transform duration-500 hover:z-10 hover:scale-[1.04]"
+            style={{ rotate: `${TILTS[i % TILTS.length]}deg` }}
+          >
+            <img
+              src={assetUrl(src)}
+              alt={i < photos.length ? "Crianças no curso Descobrindo Novos Sabores, na Crescer" : ""}
+              loading="lazy"
+              className="h-40 w-auto rounded-[2px] sm:h-56 lg:h-64"
+            />
+          </figure>
+        ))}
+      </div>
     </div>
   );
 }

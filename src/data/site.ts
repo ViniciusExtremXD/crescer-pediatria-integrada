@@ -122,7 +122,7 @@ export const DOCTORS: Doctor[] = [
     specialtyId: "pediatria",
     crm: "CRM-AP 1528 · RQE 767",
     photo: "images/ensaios/karla-bussons.webp",
-    focus: "50% 30%",
+    focus: "50% 22%",
     about: "Pediatra geral da Crescer. Acompanha o desenvolvimento, o sono, a alimentação e a rotina de saúde da criança, cuida do recém-nascido e identifica quando uma avaliação especializada pode ser necessária.",
     instagram: "dra.karlabussonspediatra",
     reviews: [
@@ -138,7 +138,7 @@ export const DOCTORS: Doctor[] = [
     specialtyId: "pediatria",
     crm: "CRM-AP 1597 · RQE 803",
     photo: "images/ensaios/lorena-neri.webp",
-    focus: "50% 30%",
+    focus: "50% 22%",
     about: "Pediatra geral. Faz o acompanhamento de rotina do recém-nascido ao adolescente: desenvolvimento, sono, alimentação, sintomas comuns da infância, vacinação e prevenção.",
   },
   {
@@ -405,10 +405,19 @@ export const COURSES = [
   {
     title: "Descobrindo Novos Sabores",
     for: "Para pais e filhos de 3 a 8 anos",
-    desc: "Curso prático sobre seletividade alimentar: explorar, tocar, preparar e experimentar, sem brigas à mesa.",
-    learn: [] as string[],
+    desc: "Curso prático para pais e filhos, pensado para crianças com seletividade alimentar. A hora de comer deixa de ser uma batalha e vira descoberta.",
+    learn: ["Explorar os alimentos com as mãos", "Experimentar novas texturas e sabores", "Aprender brincando, sem pressão", "Estratégias para os pais levarem para casa"],
   },
 ];
+
+/* Consulta de Demanda: serviço novo, roteiro do reel DeScte7iPC9 enviado pela clínica (13/11/2026). */
+export const DEMAND = {
+  symptoms: ["Febre", "Tosse", "Dor de ouvido", "Vômitos", "Diarreia"],
+  whatsappMessage: "Olá! Meu filho ficou doente. Gostaria de consultar a disponibilidade da Consulta de Demanda para hoje.",
+};
+
+/* Fotos do curso Descobrindo Novos Sabores (álbum enviado pela clínica, 13/11/2026). */
+export const SABORES_PHOTOS = Array.from({ length: 13 }, (_, i) => `images/sabores/sabores-${String(i + 1).padStart(2, "0")}.webp`);
 
 /* ───────────────────────── Espaço (galeria) ───────────────────────── */
 
@@ -459,6 +468,6 @@ export const FAQ = [
   },
   {
     q: "A clínica atende urgências?",
-    a: "A Crescer atende com hora marcada e não funciona como pronto-socorro. Em caso de emergência, procure o pronto atendimento mais próximo ou ligue 192 (SAMU).",
+    a: "A Crescer não é pronto-socorro, mas tem a Consulta de Demanda: atendimento pediátrico no mesmo dia, conforme disponibilidade, para a criança que ficou doente e precisa ser avaliada. Em caso de sinais de gravidade, procure imediatamente um serviço de urgência e emergência hospitalar ou ligue 192 (SAMU).",
   },
 ];
