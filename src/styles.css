@@ -73,7 +73,8 @@ html.lenis body {
   overflow: hidden;
 }
 
-/* Textura de papel bem sutil, como os fundos dos posts */
+/* Textura de papel bem sutil, como os fundos dos posts (só em telas grandes: camada fixa custa fill-rate no celular) */
+@media (min-width: 768px) and (hover: hover) {
 .paper::after {
   content: "";
   position: fixed;
@@ -82,6 +83,47 @@ html.lenis body {
   pointer-events: none;
   opacity: 0.035;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+}
+
+/* Brilho de fundo sem filter: gradiente radial é quase de graça, blur de 120px não é. */
+.glow {
+  background: radial-gradient(closest-side, rgb(var(--glow) / var(--glow-a, 0.5)), rgb(var(--glow) / 0));
+}
+
+/* Animação infinita fora da tela fica em pausa (ver lib/visibility.ts). */
+.anim-paused {
+  animation-play-state: paused !important;
+}
+
+/* Carrossel de fotos do curso: anda sozinho, em velocidade constante, só depois de as fotos estarem prontas. */
+@keyframes reel-slide {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.reel-track {
+  display: flex;
+  flex: none; /* sem isso a faixa encolhe até a largura da janela e o laço (-50%) fica curto demais */
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+/* Enquanto as fotos não decodificaram, a faixa fica invisível: nunca aparece polaroid vazia. */
+.reel-track {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.reel[data-ready="true"] .reel-track {
+  opacity: 1;
+  animation: reel-slide var(--reel-duration, 60s) linear infinite;
+}
+@media (scripting: none) {
+  .reel-track { opacity: 1; }
+}
+
+/* Pausa ao passar o mouse só onde existe mouse; no toque o "hover" gruda e travaria a faixa. */
+@media (hover: hover) and (pointer: fine) {
+  .pause-hover:hover > :first-child { animation-play-state: paused; }
 }
 
 /* Bolinhas de papel de parede da brinquedoteca */

@@ -113,7 +113,7 @@ export function Nav() {
         transition={{ duration: 0.5, ease: EASE_OUT }}
       >
         <nav
-          className={`mx-auto flex h-[68px] max-w-7xl items-center justify-between rounded-[22px] border border-white/70 px-2.5 pl-4 backdrop-blur-xl backdrop-saturate-150 transition-[background-color,box-shadow] duration-500 sm:px-3 sm:pl-5 ${
+          className={`mx-auto flex h-[68px] max-w-7xl items-center justify-between rounded-[22px] border border-white/70 px-2.5 pl-4 backdrop-blur-md transition-[background-color,box-shadow] duration-500 sm:px-3 sm:pl-5 ${
             solid ? "bg-cream-50/90 shadow-lift" : "bg-cream-50/70 shadow-soft"
           }`}
           aria-label="Principal"

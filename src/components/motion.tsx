@@ -11,6 +11,7 @@ import {
   animate,
   type MotionValue,
 } from "framer-motion";
+import { useElementProgress } from "../lib/scroll-progress";
 
 export const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 export const EASE_IN_OUT = [0.65, 0, 0.35, 1] as const;
@@ -95,7 +96,7 @@ export function SplitWords({
 /* Parágrafo cujas palavras "acendem" conforme a rolagem. *palavra* = destaque rosa. */
 export function ScrollLitText({ text, className }: { text: string; className?: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 45%"] });
+  const scrollYProgress = useElementProgress(ref, ["start 85%", "end 45%"]);
   const words = text.split(" ");
   return (
     <p ref={ref} className={className}>
@@ -169,8 +170,10 @@ const wrap = (min: number, max: number, v: number) => {
   return ((((v - min) % range) + range) % range) + min;
 };
 
-/* Faixa infinita que acelera e inverte com a velocidade da rolagem. */
+/* Faixa infinita que acelera e inverte com a velocidade da rolagem. Só anda enquanto está perto da tela. */
 export function VelocityMarquee({ children, baseVelocity = -2, className }: { children: React.ReactNode; baseVelocity?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { margin: "160px 0px 160px 0px" });
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -180,7 +183,8 @@ export function VelocityMarquee({ children, baseVelocity = -2, className }: { ch
   const direction = useRef(1);
 
   useAnimationFrame((_, delta) => {
-    let moveBy = direction.current * baseVelocity * (delta / 1000);
+    if (!inView) return;
+    let moveBy = direction.current * baseVelocity * (Math.min(delta, 64) / 1000);
     const vf = velocityFactor.get();
     if (vf < 0) direction.current = -1;
     else if (vf > 0) direction.current = 1;
@@ -189,8 +193,8 @@ export function VelocityMarquee({ children, baseVelocity = -2, className }: { ch
   });
 
   return (
-    <div className={`flex overflow-hidden whitespace-nowrap ${className ?? ""}`}>
-      <motion.div className="flex flex-nowrap" style={{ x }}>
+    <div ref={ref} className={`flex overflow-hidden whitespace-nowrap ${className ?? ""}`}>
+      <motion.div className="flex flex-nowrap" style={{ x, willChange: "transform" }}>
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="flex shrink-0 items-center" aria-hidden={i > 0}>
             {children}
@@ -237,7 +241,7 @@ export function ParallaxImage({
   position?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const scrollYProgress = useElementProgress(ref, ["start end", "end start"]);
   const y = useTransform(scrollYProgress, [0, 1], [`-${amount}%`, `${amount}%`]);
   return (
     <div ref={ref} className={`relative overflow-hidden ${className ?? ""}`}>
@@ -313,23 +317,27 @@ export function TiltCard({ children, className, max = 7 }: { children: React.Rea
   );
 }
 
-/* Folhinhas do logo flutuando — elemento decorativo da marca. */
+/*
+ * Folhinhas do logo flutuando. O balanço fica num wrapper HTML (não dentro do SVG):
+ * transform em elemento SVG não vira camada da GPU e repintava a cada frame.
+ */
 export function Leaf({ className, color = "#8DB3A5", delay = 0 }: { className?: string; color?: string; delay?: number }) {
   return (
-    <motion.svg
-      viewBox="0 0 40 40"
-      className={className}
+    <motion.span
       aria-hidden
+      className={`block ${className ?? ""}`}
       initial={{ opacity: 0, scale: 0.4, rotate: -30 }}
       whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1.1, ease: EASE_OUT, delay }}
     >
-      <g className="origin-bottom animate-sway" style={{ animationDelay: `${delay}s` }}>
-        <path d="M20 38 C20 26 20 20 20 14" stroke={color} strokeWidth="2.2" strokeLinecap="round" fill="none" />
-        <path d="M20 22 C10 24 4 18 4 8 C14 8 20 13 20 22Z" fill={color} />
-        <path d="M20 16 C27 16 33 12 34 4 C26 4 21 8 20 16Z" fill={color} opacity="0.8" />
-      </g>
-    </motion.svg>
+      <span className="block h-full w-full origin-bottom animate-sway will-change-transform" style={{ animationDelay: `${delay}s` }}>
+        <svg viewBox="0 0 40 40" className="h-full w-full">
+          <path d="M20 38 C20 26 20 20 20 14" stroke={color} strokeWidth="2.2" strokeLinecap="round" fill="none" />
+          <path d="M20 22 C10 24 4 18 4 8 C14 8 20 13 20 22Z" fill={color} />
+          <path d="M20 16 C27 16 33 12 34 4 C26 4 21 8 20 16Z" fill={color} opacity="0.8" />
+        </svg>
+      </span>
+    </motion.span>
   );
 }

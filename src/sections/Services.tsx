@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, HandPalm, Microscope, Phone, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
@@ -61,7 +62,7 @@ export function Services() {
                 Especialidades:
               </motion.span>
             </div>
-            <div className="mx-auto mt-6 max-w-4xl rounded-[2rem] bg-white/75 p-6 shadow-soft ring-1 ring-white backdrop-blur sm:p-9">
+            <div className="mx-auto mt-6 max-w-4xl rounded-[2rem] bg-white/85 p-6 shadow-soft ring-1 ring-white sm:p-9">
               <ul className="grid gap-x-10 gap-y-3.5 sm:grid-cols-2">
                 {ART_SPECIALTIES.map((s, i) => (
                   <motion.li
@@ -99,7 +100,7 @@ export function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, ease: EASE_OUT, delay: (i % 3) * 0.08 }}
-                    className="group flex items-start gap-4 rounded-3xl bg-white/80 p-5 shadow-soft ring-1 ring-white backdrop-blur transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-card"
+                    className="group flex items-start gap-4 rounded-3xl bg-white/90 p-5 shadow-soft ring-1 ring-white transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-card"
                   >
                     <span
                       className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-cream-50 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 ${
@@ -186,7 +187,7 @@ function AlemDasConsultas() {
             <img
               src={assetUrl("images/servicos/terapia-alimentar.webp")}
               alt="Mão de criança pegando pedaços de banana no prato"
-              loading="lazy"
+              loading="lazy" decoding="async"
               className="h-full w-full object-cover object-[40%_40%] transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
             />
             {/* borda recortada da arte */}
@@ -240,7 +241,7 @@ function AlemDasConsultas() {
           <div className="absolute inset-0 bg-gradient-to-r from-pine-950/50 via-pine-950/15 to-transparent" />
           <div className="relative grid gap-0 p-5 sm:p-8 md:max-w-[34rem]">
             {[amamentacao, puericultura].map((s, i) => (
-              <div key={s.id} className={`relative bg-rose-100/95 px-7 py-7 text-center backdrop-blur-sm sm:px-9 ${i ? "rounded-b-2xl pt-10" : "z-10 rounded-t-2xl pb-10"}`}>
+              <div key={s.id} className={`relative bg-rose-100/95 px-7 py-7 text-center sm:px-9 ${i ? "rounded-b-2xl pt-10" : "z-10 rounded-t-2xl pb-10"}`}>
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-pine-500">{s.kicker}</p>
                 <h4 className="font-display mt-2 text-3xl font-medium leading-tight text-rose-400 sm:text-4xl">{s.title}</h4>
                 <p className="mt-2.5 text-[15px] leading-relaxed text-pine-800/80">{s.desc}</p>
@@ -279,7 +280,7 @@ function AlemDasConsultas() {
                   key={p.src}
                   src={assetUrl(`images/servicos/${p.src}.webp`)}
                   alt=""
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                   className="absolute w-32 rounded-[3px] border-[5px] border-b-[14px] border-cream-50 shadow-soft"
                   style={{ top: p.t, left: p.l }}
                   initial={{ opacity: 0, rotate: 0, y: 16 }}
@@ -339,30 +340,78 @@ function AlemDasConsultas() {
 }
 
 /*
- * Fotos do curso em polaroids que passam devagar para o lado (carrossel contínuo).
- * Para quando o mouse passa por cima.
+ * Fotos do curso em polaroids que passam sozinhas para o lado.
+ * - só baixa as fotos quando a seção está chegando (não disputa banda com o topo da página);
+ * - espera todas decodificarem e só então começa, então nunca aparece polaroid vazia;
+ * - velocidade constante em px/s, qualquer que seja o número de fotos ou a largura da tela;
+ * - para fora da tela (lib/visibility.ts) e, só com mouse, quando o ponteiro passa por cima.
  */
 const TILTS = [-3, 2.5, -1.5, 3, -2.5, 1.5, -3.5, 2];
+const REEL_SPEED = 42; // px por segundo
 
-function PolaroidReel({ photos }: { photos: string[] }) {
+function PolaroidReel({ photos }: { photos: { src: string; w: number; h: number }[] }) {
+  const root = useRef<HTMLDivElement>(null);
+  const track = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
+  const [ready, setReady] = useState(false);
   const loop = [...photos, ...photos];
+
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setNear(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "1400px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = track.current;
+    if (!near || !el) return;
+    let cancelled = false;
+    const setDuration = () => el.style.setProperty("--reel-duration", `${Math.max(24, el.scrollWidth / 2 / REEL_SPEED).toFixed(1)}s`);
+    const ro = new ResizeObserver(setDuration);
+    Promise.all([...el.querySelectorAll("img")].map((img) => img.decode().catch(() => undefined))).then(() => {
+      if (cancelled) return;
+      setDuration();
+      ro.observe(el);
+      setReady(true);
+    });
+    return () => {
+      cancelled = true;
+      ro.disconnect();
+    };
+  }, [near]);
+
   return (
-    <div className="group relative flex min-h-[300px] items-center overflow-hidden py-8 mask-fade-x lg:min-h-full">
-      <div
-        className="flex w-max shrink-0 items-center gap-5 pr-5 animate-marquee group-hover:[animation-play-state:paused]"
-        style={{ animationDuration: "55s" }}
-      >
-        {loop.map((src, i) => (
+    <div ref={root} data-ready={ready} className="reel pause-hover relative flex min-h-[300px] items-center overflow-hidden py-8 mask-fade-x lg:min-h-full">
+      <div ref={track} className="reel-track items-center gap-5 pr-5">
+        {loop.map((p, i) => (
           <figure
-            key={`${src}-${i}`}
+            key={`${p.src}-${i}`}
             aria-hidden={i >= photos.length}
-            className="shrink-0 rounded-[3px] bg-cream-50 p-2 pb-8 shadow-soft transition-transform duration-500 hover:z-10 hover:scale-[1.04]"
+            className="shrink-0 rounded-[3px] bg-cream-50 p-2 pb-8 shadow-soft"
             style={{ rotate: `${TILTS[i % TILTS.length]}deg` }}
           >
             <img
-              src={assetUrl(src)}
+              src={near ? assetUrl(p.src) : undefined}
+              width={p.w}
+              height={p.h}
               alt={i < photos.length ? "Crianças no curso Descobrindo Novos Sabores, na Crescer" : ""}
-              loading="lazy"
+              loading="eager"
+              decoding="async"
+              draggable={false}
               className="h-40 w-auto rounded-[2px] sm:h-56 lg:h-64"
             />
           </figure>
@@ -412,41 +461,37 @@ function Clip({ className }: { className?: string }) {
   );
 }
 
-/* Margarida da arte: brota com mola e balança devagar. */
+/* Margarida da arte: brota com mola e balança devagar (o balanço fica num wrapper HTML, que a GPU anima). */
 function Daisy({ className, delay = 0 }: { className?: string; delay?: number }) {
   return (
-    <motion.svg
-      viewBox="0 0 60 84"
-      className={className}
+    <motion.span
       aria-hidden
+      className={`block ${className ?? ""}`}
       initial={{ scaleY: 0, opacity: 0 }}
       whileInView={{ scaleY: 1, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ type: "spring", stiffness: 160, damping: 14, delay }}
       style={{ originY: 1 }}
     >
-      <g className="animate-sway" style={{ transformOrigin: "30px 84px", animationDelay: `${delay}s` }}>
-        <path d="M30 30 C 32 50 28 64 30 84" stroke="#5F8F80" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-        <path d="M30 60 C 22 54 16 56 12 62 C 20 64 26 63 30 60Z" fill="#5F8F80" />
-        {Array.from({ length: 10 }).map((_, i) => (
-          <ellipse key={i} cx="30" cy="12" rx="4.4" ry="10" fill="#FFFFFF" transform={`rotate(${i * 36} 30 24)`} />
-        ))}
-        <circle cx="30" cy="24" r="6.5" fill="#F6C343" />
-      </g>
-    </motion.svg>
+      <span className="block h-full w-full origin-bottom animate-sway will-change-transform" style={{ animationDelay: `${delay}s` }}>
+        <svg viewBox="0 0 60 84" className="h-full w-full">
+          <path d="M30 30 C 32 50 28 64 30 84" stroke="#5F8F80" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path d="M30 60 C 22 54 16 56 12 62 C 20 64 26 63 30 60Z" fill="#5F8F80" />
+          {Array.from({ length: 10 }).map((_, i) => (
+            <ellipse key={i} cx="30" cy="12" rx="4.4" ry="10" fill="#FFFFFF" transform={`rotate(${i * 36} 30 24)`} />
+          ))}
+          <circle cx="30" cy="24" r="6.5" fill="#F6C343" />
+        </svg>
+      </span>
+    </motion.span>
   );
 }
 
-/* Borboleta que flutua pelo painel. */
+/* Borboleta que flutua pelo painel (animação CSS, só no compositor). */
 function FloatingButterfly({ className, delay = 0 }: { className?: string; delay?: number }) {
   return (
-    <motion.span
-      aria-hidden
-      className={`pointer-events-none absolute hidden md:block ${className ?? ""}`}
-      animate={{ y: [0, -18, 0, 10, 0], x: [0, 10, 18, 6, 0], rotate: [0, -8, 4, -4, 0] }}
-      transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay }}
-    >
-      <Butterfly weight="fill" className="h-12 w-12 drop-shadow-sm" />
-    </motion.span>
+    <span aria-hidden className={`pointer-events-none absolute hidden animate-flutter will-change-transform md:block ${className ?? ""}`} style={{ animationDelay: `${delay}s` }}>
+      <Butterfly weight="fill" className="h-12 w-12" />
+    </span>
   );
 }

@@ -42,7 +42,7 @@ export function Team() {
         <ClipReveal className="mt-14 overflow-hidden rounded-[2.5rem] bg-pine-700 shadow-lift" radius={40}>
           <div className="grid md:grid-cols-[1fr_1.15fr]">
             <div className="relative flex flex-col justify-end p-8 text-cream-50 sm:p-12">
-              <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-pine-500/40 blur-3xl" />
+              <div className="glow absolute -left-36 -top-36 h-96 w-96 [--glow-a:0.5] [--glow:63_115_102]" />
               <p className="relative text-xs font-semibold uppercase tracking-[0.22em] text-rose-200">Pediatria e especialidades</p>
               <p className="font-display relative mt-4 text-4xl font-medium leading-[1.05] sm:text-6xl">
                 Conheça nossa <span className="italic text-rose-200">equipe</span>
@@ -65,7 +65,7 @@ export function Team() {
                 alt="Dra. Nathalia Dias, Dra. Karla Bussons e Dra. Regiane Barreto na recepção da Crescer"
                 width={1600}
                 height={1240}
-                loading="lazy"
+                loading="lazy" decoding="async"
                 className="h-full w-full object-cover"
                 initial={{ scale: 1.12 }}
                 whileInView={{ scale: 1 }}
@@ -114,7 +114,7 @@ export function Team() {
                       <img
                         src={assetUrl(d.photo)}
                         alt=""
-                        loading="lazy"
+                        loading="lazy" decoding="async"
                         style={{ objectPosition: d.focus }}
                         className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
                       />
@@ -144,7 +144,7 @@ export function Team() {
       {/* Equipe multiprofissional com as fotos reais */}
       <div className="mx-auto mt-10 max-w-7xl px-5 sm:px-8">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-pine-700 p-8 text-cream-50 shadow-lift sm:p-12">
-          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-rose-400/20 blur-3xl" />
+          <div className="glow absolute -right-40 -top-40 h-[28rem] w-[28rem] [--glow-a:0.26] [--glow:212_137_143]" />
           <div className="relative flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <h3 className="font-display text-3xl font-medium leading-tight sm:text-5xl">
               Também fazem parte <span className="italic text-rose-200">da Crescer</span>
@@ -165,7 +165,7 @@ export function Team() {
                   <img
                     src={assetUrl(p.photo)}
                     alt={`${p.name}, ${p.role}`}
-                    loading="lazy"
+                    loading="lazy" decoding="async"
                     width={240}
                     height={240}
                     className="h-full w-full rounded-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"

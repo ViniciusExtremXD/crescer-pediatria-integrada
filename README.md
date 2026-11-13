@@ -26,6 +26,14 @@ src/components/cta      links de WhatsApp/telefone com medição
 public/                 logo vetorizado (4 versões), fotos (WebP), grade do Instagram, política de privacidade
 ```
 
+## Performance das animações
+
+- Animações infinitas (balanço, pulso, faixas) só rodam perto da tela: `src/lib/visibility.ts` pausa as que estão fora.
+- `src/lib/scroll-progress.ts` substitui `useScroll({ target })` do framer-motion (media o layout a cada frame de rolagem).
+- Carrossel de fotos do curso (`PolaroidReel`): baixa as fotos só quando a seção se aproxima, espera decodificar, anda sozinho a 42 px/s e só pausa com o mouse em cima (no toque não trava).
+- Brilhos de fundo usam `.glow` (gradiente radial), não `blur-[120px]`; `backdrop-filter` ficou só onde há conteúdo passando por baixo (menu, cartões do modal).
+- Não use `prefers-reduced-motion` para frear as animações: o app usa `MotionConfig reducedMotion="never"` de propósito (muitos PCs Windows reportam "reduzir movimento" sem o usuário ter pedido).
+
 ## De onde veio o conteúdo
 
 - **Logo:** vetorizado a partir dos posts oficiais (nova identidade, out/2026). `logo-crescer.svg`, versão clara e só o símbolo.

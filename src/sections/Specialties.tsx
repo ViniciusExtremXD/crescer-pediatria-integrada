@@ -13,8 +13,8 @@ export function Specialties() {
 
   return (
     <section id="especialidades" className="relative overflow-hidden bg-pine-800 py-24 text-cream-50 sm:py-32">
-      <div className="absolute -left-40 top-20 h-[520px] w-[520px] rounded-full bg-pine-500/30 blur-[140px]" />
-      <div className="absolute -right-40 bottom-0 h-[420px] w-[420px] rounded-full bg-rose-400/15 blur-[120px]" />
+      <div className="glow absolute -left-64 top-0 h-[760px] w-[760px] [--glow-a:0.34] [--glow:63_115_102]" />
+      <div className="glow absolute -right-56 -bottom-20 h-[620px] w-[620px] [--glow-a:0.2] [--glow:212_137_143]" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
@@ -80,9 +80,9 @@ export function Specialties() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
-                  initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -16, filter: "blur(6px)" }}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.55, ease: EASE_OUT }}
                 >
                   <Panel s={current} />
@@ -124,7 +124,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
             <motion.img
               src={assetUrl(d.photo)}
               alt={`${d.name}, ${d.title}`}
-              loading="lazy"
+              loading="lazy" decoding="async"
               style={{ objectPosition: d.focus }}
               className="h-full w-full object-cover"
               initial={{ scale: 1.1 }}

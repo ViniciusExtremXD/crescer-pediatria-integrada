@@ -417,7 +417,12 @@ export const DEMAND = {
 };
 
 /* Fotos do curso Descobrindo Novos Sabores (álbum enviado pela clínica, 13/11/2026). */
-export const SABORES_PHOTOS = Array.from({ length: 13 }, (_, i) => `images/sabores/sabores-${String(i + 1).padStart(2, "0")}.webp`);
+const SABORES_LANDSCAPE = new Set([2, 5, 8, 10, 13]);
+export const SABORES_PHOTOS = Array.from({ length: 13 }, (_, i) => ({
+  src: `images/sabores/sabores-${String(i + 1).padStart(2, "0")}.webp`,
+  w: SABORES_LANDSCAPE.has(i + 1) ? 960 : 427,
+  h: 640,
+}));
 
 /* ───────────────────────── Espaço (galeria) ───────────────────────── */
 

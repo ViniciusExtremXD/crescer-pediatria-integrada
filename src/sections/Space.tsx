@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useSpring, useTransform } from "framer-motion";
+import { useElementProgress } from "../lib/scroll-progress";
 import { SPACE_GALLERY, assetUrl } from "../data/site";
 import { EASE_OUT, Leaf, SectionLabel, SplitWords } from "../components/motion";
 
@@ -9,7 +10,7 @@ import { EASE_OUT, Leaf, SectionLabel, SplitWords } from "../components/motion";
  */
 export function Space() {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const scrollYProgress = useElementProgress(ref, ["start start", "end end"]);
   const smooth = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
   const x = useTransform(smooth, [0, 1], ["0%", "-68%"]);
   const progress = useTransform(smooth, [0, 1], ["0%", "100%"]);
@@ -33,7 +34,7 @@ export function Space() {
           <motion.div style={{ x }} className="flex gap-6 pl-8 xl:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
             {SPACE_GALLERY.map((g, i) => (
               <figure key={g.src} className={`group relative shrink-0 overflow-hidden rounded-[2rem] bg-cream-200 ${i % 2 ? "mt-16 h-[46vh] w-[34vw]" : "h-[54vh] w-[30vw]"}`}>
-                <img src={assetUrl(g.src)} alt={g.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.07]" />
+                <img src={assetUrl(g.src)} alt={g.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.07]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-pine-900/75 via-transparent to-transparent" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-6">
                   <p className="font-display text-2xl font-medium italic text-cream-50">{g.title}</p>
@@ -69,7 +70,7 @@ export function Space() {
               transition={{ duration: 0.8, ease: EASE_OUT, delay: Math.min(i, 2) * 0.08 }}
               className="relative h-[62vh] max-h-[520px] w-[80vw] shrink-0 snap-center overflow-hidden rounded-[1.75rem]"
             >
-              <img src={assetUrl(g.src)} alt={g.title} loading="lazy" className="h-full w-full object-cover" />
+              <img src={assetUrl(g.src)} alt={g.title} loading="lazy" decoding="async" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-pine-900/75 via-transparent to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-5">
                 <p className="font-display text-2xl font-medium italic text-cream-50">{g.title}</p>

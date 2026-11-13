@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { MotionConfig } from "framer-motion";
 import { bindAnchorLinks, initSmoothScroll } from "./lib/smooth-scroll";
+import { pauseOffscreenAnimations } from "./lib/visibility";
 import { CookieNotice, FloatingContact, Nav, Preloader, ScrollProgress } from "./components/chrome";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
@@ -23,9 +24,11 @@ export default function App() {
   useEffect(() => {
     const stopScroll = initSmoothScroll();
     const unbind = bindAnchorLinks();
+    const stopPause = pauseOffscreenAnimations();
     return () => {
       stopScroll();
       unbind();
+      stopPause();
     };
   }, []);
 

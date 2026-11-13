@@ -82,6 +82,12 @@ export default {
         "spin-slow": {
           to: { transform: "rotate(360deg)" },
         },
+        flutter: {
+          "0%, 100%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
+          "25%": { transform: "translate3d(10px, -18px, 0) rotate(-8deg)" },
+          "50%": { transform: "translate3d(18px, 0, 0) rotate(4deg)" },
+          "75%": { transform: "translate3d(6px, 10px, 0) rotate(-4deg)" },
+        },
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
@@ -97,6 +103,7 @@ export default {
         "pulse-ring": "pulse-ring 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite",
         float: "float 7s ease-in-out infinite",
         sway: "sway 5s ease-in-out infinite",
+        flutter: "flutter 9s ease-in-out infinite",
         "spin-slow": "spin-slow 24s linear infinite",
       },
     },

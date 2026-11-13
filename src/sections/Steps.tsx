@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import { useElementProgress } from "../lib/scroll-progress";
 import { ChatCircleDots, CalendarHeart, HeartStraight } from "@phosphor-icons/react";
 import { EASE_OUT, SectionLabel, SplitWords } from "../components/motion";
 import { PrimaryCta } from "../components/cta";
@@ -12,7 +13,7 @@ const STEPS = [
 
 export function Steps() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 55%"] });
+  const scrollYProgress = useElementProgress(ref, ["start 80%", "end 55%"]);
   const draw = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (

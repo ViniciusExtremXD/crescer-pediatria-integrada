@@ -16,7 +16,7 @@ export function Reviews() {
 
   return (
     <section id="avaliacoes" className="relative overflow-hidden bg-cream-100 py-24 sm:py-32">
-      <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-rose-200/50 blur-[120px]" />
+      <div className="glow absolute left-1/2 top-[-80px] h-[640px] w-[1100px] -translate-x-1/2 [--glow-a:0.55] [--glow:251_218_221]" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -70,9 +70,9 @@ export function Reviews() {
 function Row({ items, direction }: { items: Review[]; direction: "left" | "right" }) {
   const loop = [...items, ...items];
   return (
-    <div className="group mask-fade-x relative -my-8 flex overflow-hidden py-12">
+    <div className="pause-hover mask-fade-x relative -my-8 flex overflow-hidden py-12">
       <div
-        className={`flex w-max shrink-0 gap-5 pr-5 ${direction === "left" ? "animate-marquee" : "animate-marquee-rev"} group-hover:[animation-play-state:paused]`}
+        className={`flex w-max shrink-0 gap-5 pr-5 ${direction === "left" ? "animate-marquee" : "animate-marquee-rev"}`}
         aria-hidden={false}
       >
         {loop.map((r, i) => (

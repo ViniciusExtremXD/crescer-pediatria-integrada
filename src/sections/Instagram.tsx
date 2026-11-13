@@ -53,7 +53,7 @@ export function Instagram() {
                 onClick={() => pushEvent("instagram_click", { link_location: "post", post: p.code })}
                 className="group relative block aspect-square overflow-hidden rounded-[1.5rem] bg-rose-200 shadow-soft transition-shadow duration-500 hover:shadow-card"
               >
-                <img src={assetUrl(p.img)} alt={p.text} loading="lazy" width={640} height={640} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
+                <img src={assetUrl(p.img)} alt={p.text} loading="lazy" decoding="async" width={640} height={640} className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
                 <div className="absolute inset-0 flex flex-col justify-between bg-pine-800/0 p-4 transition-colors duration-500 group-hover:bg-pine-800/70">
                   <span className="flex justify-end">
                     {p.kind === "reel" ? (

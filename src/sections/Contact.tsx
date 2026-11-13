@@ -8,8 +8,8 @@ import { ContactForm } from "../components/ContactForm";
 export function Contact() {
   return (
     <section id="contato" className="relative overflow-hidden bg-pine-800 py-24 text-cream-50 sm:py-32">
-      <div className="absolute -right-32 top-10 h-[520px] w-[520px] rounded-full bg-rose-400/20 blur-[140px]" />
-      <div className="absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-pine-400/25 blur-[120px]" />
+      <div className="glow absolute -right-56 -top-10 h-[760px] w-[760px] [--glow-a:0.24] [--glow:212_137_143]" />
+      <div className="glow absolute -left-60 -bottom-24 h-[640px] w-[640px] [--glow-a:0.3] [--glow:95_143_128]" />
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">

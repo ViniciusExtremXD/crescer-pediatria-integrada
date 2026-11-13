@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
+import { useElementProgress } from "../lib/scroll-progress";
 import { ArrowDown, ArrowRight, Star } from "@phosphor-icons/react";
 import { COMPANY, DOCTORS, assetUrl } from "../data/site";
 import { Counter, EASE_IN_OUT, EASE_OUT, Leaf, SplitWords, VelocityMarquee } from "../components/motion";
@@ -22,7 +23,7 @@ const MARQUEE = [
 
 export function Hero({ ready }: { ready: boolean }) {
   const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const scrollYProgress = useElementProgress(ref, ["start start", "end start"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
   const visualY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
@@ -32,7 +33,6 @@ export function Hero({ ready }: { ready: boolean }) {
   const my = useMotionValue(-600);
   const sx = useSpring(mx, { stiffness: 50, damping: 20 });
   const sy = useSpring(my, { stiffness: 50, damping: 20 });
-  const glow = useMotionTemplate`radial-gradient(520px circle at ${sx}px ${sy}px, rgba(242,184,191,0.45), transparent 62%)`;
 
   return (
     <section
@@ -47,9 +47,9 @@ export function Hero({ ready }: { ready: boolean }) {
     >
       {/* Atmosfera */}
       <div className="bg-dots mask-fade-b absolute inset-0 -z-10 opacity-50" />
-      <div className="absolute -right-48 -top-24 -z-10 h-[640px] w-[640px] rounded-full bg-rose-200/60 blur-[120px]" />
-      <div className="absolute -left-40 bottom-10 -z-10 h-[460px] w-[460px] rounded-full bg-pine-100/80 blur-[110px]" />
-      <motion.div className="pointer-events-none absolute inset-0 -z-10 hidden md:block" style={{ background: glow }} />
+      <div className="glow absolute -right-64 -top-48 -z-10 h-[900px] w-[900px] [--glow-a:0.7] [--glow:251_218_221]" />
+      <div className="glow absolute -left-56 -bottom-10 -z-10 h-[640px] w-[640px] [--glow-a:0.85] [--glow:220_234_228]" />
+      <motion.div aria-hidden className="glow pointer-events-none absolute left-0 top-0 -z-10 hidden h-[660px] w-[660px] [--glow-a:0.45] [--glow:242_184_191] md:block" style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%", willChange: "transform" }} />
 
       <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-14 px-5 pb-14 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-20">
         <motion.div style={{ y: contentY, opacity: contentOpacity }} className="relative lg:col-span-7">
@@ -59,7 +59,7 @@ export function Hero({ ready }: { ready: boolean }) {
             initial={{ opacity: 0, y: 16 }}
             animate={ready ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.8, ease: EASE_OUT }}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 shadow-soft backdrop-blur"
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 shadow-soft"
           >
             <span className="whitespace-nowrap rounded-full bg-pine-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Macapá · AP</span>
             Clínica de especialidades pediátricas
@@ -135,7 +135,7 @@ export function Hero({ ready }: { ready: boolean }) {
       </div>
 
       {/* Faixa de especialidades */}
-      <div className="relative border-y border-pine-600/10 bg-rose-100/70 py-5 backdrop-blur-sm">
+      <div className="relative border-y border-pine-600/10 bg-rose-100/70 py-5">
         <VelocityMarquee baseVelocity={-0.7}>
           {MARQUEE.map((m) => (
             <span key={m} className="flex items-center">
@@ -218,7 +218,7 @@ function HeroVisual({ ready, polaroidY }: { ready: boolean; polaroidY: MotionVal
         initial={{ opacity: 0, scale: 0.6 }}
         animate={ready ? { opacity: 1, scale: 1 } : undefined}
         transition={{ type: "spring", stiffness: 220, damping: 16, delay: 1.35 }}
-        className="absolute right-3 top-[16%] rounded-2xl bg-white/95 px-4 py-3 shadow-lift backdrop-blur 2xl:-right-8"
+        className="absolute right-3 top-[16%] rounded-2xl bg-white/95 px-4 py-3 shadow-lift 2xl:-right-8"
       >
         <div className="flex gap-0.5 text-rose-400">
           {[0, 1, 2, 3, 4].map((i) => (
