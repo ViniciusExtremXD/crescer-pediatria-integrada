@@ -110,7 +110,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
   const docs = doctorsOf(s);
   return (
     <div className={compact ? "pb-7" : ""}>
-      <div className={`relative overflow-hidden rounded-[2rem] bg-pine-700 shadow-glass ring-1 ring-white/10 ${compact ? "aspect-[16/11]" : "aspect-[5/4]"}`}>
+      <div className={`relative overflow-hidden rounded-[2rem] bg-pine-700 shadow-glass ring-1 ring-white/10 ${compact ? "aspect-[16/11]" : s.details ? "aspect-[16/9]" : "aspect-[5/4]"}`}>
         <motion.img
           key={s.photo}
           src={assetUrl(s.photo)}
@@ -131,7 +131,26 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
           ))}
         </div>
       </div>
-      <p className="mt-6 text-lg leading-relaxed text-cream-100/85">{s.lead}</p>
+      <p className={`text-lg leading-relaxed text-cream-100/85 ${s.details ? "mt-5" : "mt-6"}`}>{s.lead}</p>
+      {s.details ? (
+        <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+          {s.topics.map((t, i) => (
+            <motion.li
+              key={t}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: EASE_OUT, delay: 0.12 + i * 0.05 }}
+              className="rounded-2xl bg-white/[0.06] px-4 py-3.5 shadow-glass ring-1 ring-white/10"
+            >
+              <p className="flex items-center gap-2 text-sm font-semibold text-cream-50">
+                <ArrowRight weight="bold" className="h-3.5 w-3.5 shrink-0 text-rose-300" />
+                {t}
+              </p>
+              <p className="mt-1 pl-[1.375rem] text-[13px] leading-snug text-cream-100/70">{s.details?.[i]}</p>
+            </motion.li>
+          ))}
+        </ul>
+      ) : (
       <ul className="mt-5 grid grid-cols-2 gap-2.5">
         {s.topics.map((t, i) => (
           <motion.li
@@ -146,6 +165,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
           </motion.li>
         ))}
       </ul>
+      )}
     </div>
   );
 }

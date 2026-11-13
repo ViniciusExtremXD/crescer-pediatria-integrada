@@ -310,6 +310,22 @@ function DoctorInfo({ d }: { d: Doctor }) {
       {spec && (
         <>
           <p className="mt-7 text-xs font-semibold uppercase tracking-[0.18em] text-pine-500">Pode ajudar com</p>
+          {spec.details ? (
+            <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
+              {spec.topics.map((t, i) => (
+                <motion.li
+                  key={t}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: EASE_OUT, delay: 0.1 + i * 0.05 }}
+                  className="rounded-2xl bg-white px-4 py-3 shadow-soft ring-1 ring-pine-600/5"
+                >
+                  <p className="text-sm font-semibold text-pine-700">{t}</p>
+                  <p className="mt-1 text-[13px] leading-snug text-pine-800/65">{spec.details?.[i]}</p>
+                </motion.li>
+              ))}
+            </ul>
+          ) : (
           <ul className="mt-3 flex flex-wrap gap-2">
             {spec.topics.map((t, i) => (
               <motion.li
@@ -323,6 +339,7 @@ function DoctorInfo({ d }: { d: Doctor }) {
               </motion.li>
             ))}
           </ul>
+          )}
         </>
       )}
 

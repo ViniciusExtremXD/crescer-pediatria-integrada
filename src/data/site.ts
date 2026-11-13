@@ -120,7 +120,7 @@ export const DOCTORS: Doctor[] = [
     crm: "CRM-AP 1528 · RQE 767",
     photo: "images/dra-karla-bussons.webp",
     focus: "50% 22%",
-    about: "Pediatra geral da Crescer. Acompanha crescimento, desenvolvimento, alimentação, sono e vacinação, e identifica quando uma avaliação especializada pode ser necessária.",
+    about: "Pediatra geral da Crescer. Acompanha o desenvolvimento, o sono, a alimentação e a rotina de saúde da criança, cuida do recém-nascido e identifica quando uma avaliação especializada pode ser necessária.",
     instagram: "dra.karlabussonspediatra",
     reviews: [
       { text: "Atendimento humanizado, cuidadoso e cheio de carinho Dra Karla é incrível. Toda a equipe é muito atenciosa e transmite segurança e confiança.", author: "Alessandra Z." },
@@ -135,7 +135,7 @@ export const DOCTORS: Doctor[] = [
     crm: "CRM-AP 1597 · RQE 803",
     photo: "images/polaroid-lorena.webp",
     focus: "50% 30%",
-    about: "Pediatra geral. Faz o acompanhamento de rotina do bebê ao adolescente: crescimento, desenvolvimento, alimentação, sono, vacinação e prevenção em cada fase.",
+    about: "Pediatra geral. Faz o acompanhamento de rotina do recém-nascido ao adolescente: desenvolvimento, sono, alimentação, sintomas comuns da infância, vacinação e prevenção.",
   },
   {
     id: "nathalia",
@@ -145,7 +145,7 @@ export const DOCTORS: Doctor[] = [
     crm: "CRM-AP 1447 · RQE 819/820",
     photo: "images/dra-nathalia-dias.webp",
     focus: "50% 30%",
-    about: "Gastroenterologista pediátrica. Cuida do sistema digestivo da criança: refluxo, dor abdominal, constipação, diarreia, alterações nas fezes, dificuldades alimentares e alergias alimentares.",
+    about: "Gastroenterologista pediátrica. Cuida do sistema digestivo da criança: APLV, intolerância à lactose, constipação intestinal, dor abdominal, doença celíaca e seletividade alimentar.",
     instagram: "nathaliadias.gastropediatra",
     reviews: [{ text: "Dra Natalia Dias (Gastropediatra) é bem atenciosa, o atendimento é humanizado do início ao fim. Me senti segura e bem orientada.", author: "Debby R." }],
   },
@@ -237,6 +237,8 @@ export interface Specialty {
   title: string;
   lead: string;
   topics: string[];
+  /* Descrição de cada tema (mesma ordem de topics). Opcional. */
+  details?: string[];
   doctorIds: string[];
   photo: string;
 }
@@ -246,7 +248,23 @@ export const SPECIALTIES: Specialty[] = [
     id: "pediatria",
     title: "Pediatria Geral",
     lead: "Acompanha a criança de forma completa e é quem identifica quando uma avaliação especializada pode ser necessária.",
-    topics: ["Crescimento e desenvolvimento", "Alimentação e sono", "Vacinação e prevenção", "Consultas de rotina"],
+    /* Textos enviados pela clínica (WhatsApp, 12/11/2026). */
+    topics: [
+      "Desenvolvimento infantil",
+      "Sono infantil",
+      "Dificuldades na alimentação",
+      "Doenças e sintomas comuns na infância",
+      "Cuidados com o recém-nascido",
+      "Acompanhamento pediátrico de rotina",
+    ],
+    details: [
+      "Acompanhamento dos marcos do desenvolvimento, da aquisição de novas habilidades e das etapas do crescimento da criança.",
+      "Dificuldades para dormir, despertares noturnos e orientações sobre o sono do bebê e da criança.",
+      "Introdução alimentar, recusa de alimentos e dúvidas sobre a alimentação adequada em cada fase da infância.",
+      "Febre, tosse, alterações nas fezes, alergias e outros sintomas que costumam gerar dúvidas nos pais.",
+      "Banho, higiene, troca de fraldas, cuidados com o umbigo e orientações para os primeiros dias de vida do bebê.",
+      "Consultas de puericultura, vacinação, orientações preventivas e acompanhamento da saúde e do desenvolvimento infantil.",
+    ],
     doctorIds: ["karla", "lorena"],
     photo: "images/dra-karla-bussons.webp",
   },
@@ -254,7 +272,8 @@ export const SPECIALTIES: Specialty[] = [
     id: "gastro",
     title: "Gastroenterologia Pediátrica",
     lead: "Para questões relacionadas ao sistema digestivo da criança.",
-    topics: ["Refluxo e dor abdominal", "Constipação e diarreia", "Alterações nas fezes", "Dificuldades alimentares"],
+    /* Lista enviada pela clínica (WhatsApp, 12/11/2026). */
+    topics: ["APLV (alergia à proteína do leite de vaca)", "Intolerância à lactose", "Constipação intestinal", "Dor abdominal", "Doença celíaca", "Seletividade alimentar"],
     doctorIds: ["nathalia"],
     photo: "images/dra-nathalia-dias.webp",
   },
