@@ -2,6 +2,20 @@
 
 O site só envia eventos para o `dataLayer`. **Toda tag fica dentro do GTM**, e o contêiner pronto está em [`gtm/crescer-gtm-container.json`](gtm/crescer-gtm-container.json).
 
+## Estado atual (13/11/2026)
+
+| Peça | Situação |
+|---|---|
+| **GTM** | `GTM-5RPK8QJW` (conta "Crescer Pediatria Integrada", criada no login da agência). Contêiner importado e **publicado** (versão 2). `VITE_GTM_ID` já está no `.env`. |
+| **GA4** | `G-JLXBSWS3V8` (conta 416211754, propriedade 564283989, fluxo Web 16336339817, fuso Belém, moeda BRL). Medição otimizada sem "interações com formulário" e sem "pesquisa no site" (conflitariam com `form_start`/`form_submit` e não existem aqui). Hits conferidos: `page_view`, `section_view` e `generate_lead` chegam com o `G-JLXBSWS3V8`. |
+| **Google Ads** | **Pendente.** Não há conta da Crescer neste login. As 3 tags de conversão estão **pausadas** no GTM até existirem a conta e as conversões. |
+| **Meta Pixel** | **Pendente.** As 2 tags do Pixel estão **pausadas** no GTM até existir o Pixel. |
+| **Evento principal no GA4** | Marcar `generate_lead` como evento principal (estrela) em Administrador > Exibição de dados > Eventos, assim que ele aparecer (depois dos primeiros dados). |
+
+Para ligar Google Ads e Meta: preencher as variáveis `const - Ads …` / `const - Meta Pixel ID`, **despausar** as 5 tags no GTM, pré-visualizar e publicar uma nova versão.
+
+Falta também dar acesso à conta do GTM e do GA4 ao e-mail da clínica (Administrador > Gerenciamento de usuários).
+
 ## Colocar no ar (ordem)
 
 1. **GTM:** criar o contêiner Web em tagmanager.google.com e copiar o ID (`GTM-XXXXXXX`).

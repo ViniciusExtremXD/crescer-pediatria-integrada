@@ -54,7 +54,9 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 - [ ] Convênios aceitos e horário de funcionamento.
 - [ ] Se quiserem, trocar as demais médicas e a equipe multiprofissional por fotos das galerias da fotógrafa (hoje vêm do carrossel do Instagram e da arte da equipe). Laila e Márcia não têm galeria nos links enviados.
 - [ ] Conferir divergências entre a arte "Pediatria e subespecialidades" e a tabela oficial (o site segue a tabela): CRM da Dra. Helena (a arte repete o da Dra. Márcia), RQE da Dra. Laila (arte: 1122; tabela: 1103/1122), sobrenome da nutricionista Maira (arte: Branco; tabela: Lima) e título da Taynara (arte: Enfermeira Pediátrica, ENF ESP 76768).
-- [ ] **IDs de medição** (passo a passo em `TRACKING.md`): `VITE_GTM_ID` no `.env`; no GTM, importar `gtm/crescer-gtm-container.json` e preencher GA4 (`G-…`), Google Ads (ID e 3 rótulos) e Meta Pixel. Até lá, nada é enviado.
+- [x] GTM `GTM-5RPK8QJW` publicado e GA4 `G-JLXBSWS3V8` ligado (`TRACKING.md`).
+- [ ] **Google Ads e Meta Pixel:** não há conta da Crescer no login usado. Criar/receber acesso, preencher as variáveis `const - Ads …` e `const - Meta Pixel ID` no GTM, despausar as 5 tags e publicar.
+- [ ] Dar acesso de administrador do GTM e do GA4 ao e-mail da clínica.
 - [ ] Revisão jurídica da política de privacidade.
 
 ## Go-live no domínio

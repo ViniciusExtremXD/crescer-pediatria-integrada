@@ -13,7 +13,7 @@
       "accountId": "0",
       "containerId": "0",
       "name": "crescerpediatriaintegrada.com.br",
-      "publicId": "GTM-XXXXXXX",
+      "publicId": "GTM-5RPK8QJW",
       "usageContext": [
         "WEB"
       ],
@@ -348,7 +348,8 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
+        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
+        "paused": true
       },
       {
         "tagId": "6",
@@ -400,7 +401,8 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
+        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
+        "paused": true
       },
       {
         "tagId": "7",
@@ -452,7 +454,8 @@
         "consentSettings": {
           "consentStatus": "NOT_SET"
         },
-        "notes": "Sem valor e sem parâmetros: nada de saúde vai para o Google Ads."
+        "notes": "PAUSADA até existir a conversão no Google Ads: preencher as variáveis const - Ads e despausar. Sem valor e sem parâmetros: nada de saúde vai para o Google Ads.",
+        "paused": true
       },
       {
         "tagId": "8",
@@ -494,7 +497,8 @@
             ]
           }
         },
-        "notes": "Só dispara com ad_storage concedido. No clique em Aceitar, o gatilho consent_update refaz o disparo."
+        "notes": "PAUSADA até existir o Pixel: preencher const - Meta Pixel ID e despausar. Só dispara com ad_storage concedido.",
+        "paused": true
       },
       {
         "tagId": "9",
@@ -535,7 +539,8 @@
             ]
           }
         },
-        "notes": "Evento Lead sem nenhum parâmetro."
+        "notes": "PAUSADA até existir o Pixel. Evento Lead sem nenhum parâmetro.",
+        "paused": true
       }
     ],
     "trigger": [
@@ -773,7 +778,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "G-XXXXXXXXXX"
+            "value": "G-JLXBSWS3V8"
           }
         ],
         "accountId": "0",
