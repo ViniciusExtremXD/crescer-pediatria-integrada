@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { MotionConfig } from "framer-motion";
 import { bindAnchorLinks, initSmoothScroll } from "./lib/smooth-scroll";
 import { pauseOffscreenAnimations } from "./lib/visibility";
+import { pushEvent } from "./data/site";
 import { CookieNotice, FloatingContact, Nav, Preloader, ScrollProgress } from "./components/chrome";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
@@ -25,10 +26,27 @@ export default function App() {
     const stopScroll = initSmoothScroll();
     const unbind = bindAnchorLinks();
     const stopPause = pauseOffscreenAnimations();
+
+    // Quais partes da página o visitante chega a ver (uma vez por seção). Vai só ao GA4, nunca aos anúncios.
+    const seen = new Set<string>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = entry.target.id;
+          if (!entry.isIntersecting || seen.has(id)) continue;
+          seen.add(id);
+          pushEvent("section_view", { section_id: id });
+        }
+      },
+      { threshold: 0.35 },
+    );
+    document.querySelectorAll("main section[id]").forEach((el) => io.observe(el));
+
     return () => {
       stopScroll();
       unbind();
       stopPause();
+      io.disconnect();
     };
   }, []);
 

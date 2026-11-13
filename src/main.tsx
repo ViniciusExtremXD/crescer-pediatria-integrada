@@ -6,6 +6,9 @@ import "@fontsource-variable/fraunces/soft-italic.css";
 import "@fontsource-variable/plus-jakarta-sans";
 import "./styles.css";
 import App from "./App";
+import { captureAttribution } from "./lib/attribution";
+
+captureAttribution();
 
 const root = document.getElementById("root")!;
 const app = (

@@ -54,7 +54,7 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 - [ ] Convênios aceitos e horário de funcionamento.
 - [ ] Se quiserem, trocar as demais médicas e a equipe multiprofissional por fotos das galerias da fotógrafa (hoje vêm do carrossel do Instagram e da arte da equipe). Laila e Márcia não têm galeria nos links enviados.
 - [ ] Conferir divergências entre a arte "Pediatria e subespecialidades" e a tabela oficial (o site segue a tabela): CRM da Dra. Helena (a arte repete o da Dra. Márcia), RQE da Dra. Laila (arte: 1122; tabela: 1103/1122), sobrenome da nutricionista Maira (arte: Branco; tabela: Lima) e título da Taynara (arte: Enfermeira Pediátrica, ENF ESP 76768).
-- [ ] IDs de GTM, Google Ads, GA4 e Meta Pixel (ver `TRACKING.md`).
+- [ ] **IDs de medição** (passo a passo em `TRACKING.md`): `VITE_GTM_ID` no `.env`; no GTM, importar `gtm/crescer-gtm-container.json` e preencher GA4 (`G-…`), Google Ads (ID e 3 rótulos) e Meta Pixel. Até lá, nada é enviado.
 - [ ] Revisão jurídica da política de privacidade.
 
 ## Go-live no domínio

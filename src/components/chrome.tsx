@@ -282,7 +282,7 @@ const CONSENT_KEY = "crescer-consent";
 function applyConsent(granted: boolean) {
   const v = granted ? "granted" : "denied";
   const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-  w.gtag?.("consent", "update", { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v });
+  w.gtag?.("consent", "update", { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v, personalization_storage: v });
   pushEvent("consent_update", { consent_state: v });
 }
 

@@ -3,6 +3,8 @@
  * Google Meu Negócio e cartão CNPJ. Itens marcados "A CONFIRMAR" estão listados no README.
  */
 
+import { originTag } from "../lib/attribution";
+
 export const COMPANY = {
   name: "Crescer Pediatria Integrada",
   short: "Crescer",
@@ -43,21 +45,10 @@ export function buildWhatsAppUrl(message: string = DEFAULT_WA_MESSAGE): string {
   return `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(withOrigin(message))}`;
 }
 
-/* Leva a origem do anúncio (utm_source / utm_campaign) para a conversa, para a recepção saber de onde veio o contato. */
+/* Leva a origem do anúncio (utm_source / utm_campaign ou gclid) para a conversa, para a recepção saber de onde veio o contato. */
 function withOrigin(message: string): string {
-  if (typeof window === "undefined") return message;
-  try {
-    const qs = new URLSearchParams(window.location.search);
-    const src = qs.get("utm_source");
-    if (src) {
-      const camp = qs.get("utm_campaign");
-      sessionStorage.setItem("crescer-origem", `(origem: ${src}${camp ? ` / ${camp}` : ""})`);
-    }
-    const tag = sessionStorage.getItem("crescer-origem");
-    return tag ? `${message}\n\n${tag}` : message;
-  } catch {
-    return message;
-  }
+  const tag = originTag();
+  return tag ? `${message}\n\n${tag}` : message;
 }
 
 /* ───────────────────────── Medição (ver TRACKING.md) ───────────────────────── */
@@ -71,10 +62,25 @@ export function pushEvent(event: string, params: Record<string, string | number 
   w.dataLayer.push({ event, ...params });
 }
 
-/** Clique em WhatsApp/telefone ou envio do formulário. `generate_lead` é a conversão. */
+const lastLead: Partial<Record<LeadChannel, number>> = {};
+
+function newLeadId() {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+/**
+ * Clique em WhatsApp/telefone ou envio do formulário. `generate_lead` é a conversão.
+ * - `lead_id` é único por conversão: vai como "ID da transação" no Google Ads, que descarta repetidos.
+ * - Toque duplo (mesmo canal em menos de 2 s) conta uma vez só.
+ * - Nenhum dado de saúde nem do visitante: só o canal e o lugar do site onde clicou.
+ */
 export function trackLead(channel: LeadChannel, location: string, detail?: string) {
-  pushEvent("lead_click", { lead_channel: channel, lead_location: location, lead_detail: detail });
-  pushEvent("generate_lead", { method: channel, link_location: location });
+  const now = Date.now();
+  if (now - (lastLead[channel] ?? 0) < 2000) return;
+  lastLead[channel] = now;
+  const lead_id = newLeadId();
+  pushEvent("lead_click", { lead_channel: channel, lead_location: location, lead_detail: detail, lead_id });
+  pushEvent("generate_lead", { method: channel, link_location: location, lead_id });
 }
 
 /* ───────────────────────── Navegação ───────────────────────── */

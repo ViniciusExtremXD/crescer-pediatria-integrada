@@ -17,7 +17,7 @@ export function Team() {
 
   const open = (id: string) => {
     setOpenId(id);
-    pushEvent("doctor_open", { doctor: id });
+    pushEvent("doctor_open"); // sem a médica: a escolha revelaria a especialidade procurada
   };
 
   return (
@@ -363,7 +363,7 @@ function DoctorInfo({ d }: { d: Doctor }) {
       ))}
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
-        <PrimaryCta location="card_medica" detail={d.id} size="md" message={`Olá! Gostaria de agendar uma consulta com a ${d.name} (${d.specialty}).`}>
+        <PrimaryCta location="card_medica" size="md" message={`Olá! Gostaria de agendar uma consulta com a ${d.name} (${d.specialty}).`}>
           Agendar com a Dra. {first}
         </PrimaryCta>
         {d.instagram && (
@@ -371,7 +371,7 @@ function DoctorInfo({ d }: { d: Doctor }) {
             href={`https://www.instagram.com/${d.instagram}/`}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => pushEvent("instagram_click", { link_location: "card_medica", doctor: d.id })}
+            onClick={() => pushEvent("instagram_click", { link_location: "card_medica" })}
             className="inline-flex h-12 items-center gap-2 rounded-full border border-pine-600/20 px-5 text-sm font-semibold text-pine-700 transition-colors hover:bg-pine-600 hover:text-white"
           >
             <InstagramLogo weight="bold" className="h-4 w-4" /> @{d.instagram}

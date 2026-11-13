@@ -8,6 +8,7 @@
     "dev": "vite --port 5176",
     "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/prerender.mjs",
     "preview": "vite preview --port 5176",
+    "test:tracking": "node scripts/track-test.mjs",
     "build:gh": "cross-env VITE_BASE=/crescer-pediatria-integrada/ npm run build",
     "deploy:gh": "npm run build:gh && gh-pages -d dist --nojekyll -m \"Deploy\""
   },

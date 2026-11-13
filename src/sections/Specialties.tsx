@@ -159,7 +159,7 @@ function Panel({ s, compact = false }: { s: Specialty; compact?: boolean }) {
               )}
             </div>
             <div className="mt-6">
-              <PrimaryCta location={`especialidade_${s.id}`} tone="rose" size="md" message={`Olá! Gostaria de agendar uma consulta de ${s.title} com a ${docs[0].name}.`}>
+              <PrimaryCta location="especialidades" tone="rose" size="md" message={`Olá! Gostaria de agendar uma consulta de ${s.title} com a ${docs[0].name}.`}>
                 Agendar
               </PrimaryCta>
             </div>
