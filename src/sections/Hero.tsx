@@ -51,7 +51,7 @@ export function Hero({ ready }: { ready: boolean }) {
       <div className="glow absolute -left-56 -bottom-10 -z-10 h-[640px] w-[640px] [--glow-a:0.85] [--glow:220_234_228]" />
       <motion.div aria-hidden className="glow pointer-events-none absolute left-0 top-0 -z-10 hidden h-[660px] w-[660px] [--glow-a:0.45] [--glow:242_184_191] md:block" style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%", willChange: "transform" }} />
 
-      <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-14 px-5 pb-14 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-20">
+      <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-[minmax(0,1fr)] items-center gap-14 px-5 pb-14 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-20">
         <motion.div style={{ y: contentY, opacity: contentOpacity }} className="relative lg:col-span-7">
           <Leaf className="absolute -left-2 -top-10 hidden h-10 w-10 sm:block" delay={0.4} />
 
@@ -59,10 +59,13 @@ export function Hero({ ready }: { ready: boolean }) {
             initial={{ opacity: 0, y: 16 }}
             animate={ready ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.8, ease: EASE_OUT }}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 shadow-soft"
+            className="mb-7 inline-flex max-w-full items-center gap-1.5 rounded-full border border-pine-600/10 bg-white/70 py-1.5 pl-1.5 pr-2.5 text-[12px] font-medium text-pine-700 shadow-soft min-[360px]:gap-2.5 min-[360px]:pr-4 min-[360px]:text-[13px]"
           >
-            <span className="whitespace-nowrap rounded-full bg-pine-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Macapá · AP</span>
-            Clínica de especialidades pediátricas
+            <span className="shrink-0 whitespace-nowrap rounded-full bg-pine-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white min-[360px]:tracking-widest">Macapá · AP</span>
+            <span className="min-w-0 truncate">
+              <span className="sm:hidden">Especialidades pediátricas</span>
+              <span className="hidden sm:inline">Clínica de especialidades pediátricas</span>
+            </span>
           </motion.div>
 
           <h1 className="font-display text-[clamp(2.9rem,7vw,5.9rem)] font-medium leading-[0.98] tracking-tightest text-pine-700">
@@ -98,7 +101,10 @@ export function Hero({ ready }: { ready: boolean }) {
               className="group mt-7 inline-flex max-w-full items-center gap-2.5 rounded-full bg-rose-100 py-1.5 pl-1.5 pr-4 text-[13px] font-medium text-pine-700 ring-1 ring-rose-200 transition-colors hover:bg-rose-200"
             >
               <span className="shrink-0 rounded-full bg-rose-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white">Novo</span>
-              <span className="truncate">Consulta de Demanda: pediatra no mesmo dia</span>
+              <span className="min-w-0 truncate">
+                <span className="sm:hidden">Pediatra no mesmo dia</span>
+                <span className="hidden sm:inline">Consulta de Demanda: pediatra no mesmo dia</span>
+              </span>
               <ArrowRight weight="bold" className="h-3.5 w-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
