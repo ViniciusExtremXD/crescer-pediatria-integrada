@@ -494,8 +494,7 @@
             ]
           }
         },
-        "notes": "PAUSADA até existir o Pixel: preencher const - Meta Pixel ID e despausar. Só dispara com ad_storage concedido.",
-        "paused": true
+        "notes": "Pixel 31861617410149503 (ativa desde 13/11/2026). Só dispara com ad_storage concedido."
       },
       {
         "tagId": "9",
@@ -536,8 +535,7 @@
             ]
           }
         },
-        "notes": "PAUSADA até existir o Pixel. Evento Lead sem nenhum parâmetro.",
-        "paused": true
+        "notes": "Evento Lead sem nenhum parâmetro (ativa desde 13/11/2026)."
       }
     ],
     "trigger": [
@@ -855,7 +853,7 @@
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "000000000000000"
+            "value": "31861617410149503"
           }
         ],
         "accountId": "0",
