@@ -105,7 +105,7 @@ export function Contact() {
                 {COMPANY.address.district} · {COMPANY.address.city} · CEP {COMPANY.address.cep}
               </p>
               <p className="mt-3 flex items-center gap-2 text-sm font-medium text-pine-700">
-                <Clock weight="duotone" className="h-4 w-4 text-rose-500" /> Atendimento das {COMPANY.hours}
+                <Clock weight="duotone" className="h-4 w-4 text-rose-500" /> Atendimento de {COMPANY.hours}
               </p>
               <a
                 href={COMPANY.mapsUrl}

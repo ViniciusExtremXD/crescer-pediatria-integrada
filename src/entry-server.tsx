@@ -38,6 +38,12 @@ export function structuredData() {
     },
     geo: { "@type": "GeoCoordinates", latitude: COMPANY.geo.lat, longitude: COMPANY.geo.lng },
     hasMap: COMPANY.mapsUrl,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: COMPANY.openingHours.days,
+      opens: COMPANY.openingHours.opens,
+      closes: COMPANY.openingHours.closes,
+    },
     contactPoint: [
       { "@type": "ContactPoint", telephone: "+55-96-98107-4126", contactType: "reservations", availableLanguage: "Portuguese" },
       { "@type": "ContactPoint", telephone: "+55-96-3242-3883", contactType: "customer service", availableLanguage: "Portuguese" },

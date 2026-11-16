@@ -32,8 +32,9 @@ export const COMPANY = {
   mapsEmbed: "https://www.google.com/maps?q=Crescer+Pediatria+Integrada,+Av.+Raimundo+%C3%81lvares+da+Costa,+2659+-+Santa+Rita,+Macap%C3%A1+-+AP&hl=pt-BR&z=16&output=embed",
   /* Exigência do CFM (Res. 2.336/2023). Definido pelo Fábio Pinheiro no grupo em 13/11/2026: a Dra. Karla é a responsável técnica. CRM/RQE conforme a tabela oficial. */
   technicalDirector: "Dra. Karla Bussons · CRM-AP 1528 · RQE 767",
-  /* Informado pelo Fábio Pinheiro em 13/11/2026 ("8h às 18h"). Os dias da semana não foram informados: não exibir dias até confirmar. */
-  hours: "8h às 18h",
+  /* Horário: 8h às 18h (Fábio Pinheiro, 13/11/2026). Dias confirmados pelo grupo da clínica em 16/11/2026: segunda a sexta (a pergunta era "segunda a sexta? tem sábado?" e a resposta foi "Isso" / "Exatamente"). */
+  hours: "segunda a sexta, das 8h às 18h",
+  openingHours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "18:00" },
 };
 
 export function assetUrl(path: string): string {
