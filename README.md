@@ -60,7 +60,7 @@ public/                 logo vetorizado (4 versões), fotos (WebP), grade do Ins
 - [x] **Meta Pixel:** convite do portfólio "Crescer Pediatria" aceito; o Pixel `31861617410149503` já existia (criado pelo gestor de tráfego) e foi ligado no GTM (versão 4, tags `Meta Pixel` ativas, hit conferido no domínio). Correspondência avançada automática e rastreamento sem código estão desligados. Domínio verificado no Meta (metatag no `index.html`) e na lista de permissão do Pixel; a medição agregada não exige mais priorizar eventos.
 - [x] Google Ads vinculado ao GA4 (14/11/2026; publicidade personalizada desativada por política de saúde).
 - [x] `generate_lead` marcado como evento principal no GA4 (16/11/2026, depois de aparecer na lista de eventos).
-- [x] Administrador do GA4 dado ao e-mail da clínica; convite de Administrador do GTM enviado (a clínica precisa aceitar pelo e-mail).
+- [x] Administrador do GA4 e do GTM dados ao e-mail da clínica (convite do GTM aceito em 16/11/2026).
 - [ ] Revisão jurídica da política de privacidade.
 
 ## Go-live no domínio
