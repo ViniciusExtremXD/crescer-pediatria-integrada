@@ -498,6 +498,11 @@ export const FAQ = [
     a: "Bebês, crianças e adolescentes, do recém-nascido à adolescência, e também gestantes nos cursos de preparação para a chegada do bebê.",
   },
   {
+    /* Resposta só com o que a clínica informou no texto do pré-natal (18/11/2026). */
+    q: "O que é a consulta de pré-natal pediátrico?",
+    a: "É uma consulta para os futuros pais, um momento de acolhimento e preparação para a chegada do bebê. No atendimento, eles recebem orientações sobre amamentação, primeiros cuidados com o recém-nascido, sono seguro, vacinas, testes neonatais e sinais de alerta. Para agendar, fale com a nossa equipe pelo WhatsApp.",
+  },
+  {
     q: "Como faço para agendar?",
     a: "Pelo WhatsApp (96) 98107-4126, pelo telefone (96) 3242-3883 ou pelo formulário deste site. Conte a idade da criança e o motivo da consulta que a equipe indica o horário e o profissional.",
   },
