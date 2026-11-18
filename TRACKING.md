@@ -76,7 +76,7 @@ Se o GTM reclamar de algum campo na importação, crie as tags à mão com a tab
 | `faq_open` | abre uma pergunta | `question` |
 | `consent_update` | Aceitar/Recusar | `consent_state` |
 
-`link_location`: `nav`, `menu_mobile`, `hero`, `especialidades`, `consulta_demanda`, `cursos`, `como_agendar`, `faq`, `contato`, `formulario`, `rodape`, `botao_flutuante`, `barra_mobile`, `card_medica`, `servicos`.
+`link_location`: `nav`, `menu_mobile`, `hero`, `especialidades`, `consulta_demanda`, `pre_natal`, `cursos`, `como_agendar`, `faq`, `contato`, `formulario`, `rodape`, `botao_flutuante`, `barra_mobile`, `card_medica`, `servicos`.
 
 Regras que o código já cumpre:
 

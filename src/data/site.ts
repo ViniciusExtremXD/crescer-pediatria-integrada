@@ -428,6 +428,29 @@ export const DEMAND = {
   whatsappMessage: "Olá! Meu filho ficou doente. Gostaria de consultar a disponibilidade da Consulta de Demanda para hoje.",
 };
 
+/* Consulta de Pré-Natal Pediátrico: texto enviado pela clínica por WhatsApp (18/11/2026), mantido como veio. Fica no começo da seção de serviços (é consulta, não "além das consultas"). */
+export type PrenatalIcon = "amamentacao" | "recem-nascido" | "sono" | "vacinas" | "testes" | "alerta";
+export const PRENATAL = {
+  kicker: "Para quem está esperando um bebê",
+  title: "Consulta de Pré-Natal Pediátrico",
+  lead: "O cuidado com o seu bebê começa antes mesmo do nascimento!",
+  desc: "A consulta de pré-natal pediátrico é um momento de acolhimento e preparação para a chegada do bebê.",
+  topicsIntro: "Durante o atendimento, os futuros pais recebem orientações sobre:",
+  topics: [
+    { title: "Amamentação", icon: "amamentacao" },
+    { title: "Primeiros cuidados com o recém-nascido", icon: "recem-nascido" },
+    { title: "Sono seguro", icon: "sono" },
+    { title: "Vacinas", icon: "vacinas" },
+    { title: "Testes neonatais", icon: "testes" },
+    { title: "Sinais de alerta", icon: "alerta" },
+  ] as { title: string; icon: PrenatalIcon }[],
+  whyTitle: "Por que realizar essa consulta?",
+  why: "Porque estar bem informado proporciona mais segurança, tranquilidade e confiança para viver os primeiros dias com o bebê.",
+  cta: "Agende sua consulta e prepare-se para receber seu bebê com mais segurança e carinho!",
+  button: "Agendar consulta",
+  whatsappMessage: "Olá! Gostaria de agendar a Consulta de Pré-Natal Pediátrico.",
+};
+
 /* Fotos do curso de primeiros cuidados com o recém-nascido (enviadas pelo Pinheiro por WhatsApp, 13/11/2026). */
 export const NATAL_PHOTOS = Array.from({ length: 7 }, (_, i) => ({
   src: `images/natal/natal-${String(i + 1).padStart(2, "0")}.webp`,

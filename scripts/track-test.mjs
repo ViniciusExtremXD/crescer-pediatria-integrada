@@ -85,7 +85,7 @@ await sleep(500);
 d = await dl();
 const leads = d.filter((x) => x.event === "generate_lead");
 check("WhatsApp: toque duplo conta uma vez; depois de 2 s conta de novo", leads.filter((l) => l.method === "whatsapp").length === 2, `whatsapp=${leads.filter((l) => l.method === "whatsapp").length}`);
-const KNOWN = ["nav", "menu_mobile", "hero", "especialidades", "consulta_demanda", "cursos", "como_agendar", "faq", "contato", "formulario", "rodape", "botao_flutuante", "barra_mobile", "card_medica", "servicos"];
+const KNOWN = ["nav", "menu_mobile", "hero", "especialidades", "consulta_demanda", "pre_natal", "cursos", "como_agendar", "faq", "contato", "formulario", "rodape", "botao_flutuante", "barra_mobile", "card_medica", "servicos"];
 const locs = JSON.parse(await ev(`JSON.stringify([...new Set([...document.querySelectorAll('[data-lead-location]')].map(a => a.dataset.leadLocation))])`));
 check("todo local de clique da página está na lista conhecida (nenhum com especialidade no nome)", locs.every((l) => KNOWN.includes(l)), locs.filter((l) => !KNOWN.includes(l)).join(", ") || `${locs.length} locais`);
 check("generate_lead de telefone", leads.some((l) => l.method === "phone"));

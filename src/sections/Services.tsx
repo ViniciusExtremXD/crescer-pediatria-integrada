@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Baby, Butterfly, CookingPot, Eye, HandPalm, Microscope, Phone, ShieldCheck, Smiley, Sparkle, Virus } from "@phosphor-icons/react";
+import { ArrowUpRight, Baby, Butterfly, CookingPot, Drop, Eye, HandPalm, Microscope, MoonStars, Phone, ShieldCheck, Smiley, Sparkle, Syringe, TestTube, Virus, Warning } from "@phosphor-icons/react";
 import type { Icon } from "@phosphor-icons/react";
-import { ART_SPECIALTIES, COMPANY, COURSES, LASER, NATAL_PHOTOS, OTHER_SERVICES, SABORES_PHOTOS, TESTS, assetUrl, type TestIcon } from "../data/site";
+import { ART_SPECIALTIES, COMPANY, COURSES, LASER, NATAL_PHOTOS, OTHER_SERVICES, PRENATAL, SABORES_PHOTOS, TESTS, assetUrl, type PrenatalIcon, type TestIcon } from "../data/site";
 import { EASE_OUT, ParallaxImage, Reveal, SectionLabel, SplitWords } from "../components/motion";
 import { PhoneLink, PrimaryCta, WhatsAppLink } from "../components/cta";
 
@@ -14,6 +14,15 @@ const TEST_ICONS: Record<TestIcon, Icon> = {
   smiley: Smiley,
   hand: HandPalm,
   shield: ShieldCheck,
+};
+
+const PRENATAL_ICONS: Record<PrenatalIcon, Icon> = {
+  amamentacao: Drop,
+  "recem-nascido": Baby,
+  sono: MoonStars,
+  vacinas: Syringe,
+  testes: TestTube,
+  alerta: Warning,
 };
 
 /*
@@ -36,8 +45,10 @@ export function Services() {
           </Reveal>
         </div>
 
+        <PreNatal />
+
         {/* Painel no estilo da arte */}
-        <Reveal className="relative mt-14 overflow-hidden rounded-[2.75rem] bg-rose-100 shadow-lift">
+        <Reveal className="relative mt-10 overflow-hidden rounded-[2.75rem] bg-rose-100 shadow-lift sm:mt-14">
           {/* árvores suaves ao fundo */}
           <div aria-hidden className="pointer-events-none absolute inset-0">
             <div className="absolute -left-10 top-24 h-[70%] w-28 rounded-t-full bg-rose-200/60" />
@@ -145,6 +156,78 @@ export function Services() {
         <AlemDasConsultas />
       </div>
     </section>
+  );
+}
+
+/*
+ * Consulta de Pré-Natal Pediátrico (texto enviado pela clínica em 18/11/2026).
+ * Abre a seção de serviços, porque é uma consulta (não faz parte do "além das consultas").
+ * Cartão verde com os temas em selos redondos (mesma linguagem dos testes) e o convite para agendar.
+ */
+function PreNatal() {
+  return (
+    <Reveal className="relative mt-10 overflow-hidden rounded-[2.25rem] bg-pine-600 text-cream-50 shadow-pine sm:mt-14 sm:rounded-[2.75rem]">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="bg-dots absolute inset-0 opacity-[0.12]" />
+        <div className="glow absolute -left-32 -top-32 h-[28rem] w-[28rem] [--glow-a:0.4] [--glow:95_143_128]" />
+        <div className="glow absolute -bottom-40 -right-24 h-[30rem] w-[30rem] [--glow-a:0.3] [--glow:212_137_143]" />
+      </div>
+
+      <div className="relative grid gap-9 p-6 sm:p-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:p-14">
+        <div>
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-rose-200">
+            <Baby weight="duotone" className="h-4 w-4 shrink-0" /> {PRENATAL.kicker}
+          </p>
+          <h3 className="font-display mt-4 text-[clamp(2rem,4.2vw,3.4rem)] font-medium leading-[1.04] tracking-tight">
+            <SplitWords text="Consulta de *Pré-Natal* Pediátrico" accentClassName="italic text-rose-200" />
+          </h3>
+          <p className="font-display mt-4 text-xl italic leading-snug text-rose-200 sm:text-2xl">{PRENATAL.lead}</p>
+          <p className="mt-4 max-w-md text-[17px] leading-relaxed text-cream-50/85">{PRENATAL.desc}</p>
+
+          <Reveal className="mt-8 rounded-2xl bg-white/10 p-5 ring-1 ring-white/15">
+            <p className="font-semibold">{PRENATAL.whyTitle}</p>
+            <p className="mt-1.5 text-[15px] leading-relaxed text-cream-50/80">{PRENATAL.why}</p>
+          </Reveal>
+        </div>
+
+        <div className="min-w-0">
+          <p className="font-display text-2xl font-medium leading-snug">{PRENATAL.topicsIntro}</p>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {PRENATAL.topics.map((t, i) => {
+              const Ico = PRENATAL_ICONS[t.icon];
+              return (
+                <motion.li
+                  key={t.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.65, ease: EASE_OUT, delay: (i % 2) * 0.08 + Math.floor(i / 2) * 0.06 }}
+                  className="group flex items-center gap-3.5 rounded-3xl bg-white/95 p-3.5 text-pine-800 shadow-soft ring-1 ring-white transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-card"
+                >
+                  <span
+                    className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-cream-50 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 ${
+                      (i + Math.floor(i / 2)) % 2 ? "bg-pine-600 shadow-pine" : "bg-rose-400 shadow-rose"
+                    }`}
+                  >
+                    <Ico weight="duotone" className="h-6 w-6" />
+                  </span>
+                  <span className="min-w-0 font-semibold leading-tight">{t.title}</span>
+                </motion.li>
+              );
+            })}
+          </ul>
+
+          <Reveal className="mt-8">
+            <p className="font-display text-xl font-medium leading-snug sm:text-2xl">{PRENATAL.cta}</p>
+            <div className="mt-5">
+              <PrimaryCta location="pre_natal" size="md" tone="cream" message={PRENATAL.whatsappMessage}>
+                {PRENATAL.button}
+              </PrimaryCta>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </Reveal>
   );
 }
 
